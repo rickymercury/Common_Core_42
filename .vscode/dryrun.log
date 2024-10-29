@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/ricardomedeiros/Documentos/Common Core'
-make: Leaving directory '/home/ricardomedeiros/Documentos/Common Core'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
