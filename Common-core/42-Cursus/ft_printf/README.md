@@ -23,7 +23,7 @@
 </h3> 
 
 This repository features a custom implementation of the **printf** function, crafted as part of the 42 shcool coding curriculum.
-
+ 
 This project serves as a stepping stone, offering deeper insights into how fundamental C library functions operate in its iternal workings.
 
 The project replicates the functionality of the standard C library's **printf**, providing a versatile tool for formatted output in projects where library functions may not be available.
