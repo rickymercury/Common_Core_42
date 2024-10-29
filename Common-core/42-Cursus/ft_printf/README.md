@@ -33,7 +33,7 @@ The ft_printf challenge reinforces essential C programming concepts and cultivat
 >The main goal of the `ft_printf` project is to implement a custom version of the standard `printf` function, offering essential functionality for formatted output while reinforcing foundational skills in C programming and low-level memory management.
 
 >The **ft_printf** focuses on re-creating core behaviors of **printf** from scratch, demanding an in-depth understanding of key programming concepts.
-
+ 
 ---
 
 <h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
