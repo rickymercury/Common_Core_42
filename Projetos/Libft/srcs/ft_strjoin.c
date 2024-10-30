@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:46:31 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 23:37:59 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 21:02:14 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,34 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	size_t	s1_len;
-	size_t	s2_len;
-	size_t	i;
+	size_t			i;
+	size_t			j;
+	size_t			stotal;
+	char		*ptr;
 
-	if (!s1 || !s2)
-		return (0);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	str = malloc((s1_len + s2_len + 1) * sizeof(char));
-	if (str == NULL)
-		return (0);
 	i = 0;
-	while (i < s1_len)
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	stotal = ft_strlen(s1) + ft_strlen(s2);
+	ptr = malloc((stotal + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		str[i] = s1[i];
+		ptr[i] = s1[i];
 		i++;
 	}
-	while ((i - s1_len) < s2_len)
+	j = 0;
+	while (s2[j] != '\0')
 	{
-		str[i] = s2[i - s1_len];
+		ptr[i] = s2[j];
 		i++;
+		j++;
 	}
-	str[i] = '\0';
-	return (str);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 /*

@@ -6,41 +6,47 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:08 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 17:34:58 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 13:08:36 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-    void *ptr;
+	size_t			i;
+	size_t			total_bytes;
+	unsigned char	*ptr;
 
-    ptr = (void *)malloc(count * size);
-    if (!ptr)
-        return NULL;
-    ft_bzero(ptr, count * size);
-    return ptr;
+	i = 0;
+	total_bytes = count * size;
+	ptr = (unsigned char *) malloc(total_bytes);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < total_bytes)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }
+
 
 /*
 int main(void)
 {
-	int *arr;
-	size_t count = 5;
-
-	arr = (int *)ft_calloc(count, sizeof(int));
+	int *arr = (int *)ft_calloc(5, sizeof(int));
 	if (arr == NULL)
 	{
-		printf("Falha na alocação de memória\n");
+		printf("Erro ao alocar memória\n");
 		return (1);
 	}
-	printf("Valores do array após calloc:\n");
-	for (size_t i = 0; i < count; i++)
-	{
+	printf("Teste 1 - Alocação de 5 inteiros:\n");
+	for (size_t i = 0; i < 5; i++)
 		printf("arr[%zu] = %d\n", i, arr[i]);
-	}
+
 	free(arr);
+
 	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:49:06 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 21:49:07 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 22:04:00 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+		return (c + 32);
+	else
+		return (c);
 }
 
 /*

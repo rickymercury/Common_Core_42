@@ -6,38 +6,35 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:48:22 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 21:48:23 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 21:34:16 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-    if (!s1 && !s2)
-		return (0);
-	if (s2[0] == '\0')
-		return ((char *)s1);
+	if (*to_find == '\0')
+		return ((char *)str);
 	i = 0;
-	while (s1[i] != '\0' && i < n)
+	while (str[i] != '\0' && i < len)
 	{
-		if (s1[i] == s2[0])
+		if (str[i] == to_find[0])
 		{
 			j = 0;
-			while (s1[i + j] == s2[j] && (i + j) < n)
-			{
-				if (s2[j + 1] == '\0')
-					return ((char *)&s1[i]);
+			while (to_find[j] != '\0' && (i + j) < len && str[i + j] == to_find[j])
 				j++;
-			}
+			if (to_find[j] == '\0')
+				return ((char *)(str + i));
 		}
 		i++;
 	}
 	return (NULL);
 }
+
 
 /*
 int main(void)

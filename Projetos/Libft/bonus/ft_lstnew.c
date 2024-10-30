@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:53:41 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 22:53:58 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 22:52:56 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
-
 
 /*
 int main(void)

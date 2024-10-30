@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:47 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 23:11:57 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 13:59:16 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,30 @@
 
 void *ft_memmove(void *dest, const void *src, size_t len)
 {
-    unsigned char *s;
-    unsigned char *d;
-	size_t i;
-
-    if (!src || !dest)
-        return (NULL);
+    unsigned char *ptr2;
+    unsigned char *ptr1;
+	size_t            i;
     
-    s = (unsigned char *)src;
-    d = (unsigned char *)dest;
-
-    if (d > s)
+    if (src == NULL || dest == NULL)
+        return (NULL);
+    ptr1 = (unsigned char *)src;
+    ptr2 = (unsigned char *)dest;
+    if (ptr2 > ptr1)
     {
         while (len-- > 0)
-            d[len] = s[len];
+            ptr2[len] = ptr1[len];
     }
     else
     {
         i = 0;
         while (i < len)
         {
-            d[i] = s[i];
+            ptr2[i] = ptr1[i];
             i++;
         }
     }
     return (dest);
 }
-
 
 
 /*

@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:45 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 17:18:56 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 23:18:45 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static size_t	count_words(char const *s, char c)
 {
 	size_t	i;
-	size_t	count;
+	size_t	words;
 
 	i = 0;
-	count = 0;
+	words = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
 			i++;
 		if (s[i])
-			count++;
-		while (s[i] != c && s[i])
+			words++;
+		while (s[i] != c && s[i] != '\0')
 			i++;
 	}
-	return (count);
+	return (words);
 }
 
 static char *get_next_word(char const **s, char c)
@@ -44,8 +44,8 @@ static char *get_next_word(char const **s, char c)
         (*s)++;
     len = *s - start;
     word = (char *)malloc(len + 1);
-    if (!word)
-        return NULL;
+    if (word == NULL)
+        return (NULL);
     ft_strlcpy(word, start, len + 1);
     return (word);
 }
@@ -56,27 +56,27 @@ char **ft_split(char const *s, char c)
     int words;
     int i;
 
-    if (!s)
-        return NULL;
+    if (s == NULL)
+        return (NULL);
     words = count_words(s, c);
     result = (char **)malloc((words + 1) * sizeof(char *));
-    if (!result)
-        return NULL;
+    if (result == NULL)
+        return (NULL);
     i = 0;
     while (i < words)
     {
         result[i] = get_next_word(&s, c);
-        if (!result[i])
+        if (result[i] == NULL)
         {
             while (i--)
                 free(result[i]);
             free(result);
-            return NULL;
+            return (NULL);
         }
         i++;
     }
     result[i] = NULL;
-    return result;
+    return (result);
 }
 
 /*

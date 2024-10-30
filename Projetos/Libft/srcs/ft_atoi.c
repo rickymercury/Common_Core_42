@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:42:47 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 22:51:48 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 12:35:46 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,27 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + str[i] - '0';
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	return (result * sign);
 }
 
 /*
-#include <stdio.h>
-
 int	main(void)
 {
-	const char	*str1 = "-42";
-	const char	*str2 = "   -123";
-	const char	*str3 = "   +567";
-	const char	*str4 = "   987abc";
-	const char	*str5 = "-2147483648";
+	const char	str[] = " -23-2k1020";
+	const char	str1[] = " 23 45";
+	const char	str2[] = " -+23";
+	const char	str3[] = "+23";
+	const char	str4[] = "++23";
+	const char	str5[] = "+ 23";
 
-	printf("String: '%s' -> Integer:%d\n", str1, ft_atoi(str1));
-	printf("String: '%s' -> Integer:%d\n", str2, ft_atoi(str2));
-	printf("String: '%s' -> Integer:%d\n", str3, ft_atoi(str3));
-	printf("String: '%s' -> Integer:%d\n", str4, ft_atoi(str4));
-	printf("String: '%s' -> Integer:%d\n", str5, ft_atoi(str5));
-
-	return (0);
+	printf("FT_ATOI; %i\n", ft_atoi(str));
+	printf("FT_ATOI; %i\n", ft_atoi(str1));
+	printf("FT_ATOI; %i\n", ft_atoi(str2));
+	printf("FT_ATOI; %i\n", ft_atoi(str3));
+	printf("FT_ATOI; %i\n", ft_atoi(str4));
+	printf("FT_ATOI; %i\n", ft_atoi(str5));
 }
 */

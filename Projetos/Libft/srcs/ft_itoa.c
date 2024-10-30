@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:10 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 23:26:16 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 13:22:40 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static int	ft_numlen(int nb)
 	len = 0;
 	if (nb <= 0)
 		len++;
-	while (nb)
+	while (nb != 0)
 	{
+		nb /= 10;
 		len++;
-		nb = nb / 10;
 	}
 	return (len);
 }
@@ -33,17 +33,17 @@ char	*ft_itoa(int n)
 	char		*str;
 	long int	nbr;
 
-	nbr = (long int) n;
+	nbr = n;
 	size = ft_numlen(n);
-	str = malloc((1 + size) * sizeof(char));
-	if (!str)
-		return (0);
-	if (nbr < 0)
+	str = (char *) malloc((size + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
 	{
 		str[0] = '-';
 		nbr *= -1;
 	}
-	else if (nbr == 0)
+	if (n == 0)
 		str[0] = '0';
 	str[size] = '\0';
 	size --;

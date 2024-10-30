@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:46:40 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 21:46:41 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 23:49:37 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_len;
 	size_t	i;
 
-	if (!src)
-		return (0);
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
 	if (size <= dest_len)

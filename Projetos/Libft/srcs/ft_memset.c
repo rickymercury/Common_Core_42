@@ -6,38 +6,31 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:02 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 23:12:32 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 14:03:38 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *ptr, int value, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	size_t	i;
 
 	i = 0;
-	ptr = (unsigned char *)s;
 	while (i < n)
 	{
-		ptr[i] = (unsigned char)c;
+		((unsigned char *)ptr)[i] = (unsigned char)value;
 		i++;
 	}
-	return (s);
+	return (ptr);
 }
 
 /*
-#include <stdio.h>
+int main(void)
+{
+	char s[] = "Hello guys";
 
-int main() {
-    char str[50];
-
-    ft_memset(str, 'A', 10);
-    str[10] = '\0';
-
-    printf("str após ft_memset: %s\n", str);
-
-    return (0);
+	char *result = ft_memset(s, 't', 5);
+	printf("%s", result);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:08 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 21:45:08 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 14:05:25 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (fd < 0)
+		return ;
+	write (fd, &c, 1);
 }
 
 /*

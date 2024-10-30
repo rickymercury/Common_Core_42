@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:20:22 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 22:56:30 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 22:32:37 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst == NULL || f == NULL)
 		return ;
-	while (lst)
+	while (lst != NULL)
 	{
-		(*f)(lst->content);
+		f(lst->content);
 		lst = lst->next;
 	}
 }
@@ -26,8 +26,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 /*
 t_list	*ft_lstnew(void *content)
 {
-	t_list *new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
+	t_list	*new_node;
+
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node == NULL)
 		return (NULL);
 	new_node->content = content;
 	new_node->next = NULL;
@@ -41,9 +43,9 @@ void	print_content(void *content)
 
 int	main(void)
 {
-	t_list *node1 = ft_lstnew(strdup("First node"));
-	t_list *node2 = ft_lstnew(strdup("Second node"));
-	t_list *node3 = ft_lstnew(strdup("Third node"));
+	t_list *node1 = ft_lstnew(strdup("Benfica"));
+	t_list *node2 = ft_lstnew(strdup("Queen"));
+	t_list *node3 = ft_lstnew(strdup("Beatles"));
 	node1->next = node2;
 	node2->next = node3;
 

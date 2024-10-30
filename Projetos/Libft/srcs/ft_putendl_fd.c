@@ -6,7 +6,7 @@
 /*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:17 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/28 17:25:23 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/10/30 14:08:24 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s == NULL)
-		return;
-	while (*s != '\0')
+	int i;
+
+    i = 0;
+	while (s[i] != '\0')
 	{
-		write(fd, s, 1);
-		s++;
+		write(fd, &s[i], 1);
+		i++;
 	}
 	write(fd, "\n", 1);
 }
