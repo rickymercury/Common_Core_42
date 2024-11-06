@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:10 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 13:22:40 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 18:12:46 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,32 +56,110 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
+/*
+void ft_print_result(char const *s)
+{
+    int len = 0;
+
+    while (s[len])
+        len++;
+    write(1, s, len);
+}
+
+int main(int argc, const char *argv[])
+{
+    int arg;
+
+    if (argc == 1)
+        return 0;
+
+    if ((arg = atoi(argv[1])) == 1)
+    {
+        char *res = ft_itoa(0);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 2)
+    {
+        char *res = ft_itoa(9);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 3)
+    {
+        char *res = ft_itoa(-9);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 4)
+    {
+        char *res = ft_itoa(10);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 5)
+    {
+        char *res = ft_itoa(-10);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 6)
+    {
+        char *res = ft_itoa(8124);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 7)
+    {
+        char *res = ft_itoa(-9874);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 8)
+    {
+        char *res = ft_itoa(543000);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 9)
+    {
+        char *res = ft_itoa(-2147483648LL);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+    else if (arg == 10)
+    {
+        char *res = ft_itoa(2147483647);
+        ft_print_result(res);
+        free(res);
+        write(1, "\n", 1);
+    }
+
+    return 0;
+}
+*/
 
 /*
-int main() 
-{
-    char *result;
+OUTPUT:
 
-    result = ft_itoa(0);
-    printf("Número: 0 -> String: %s\n", result);
-    free(result);
-
-    result = ft_itoa(42);
-    printf("Número: 42 -> String: %s\n", result);
-    free(result);
-
-    result = ft_itoa(-42);
-    printf("Número: -42 -> String: %s\n", result);
-    free(result);
-
-    result = ft_itoa(123);
-    printf("Número: 123 -> String: %s\n", result);
-    free(result); 
-
-    result = ft_itoa(-123);
-    printf("Número: -123 -> String: %s\n", result);
-    free(result);
-
-    return (0);
-}
+cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_itoa.c -o ft_itoa && for i in {1..11}; do ./ft_itoa $i; done
+0
+9
+-9
+10
+-10
+8124
+-9874
+543000
+-2147483648
+2147483647
 */

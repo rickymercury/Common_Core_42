@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:49:03 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 22:04:19 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 18:08:43 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,44 @@ int	ft_toupper(int c)
 }
 
 /*
-int main(void)
+int main(int argc, const char *argv[])
 {
-    char lowercase = 'a';
-    char uppercase = 'B';
-    char non_alpha = '1';
+    int i;
+    int c;
+    int arg;
 
-    printf("'%c' to upper: '%c'\n", lowercase, ft_toupper(lowercase));
-    printf("'%c' to upper: '%c'\n", uppercase, ft_toupper(uppercase));
-    printf("'%c' to upper: '%c'\n", non_alpha, ft_toupper(non_alpha));
+    if (argc < 2)
+        return 0;
 
+    if ((arg = atoi(argv[1])) == 1)
+    {
+        write(1, "Testing ft_toupper from 'A' to 'Z':\n", 37);
+        i = 'A';
+        while (i <= 'Z')
+        {
+            c = ft_toupper(i);
+            write(1, &i, 1);
+            write(1, " -> ", 4);
+            write(1, &c, 1);
+            write(1, "\n", 1);
+            i++;
+        }
+    }
+    else if ((arg = atoi(argv[1])) == 2)
+    {
+        write(1, "Testing ft_toupper from 'a' to 'z':\n", 37);
+        i = 'a';
+        while (i <= 'z')
+        {
+            c = ft_toupper(i);
+            write(1, &i, 1);
+            write(1, " -> ", 4);
+            write(1, &c, 1);
+            write(1, "\n", 1);
+            i++;
+        }
+    }
+  
     return 0;
 }
 */

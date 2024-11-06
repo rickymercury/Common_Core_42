@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:20:22 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 22:32:37 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/06 14:48:17 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,34 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 }
 
 /*
+void	ft_modify_list_with_d(void *elem)
+{
+	int		len;
+	char		*content;
+
+	len = 0;
+	content = (char *)elem;
+	while (content[len])
+	{
+		content[len++] = 'd';
+	}
+}
+
+void	ft_print_result(t_list *elem)
+{
+	int		len;
+
+	while (elem)
+	{
+		len = 0;
+		while (((char *)elem->content)[len])
+			len++;
+		write(1, elem->content, len);
+		write(1, "\n", 1);
+		elem = elem->next;
+	}
+}
+
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_node;
@@ -36,29 +64,63 @@ t_list	*ft_lstnew(void *content)
 	return (new_node);
 }
 
-void	print_content(void *content)
-{
-	printf("%s\n", (char *)content);
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{	
+	t_list	*current;
+	t_list	*next;
+
+	if (lst == NULL || *lst == NULL || del == NULL)
+		return ;
+	current = *lst;
+	while (current != NULL)
+	{
+		next = current->next;
+		del(current->content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
 }
 
-int	main(void)
+int main(int argc, const char *argv[])
 {
-	t_list *node1 = ft_lstnew(strdup("Benfica"));
-	t_list *node2 = ft_lstnew(strdup("Queen"));
-	t_list *node3 = ft_lstnew(strdup("Beatles"));
-	node1->next = node2;
-	node2->next = node3;
+	t_list		*elem;
+	t_list		*elem2;
+	t_list		*elem3;
+	t_list		*elem4;
+	char		*str = strdup("lorem");
+	char		*str2 = strdup("ipsum");
+	char		*str3 = strdup("dolor");
+	char		*str4 = strdup("sit");
 
-	printf("Conteúdo da lista:\n");
-	ft_lstiter(node1, print_content);
+	elem = ft_lstnew(str);
+	elem2 = ft_lstnew(str2);
+	elem3 = ft_lstnew(str3);
+	elem4 = ft_lstnew(str4);
+	if (argc == 1 || !elem || !elem2 || !elem3 || !elem4)
+		return (0);
+	elem->next = elem2;
+	elem2->next = elem3;
+	elem3->next = elem4;
+	if (atoi(argv[1]) == 1)
+	{
+		ft_lstiter(elem, &ft_modify_list_with_d);
+		ft_print_result(elem);
+	}
 
-	free(node1->content);
-	free(node1);
-	free(node2->content);
-	free(node2);
-	free(node3->content);
-	free(node3);
-
+	ft_lstclear(&elem, free);
+	
 	return (0);
 }
+*/
+
+/*
+OUTPUT: 
+
+cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_lstiter.c -o ft_lstiter
+sh-5.2$ ./ft_lstiter 1
+ddddd
+ddddd
+ddddd
+ddd
 */

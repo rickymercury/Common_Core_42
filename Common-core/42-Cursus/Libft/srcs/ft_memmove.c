@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:47 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 13:59:16 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 14:13:56 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,63 @@ void *ft_memmove(void *dest, const void *src, size_t len)
     return (dest);
 }
 
+/*
+int		main(int argc, const char *argv[])
+{
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest;
+	int		arg;
+
+	dest = src + 1;
+	if (argc == 1)
+		return (0);
+	else if ((arg = atoi(argv[1])) == 1)
+	{
+		if (dest != ft_memmove(dest, "consectetur", 5))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+        write(1,"\n", 1);
+	}
+	else if (arg == 2)
+	{
+		if (dest != ft_memmove(dest, "con\0sec\0\0te\0tur", 10))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+        write(1,"\n", 1);
+	}
+	else if (arg == 3)
+	{
+		if (dest != ft_memmove(dest, src, 8))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+        write(1,"\n", 1);
+	}
+	else if (arg == 4)
+	{
+		if (src != ft_memmove(src, dest, 8))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+        write(1,"\n", 1);
+	}
+	else if (arg == 5)
+	{
+		if (src != ft_memmove(src, dest, 0))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+        write(1,"\n", 1);
+	}
+	return (0);
+}
+*/
+
 
 /*
-int main() 
-{
-    char src[] = "Hello, world!";
-    char dest[20];
+OUTPUT:
 
-    ft_memmove(dest, src, 13);
-    dest[13] = '\0';
-
-    printf("Source: %s\n", src);
-    printf("Destination after memmove: %s\n", dest);
-
-    ft_memmove(src + 7, src, 6);
-    printf("Overlapping source after memmove: %s\n", src);
-
-    return (0);
-}
+sh-5.2$ cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_memmove.c -o ft_memmove && for i in {1..5}; do ./ft_memmove $i; done
+conseipsum dolor sit a
+consect dolor sit a
+lorem ipum dolor sit a
+rem ipssum dolor sit a
+orem ipsum dolor sit a
 */

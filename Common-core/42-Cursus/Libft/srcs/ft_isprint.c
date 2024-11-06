@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:56 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/27 21:43:57 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/04 16:16:05 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,55 @@ int	ft_isprint(int c)
 }
 
 /*
-int main() 
+#include <stdio.h>
+
+void	ft_print_result(int c, int result) 
 {
-    printf("ft_isprint(' '): %d\n", ft_isprint(' '));
-    printf("ft_isprint('A'): %d\n", ft_isprint('A'));
-    printf("ft_isprint('z'): %d\n", ft_isprint('z'));
-    printf("ft_isprint('~'): %d\n", ft_isprint('~'));
-    printf("ft_isprint(31): %d\n", ft_isprint(31));
-    printf("ft_isprint(127): %d\n", ft_isprint(127));
-    printf("ft_isprint(128): %d\n", ft_isprint(128));
-    
-    return (0);
+	if (result)
+		printf("'%c': 1\n", c);
+	else
+		printf("'%c': 0\n", c);
+}
+
+int	main() 
+{
+	int	i;
+
+	printf("Teste 1: Caracteres não alfabéticos antes de '0'\n");
+	for (i = 0; i <= 47; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 2: Dígitos de '0' a '9'\n");
+	for (i = '0'; i <= '9'; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 3: Caracteres não alfabéticos entre '9' e 'A'\n");
+	for (i = 58; i <= 64; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 4: Letras maiúsculas de 'A' a 'Z'\n");
+	for (i = 'A'; i <= 'Z'; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 5: Caracteres não alfabéticos entre 'Z' e 'a'\n");
+	for (i = 91; i <= 96; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 6: Letras minúsculas de 'a' a 'z'\n");
+	for (i = 'a'; i <= 'z'; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	printf("Teste 7: Caracteres não alfabéticos após 'z'\n");
+	for (i = 123; i <= 127; i++)
+		ft_print_result(i, ft_isprint(i));
+	printf("\n");
+
+	return (0);
 }
 */

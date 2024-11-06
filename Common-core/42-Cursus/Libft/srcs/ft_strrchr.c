@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:48:30 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 21:41:04 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 17:54:47 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,115 @@ char	*ft_strrchr(const char *s, int c)
 }
 
 /*
-int main(void)
+void ft_print_result(char const *s)
 {
-    const char *str = "Hello, world!";
-    char *result;
+    int len = 0;
 
-    result = ft_strrchr(str, 'o');
-    if (result)
-        printf("Last occurrence of 'o': %s\n", result);
-    else
-        printf("'o' not found\n");
+    while (s[len])
+        len++;
+    write(1, s, len);
+}
 
-    result = ft_strrchr(str, 'x');
-    if (result)
-        printf("Last occurrence of 'x': %s\n", result);
-    else
-        printf("'x' not found\n");
+int main(int argc, const char *argv[])
+{
+    char *str;
+    char str2[] = "bonjour";
+    int arg;
 
+    if (argc == 1)
+        return 0;
+
+    if ((arg = atoi(argv[1])) == 1) {
+        write(1, "Testing ft_strrchr with 'b' in \"bonjour\": ", 43);
+        if (!(str = ft_strrchr(str2, 'b')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str2)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    else if (arg == 2) {
+        write(1, "Testing ft_strrchr with 'o' in \"bonjour\": ", 43);
+        if (!(str = ft_strrchr(str2, 'o')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str2 + 4)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    else if (arg == 3) {
+        char str3[] = "bonjourno";
+        write(1, "Testing ft_strrchr with 'o' in \"bonjourno\": ", 45);
+        if (!(str = ft_strrchr(str3, 'o')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str3 + 8)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    else if (arg == 4) {
+        write(1, "Testing ft_strrchr with 'j' in \"bonjour\": ", 43);
+        if (!(str = ft_strrchr(str2, 'j')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str2 + 3)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    else if (arg == 5) {
+        write(1, "Testing ft_strrchr with 's' in \"bonjour\": ", 43);
+        if (!(str = ft_strrchr(str2, 's')))
+            ft_print_result("NULL");
+        else
+            ft_print_result(str);
+        write(1, "\n", 1);
+    }
+    else if (arg == 6) {
+        write(1, "Testing ft_strrchr with '\\0' in \"bonjour\": ", 44);
+        if (!(str = ft_strrchr(str2, '\0')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str2 + 7)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    else if (arg == 7) {
+        char str3[] = "";
+        write(1, "Testing ft_strrchr with '\\0' in \"\": ", 37);
+        if (!(str = ft_strrchr(str3, '\0')))
+            ft_print_result("NULL");
+        else {
+            ft_print_result(str);
+            if (str != str3)
+                ft_print_result("\nReturn value is false");
+        }
+        write(1, "\n", 1);
+    }
+    
     return 0;
 }
+*/
+
+/*
+OUTPUT: 
+
+cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_strrchr.c -o ft_strrchr && for i in {1..11}; do ./ft_strrchr $i; done
+Testing ft_strrchr with 'b' in "bonjour": bonjour
+Testing ft_strrchr with 'o' in "bonjour": our
+Testing ft_strrchr with 'o' in "bonjourno": o
+Testing ft_strrchr with 'j' in "bonjour": jour
+Testing ft_strrchr with 's' in "bonjour": NULL
+Testing ft_strrchr with '\0' in "bonjour": 
+Testing ft_strrchr with '\0' in "": 
+Testing ft_strrchr with 'b' in "bonjour + 2": NULL
 */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:48:03 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 21:13:43 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 19:53:29 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,79 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 }
 
 /*
-char my_func(unsigned int i, char c) 
+void ft_print_result(char const *s)
 {
-    return c + i;
+	int len = 0;
+
+	while (s[len])
+		len++;
+	write(1, s, len);
 }
 
-int main() 
+char mapi(unsigned int i, char c)
 {
-    const char *s = "abcdef";
-    char *result = ft_strmapi(s, my_func);
+	static int indexArray[11] = {0};
 
-    if (result) 
-    {
-        printf("Result: %s\n", result);
-        free(result);
-    } else {
-        printf("Failed to allocate memory.\n");
-    }
-    return 0;
+	if (i > 10 || indexArray[i] == 1)
+		write(1, "wrong index\n", 12);
+	else
+		indexArray[i] = 1;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
 }
+
+int main(int argc, const char *argv[])
+{
+	char *str;
+	char *strmapi;
+
+	str = (char *)malloc(sizeof(*str) * 12);
+	if (!str)
+	{
+		write(2, "Memory allocation failed for str\n", 34);
+		return (1);
+	}
+
+	if (argc == 1)
+	{
+		free(str);
+		return (0);
+	}
+
+	if (atoi(argv[1]) == 1)
+	{
+		strcpy(str, "LoReM iPsUm");
+		strmapi = ft_strmapi(str, &mapi);
+
+		if (!strmapi)
+		{
+			write(2, "Memory allocation failed for strmapi\n", 38);
+			free(str);
+			return (1);
+		}
+
+		ft_print_result(strmapi);
+
+		if (strmapi == str)
+			ft_print_result("\nA new string was not returned");
+		if (strlen(strmapi) >= 12)
+			ft_print_result("\nString is not null terminated");
+
+		free(strmapi);
+	}
+	free(str);
+	return (0);
+}
+*/
+
+/*
+OUTPUT: 
+
+cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_strmapi.c ft_strlen.c -o ft_strmapi && for i in {1..11}; do ./ft_strmapi $i; done
+
+lOrEm IpSuM
 */

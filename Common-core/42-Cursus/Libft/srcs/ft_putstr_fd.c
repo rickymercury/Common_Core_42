@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:34 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 14:27:41 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/05 18:49:13 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,27 @@ void	ft_putstr_fd(char *s, int fd)
 }
 
 /*
-int	main(void)
+int main(int argc, const char *argv[])
 {
-	ft_putstr_fd("Hello, world!", 1);
-	write(1, "\n", 1);
-	ft_putstr_fd(NULL, 1);
-	write(1, "\n", 1);
-	return (0);
+    int arg;
+
+    if (argc == 1)
+        return (0);
+    else if ((arg = atoi(argv[1])) == 1)
+    {
+        ft_putstr_fd("lorem ipsum dolor sit amet", 2);
+        ft_putstr_fd("\n", 2);
+    }
+    else if (arg == 2)
+    {
+        ft_putstr_fd("  loremipsumdolor\tsit amet  ", 1);
+        ft_putstr_fd("\n", 1);
+    }
+    else if (arg == 4)
+    {
+        ft_putstr_fd("lorem ipsum do\0lor sit amet", 1);
+        ft_putstr_fd("\n", 1);
+    }
+    return (0);
 }
 */

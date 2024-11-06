@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <ricardomedeirosx@gmail.co    +#+  +:+       +#+        */
+/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:42:51 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/10/30 12:54:01 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/04 23:09:01 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,37 @@ void	ft_bzero(void *s, size_t n)
 }
 
 /*
-#include <stdio.h>
-
-int	main(void)
+int main(int argc, const char *argv[])
 {
-	char	str[] = "Hello, world!";
+    void    *mem;
 
-	printf("Before ft_bzero: %s\n", str);
-	ft_bzero(str + 5, 5);
-	printf("After ft_bzero: %s\\0\\0\\0\\0\\0world!\n", "Hello");
+    if (argc == 1 || !(mem = malloc(sizeof(*mem) * 5)))
+        return (0);
+    
+    if (atoi(argv[1]) == 1)
+    {
+        memset(mem, 'e', 5);
+        ft_bzero(mem, 4);
+        write(1, mem, 5);
+        write(1, "\n", 1);
+    }
+    else if (atoi(argv[1]) == 2)
+    {
+        memset(mem, 'e', 5);
+        ft_bzero(mem, 0);
+        write(1, mem, 5);
+        write(1, "\n", 1);
+    }
 
-	return (0);
+    free(mem);
+    return (0);
 }
+*/
+
+/*
+OUTPUT:
+
+cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_bzero.c -o ft_bzero && for i in {1..2}; do ./ft_bzero $i; done
+e
+eeeee
 */
