@@ -6,115 +6,72 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:08:01 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/06 14:46:57 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:44:13 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void *))
-{
-    t_list *temp;
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{	
+	t_list	*current;
+	t_list	*next;
 
-    if (!lst || !*lst)
-        return;
-    while (*lst)
-    {
-        temp = (*lst)->next;
-        del((*lst)->content);
-        free(*lst);            
-        *lst = temp;         
-    }
+	if (lst == NULL || *lst == NULL || del == NULL)
+		return ;
+	current = *lst;
+	while (current != NULL)
+	{
+		next = current->next;
+		(*del)(current->content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
 }
 
 /*
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-    t_list *new_node;
+	t_list	*new_node;
 
-    new_node = (t_list *)malloc(sizeof(t_list));
-    if (new_node == NULL)
-        return (NULL);
-    new_node->content = content;
-    new_node->next = NULL;
-    return (new_node);
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 
-void ft_print_result(t_list *elem)
+void	del(void *content)
 {
-    if (elem && elem->content)
-        write(1, elem->content, strlen(elem->content));
-    else
-        write(1, "NULL", 4);
+	free(content);
 }
 
-static int nb_free_done = 0;
-
-void ft_del(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    free(content);
-    nb_free_done++;
+	if (new == NULL)
+		return ;
+	if (*lst)
+		new->next = *lst;
+	*lst = new;
 }
 
-int main(int argc, const char *argv[])
+int	main(void)
 {
-    t_list *elem;
-    t_list *elem2;
-    t_list *elem3;
-    t_list *elem4;
-    char *str = strdup("lorem");
-    char *str2 = strdup("ipsum");
-    char *str3 = strdup("dolor");
-    char *str4 = strdup("sit");
+	t_list	*list = NULL;
 
-    if (!str || !str2 || !str3 || !str4)
-        return 0;
+	ft_lstadd_front(&list, ft_lstnew(strdup("Benfica")));
+	ft_lstadd_front(&list, ft_lstnew(strdup("Queen")));
+	ft_lstadd_front(&list, ft_lstnew(strdup("Beatles")));
 
-    elem = ft_lstnew(str);
-    elem2 = ft_lstnew(str2);
-    elem3 = ft_lstnew(str3);
-    elem4 = ft_lstnew(str4);
+	ft_lstclear(&list, del);
 
-    if (!elem || !elem2 || !elem3 || !elem4)
-        return 0;
+	if (list == NULL)
+		printf("A lista foi limpa com sucesso.\n");
+	else
+		printf("A lista ainda contém elementos.\n");
 
-    elem->next = elem2;
-    elem2->next = elem3;
-    elem3->next = elem4;
-
-    nb_free_done = 0;
-
-    if (argc == 2 && atoi(argv[1]) == 1)
-    {
-        ft_print_result(elem);
-        write(1, "\n", 1);
-
-        ft_print_result(elem2);
-        write(1, "\n", 1);
-
-        ft_print_result(elem3);
-        write(1, "\n", 1);
-
-        ft_print_result(elem4);
-        write(1, "\n", 1);
-
-        ft_lstclear(&elem, &ft_del);
-
-        printf("nb_free_done = %d", nb_free_done);
-    }
-
-    return 0;
+	return (0);
 }
-*/
-
-/*
-OUTPUT: 
-
-cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_lstclear.c -o ft_lstclear
-sh-5.2$ ./ft_lstclear 1
-lorem
-ipsum
-dolor
-sit
-nb_free_done = 4
 */

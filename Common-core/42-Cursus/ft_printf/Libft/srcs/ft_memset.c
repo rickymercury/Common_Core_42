@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:02 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 14:21:28 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:25:03 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,20 @@ ccccccccccccccj
 wwwwwwjjjjjjjjj
 ajjjjjjjjjjjjjj
 */
+
+
+/* DESCRIPTION: memset fills a block of memory with the
+specified character ( ch ). The size of the area to be filled is n .
+
+RETURN VALUE: memset returns a pointer to the to area.  */
+
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	char s[] = "Hello World!";
+	char c = 'x';
+	int n = 3;
+	printf("%s\n", (char *)ft_memset(s, c, n));
+}*/

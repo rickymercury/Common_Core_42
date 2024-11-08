@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:18 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 23:38:32 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:21:16 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,9 @@ int	main()
 	return (0);
 }
 */
+
+/* DESCRIPTION: isalnum tests an integer value to determine whether it is an
+alphabetic (uppercase or lowercase) or numeric character.
+
+RETURN VALUE: isalnum returns 0 if the character is not alphanumeric, or a
+nonzero value if it is alphanumeric. If the argument is EOF , 0 is returned. */

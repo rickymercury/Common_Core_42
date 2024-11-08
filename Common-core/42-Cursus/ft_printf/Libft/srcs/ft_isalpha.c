@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:27 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 16:09:56 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:21:36 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,10 @@ int	main()
 	return (0);
 }
 */
+
+/* DESCRIPTION: isalpha tests an integer value c to determine whether it is an
+alphabetic (uppercase or lowercase) character. In the C locale, isalpha returns
+true only for the characters for which isupper or islower is true.
+
+RETURN VALUE: isalpha returns 0 if the character is not alphabetic, or a
+nonzero value if it is alphabetic. If the argument is EOF , 0 is returned. */

@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:48:50 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 20:45:31 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 23:33:19 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (len > 0 && s[start])
 	{
-		str[i] = s[start + i];
+		str[i] = s[start];
 		i++;
+		start++;
+		len--;
 	}
 	str[i] = '\0';
 	return (str);

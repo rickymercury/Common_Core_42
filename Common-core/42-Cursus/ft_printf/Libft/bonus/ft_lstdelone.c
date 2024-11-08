@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:09:00 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 23:26:42 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:45:02 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (lst == NULL || del == NULL)
 		return ;
-	del(lst->content);
+	(*del)(lst->content);
 	free(lst);
 }
 

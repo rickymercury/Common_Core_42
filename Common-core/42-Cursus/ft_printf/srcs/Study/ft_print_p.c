@@ -6,66 +6,59 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 22:50:30 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/07 15:01:13 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 19:49:11 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_countptr(unsigned long long prt)
+static size_t p_digits(unsigned long long n)
 {
-	int	count;
+    size_t digits;
 
-	count = 0;
-	while (prt != 0)
-	{
-		count++;
-		prt = prt / 16;
-	}
-	return (count);
+	digits = 0;
+    if (n == 0)
+        return (1);
+    while (n != 0)
+    {
+        n /= 16;
+        digits++;
+    }
+    return (digits);
 }
 
-int	ft_printptr(unsigned long long prt)
+void print_ptr_rec(unsigned long long ptr)
 {
-	if (prt >= 16)
-	{
-		ft_printptr(prt / 16);
-		ft_printptr(prt % 16);
-	}
-	else
-	{
-		if (prt <= 9)
-			ft_putchar(prt + 48);
-		else
-			ft_putchar(prt - 10 + 'a');
-	}
-	return (ft_countptr(prt));
+    char hex_digit;
+
+    if (ptr >= 16)
+        print_ptr_rec(ptr / 16);
+    hex_digit = "0123456789abcdef"[ptr % 16];
+    ft_putchar(hex_digit);
 }
 
-int	ft_print_pointer(unsigned long long ptr)
+int ft_print_p(unsigned long long ptr)
 {
-	int		len;
+    int len = 0;
 
-	len = 0;
-	if (ptr == 0)
-	{
-		len += write (1, "(nil)", 5);
-		return (len);
-	}
-	len = write (1, "0x", 2);
-	len += ft_printptr(ptr);
-	return (len);
+    if (ptr == 0)
+        return (write(1, "(nil)", 5));
+    len = write(1, "0x", 2);
+    print_ptr_rec(ptr);
+    len += p_digits(ptr);
+    return (len);
 }
 
 /*
-int	ft_print_pointer(unsigned long long ptr)
+int	ft_print_p(unsigned long long ptr)
 {
-	int		len = 0;
+	int		len;
 	char	*hex_chars = "0123456789abcdef";
     unsigned long long temp;
     int hex_len;
     int i;
-
+    
+	len = 0;
 	if (ptr == 0)
 	{
 		len += write(1, "(nil)", 5);
@@ -92,52 +85,31 @@ int	ft_print_pointer(unsigned long long ptr)
 }
 */
 
-/*
-#include <stdio.h>
-
-int main(void)
-{
-    unsigned long long ptr1 = 0;
-    unsigned long long ptr2 = 0x1234abcd;
-    unsigned long long ptr3 = 0xFFFFFFFFFFFFFFFF;
-
-    printf("Output para ptr1 (0): ");
-    ft_print_pointer(ptr1);
-    printf("\n");
-
-    printf("Output para ptr2 (0x1234abcd): ");
-    ft_print_pointer(ptr2);
-    printf("\n");
-
-    printf("Output para ptr3 (0xFFFFFFFFFFFFFFFF): ");
-    ft_print_pointer(ptr3);
-    printf("\n");
-
-    return 0;
-}
-*/
-
 
 /*
-PROTOTYPE: 
+WITHOUT RECURSION
 
-int	ft_put_ptr(uintptr_t ptr)
+int ft_print_p(unsigned long long ptr)
 {
-	int		count;
-	char	*chars;
+	unsigned long long divisor;
+    int len = 0;
+    char hex_digit;
 
-	count = 0;
-	chars = "0123456789abcdef";
-	if (ptr >= 16)
-	{
-		count += ft_put_ptr(ptr / 16);
-		count += ft_put_ptr(ptr % 16);
-	}
-	else
-		count += ft_print_c(chars[ptr]);
-	if (count < 0)
-		return (-1);
-	return (count);
+    if (ptr == 0)
+        return write(1, "(nil)", 5);
+    len = write(1, "0x", 2);
+    divisor = 1;
+    while (ptr / divisor >= 16)
+        divisor *= 16;
+    while (divisor > 0)
+    {
+        hex_digit = "0123456789abcdef"[(ptr / divisor) % 16];
+        ft_putchar(hex_digit);
+        ptr = ptr % divisor;
+        divisor /= 16;
+        len++;
+    }
+    return (len);
 }
 */
 

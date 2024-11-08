@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:39 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 00:05:26 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:15:27 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t				i;
-	unsigned char		*s1;
-	const unsigned char	*s2;
+	size_t	i;
 
 	i = 0;
-	s1 = (unsigned char *)dest;
-	s2 = (unsigned char *)src;
-	if (s1 == NULL && s2 == NULL)
+	if ((dest == NULL) && (src == NULL))
 		return (NULL);
 	while (i < n)
 	{
-		s1[i] = s2[i];
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
 	return (dest);
@@ -79,3 +75,19 @@ zyxwvutsrqponmjjjjjjjjjjjjjjjj
 jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
 zyxwvutjjjjjjjjjjjjjjjjjjj
 */
+
+/* DESCRIPTION: memcpy copies the number of bytes specified by n from one area
+of memory ( from ) to another ( to ). All bytes, including any null characters,
+are copied.
+
+RETURN VALUE: memcpy returns a pointer to the to area. */
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	char dest[20];
+	ft_memcpy(dest, "Hello world!", 12);
+	dest[12] = '\0';
+	printf("%s\n", dest);
+}*/

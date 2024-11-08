@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:08 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 23:28:22 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:19:44 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (ptr);
 }
+
+/*
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*mem;
+
+	mem = malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, nmemb * size);
+	return (mem);
+}
+*/
+
+/* Reserves storage space for an array of num elements, each of length size
+bytes. The calloc() function then gives all the bits of each element an initial
+value of 0.
+The calloc() function returns a pointer to the reserved space. The storage space
+to which the returned value points is aligned for storage of any type of
+object.*/
 
 /*
 int main(int argc, const char *argv[])

@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:17 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 18:23:49 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:27:20 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,13 @@ lorem ipsum dolor sit amet
 
 lorem ipsum do
 */
+
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	char s[] = "Hello world!";
+	int fd = 1;
+	ft_putendl_fd(s, fd);
+}*/

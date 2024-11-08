@@ -6,77 +6,96 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:45:45 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 18:59:18 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:48:54 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_words(char const *s, char c)
+static size_t	string_length(char const *s, char c)
 {
+	size_t	count;
 	size_t	i;
-	size_t	words;
 
+	count = 0;
 	i = 0;
-	words = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-			words++;
-		while (s[i] != c && s[i] != '\0')
+		if (s[i] != c)
+		{
+			count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else if (s[i] == c)
 			i++;
 	}
-	return (words);
+	return (count);
 }
 
-static char *get_next_word(char const **s, char c)
+static size_t	delimiter(char const *s, char c)
 {
-    char const *start;
-    char *word;
-    size_t len;
+	size_t	length;
 
-    while (**s == c && **s)
-        (*s)++;
-    start = *s;
-    while (**s && **s != c)
-        (*s)++;
-    len = *s - start;
-    word = (char *)malloc(len + 1);
-    if (word == NULL)
-        return (NULL);
-    ft_strlcpy(word, start, len + 1);
-    return (word);
+	length = 0;
+	while (s[length] && s[length] != c)
+		length++;
+	return (length);
 }
 
-char **ft_split(char const *s, char c)
+static char	*split_string(char const *s, char c, size_t *start, size_t *end)
 {
-    char **result;
-    int words;
-    int i;
+	size_t	i;
+	size_t	j;
+	char	*substring;
 
-    if (s == NULL)
-        return (NULL);
-    words = count_words(s, c);
-    result = (char **)malloc((words + 1) * sizeof(char *));
-    if (result == NULL)
-        return (NULL);
-    i = 0;
-    while (i < words)
-    {
-        result[i] = get_next_word(&s, c);
-        if (result[i] == NULL)
-        {
-            while (i--)
-                free(result[i]);
-            free(result);
-            return (NULL);
-        }
-        i++;
-    }
-    result[i] = NULL;
-    return (result);
+	*end = *start + delimiter(s + *start, c);
+	i = *start;
+	j = 0;
+	substring = (char *)malloc((*end - *start + 1) * sizeof(char));
+	if (substring == NULL)
+		return (NULL);
+	while (i < *end)
+		substring[j++] = s[i++];
+	substring[j] = '\0';
+	*start = *end;
+	return (substring);
+}
+
+char	**free_split(char **split, size_t j)
+{
+	while (j > 0)
+		free (split[--j]);
+	free (split);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	start;
+	char	**result;
+
+	i = 0;
+	j = 0;
+	result = (char **)malloc((string_length(s, c) + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			start = i;
+			result[j++] = split_string(s, c, &start, &i);
+			if (!result[j - 1])
+				return (free_split(result, j));
+		}
+		else
+			i++;
+	}
+	result[j] = NULL;
+	return (result);
 }
 
 /*

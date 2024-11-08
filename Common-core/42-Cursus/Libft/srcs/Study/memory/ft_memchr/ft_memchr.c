@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:23 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 23:51:40 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:08:32 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	while (i < n)
 	{
 		if (ptr[i] == (unsigned char)c)
-			return ((void *)(str + i));
+			return ((void *)(str + i));  // (str + i) = &p[i]
 		i++;
 	}
 	return (NULL);
@@ -109,3 +109,18 @@ Procurar 'j' em 'bonjour' nos primeiros 6 caracteres | Resultado: jour
 Não encontrou: NULL
 
 */
+
+/* DESCRIPTION: memchr searches n bytes, beginning at the location pointed to
+by s , for the first occurrence of c .
+
+RETURN VALUE: The return value is a pointer to the first occurence of c,
+or NULL if the character cannot be found. */
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	printf("%p\n", ft_memchr("Hello, world!",'e', 1));
+	printf("%p\n", ft_memchr("Hello, world!",'l', 10));
+	printf("%p\n", ft_memchr("Hello, world!",'!', -42));
+}*/

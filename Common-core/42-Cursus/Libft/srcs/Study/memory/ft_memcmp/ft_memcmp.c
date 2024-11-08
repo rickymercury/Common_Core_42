@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:32 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 23:58:36 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:12:31 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
-	while (i < n)
-	{
-		if (ptr1[i] != ptr2[i])
-			return (ptr1[i] - ptr2[i]);
+    if (n == 0)
+		return (0);
+	while ((ptr1[i] == ptr2[i]) && (i < n - 1))
 		i++;
-	}
-	return (0);
+	return (ptr1[i] - ptr2[i]);
 }
 
 /*
@@ -113,4 +111,28 @@ Comparação entre "test" com "": 1
 Comparação entre "abcdefghij" com "abcdefgxyz": 0
 Comparação entre "abcdefgh" com "abcdwxyz": -1
 Comparação entre "zyxbcdefgh" com "abcdefgxyz": 0
+*/
+
+
+/* DESCRIPTION: memcmp compares two blocks of memory specified by ptr1 and ptr2.
+The number of bytes to be compared is n . The null character is treated like any
+other character and participates in the comparison, which is performed using the
+standard EBCDIC collating sequence.
+
+RETURN VALUE: memcmp returns 0 if the two blocks are equal, an integer less
+than 0 if the first block is less than the second, or an integer greater than 0
+if the first block is greater than the second.  */
+
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	char	s1[] = "Hello World";
+	char	s2[] = "Hello Warld";
+	int		n;
+
+	n = 42;
+	printf("%s vs %s = %d\n", s1, s2, ft_memcmp(s1, s2, n));
+}
 */

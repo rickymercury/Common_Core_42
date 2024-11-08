@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:27:22 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/06 15:08:31 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:46:29 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list *ft_lstlast(t_list *lst)
 {
     if (lst == NULL)
         return (NULL);
-    while (lst->next != NULL)
+    while (lst->next)
         lst = lst->next;
     return (lst);
 }

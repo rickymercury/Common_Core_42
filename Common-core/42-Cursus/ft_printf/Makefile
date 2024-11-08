@@ -15,7 +15,7 @@ OBJ_DIR = obj
 INC_DIR = includes
 
 # Variáveis do Libft
-LIBFT_DIR = /home/ricardomedeiros/Documentos/Common\ Core/Common-core/42-Cursus/Libft
+LIBFT_DIR = ../Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Arquivos SRCS
@@ -25,7 +25,6 @@ SRCS = $(SRC_DIR)/ft_printf.c \
         $(SRC_DIR)/ft_print_u.c \
         $(SRC_DIR)/ft_print_d.c \
         $(SRC_DIR)/ft_print_s.c \
-        $(SRC_DIR)/ft_strlen.c \
         $(SRC_DIR)/ft_print_c.c
 
 # Cria os arquivos objetos principais

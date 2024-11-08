@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:42 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 16:14:38 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:22:21 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,9 @@ int	main()
 	return (0);
 }
 */
+
+/* DESCRIPTION: isdigit tests an integer value to determine whether it is a
+numeric character (digit).
+
+RETURN VALUE: isdigit returns 0 if the character is not a digit, or a nonzero
+value if it is. If the argument is EOF , 0 is returned. */

@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:52:04 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 21:03:33 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:40:10 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,3 +151,23 @@ ipsum
 dolor
 sit
 */
+
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	t_list *list = NULL;
+
+	ft_lstadd_back(&list, ft_lstnew("Hello"));
+	ft_lstadd_back(&list, ft_lstnew("Ladies"));
+	ft_lstadd_back(&list, ft_lstnew("Portugal"));
+
+	while (list)
+	{
+		printf("%s -> ", (char *)list->content);
+		list = list->next;
+	}
+	printf("NULL\n");
+	return (0);
+}*/

@@ -6,37 +6,37 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:44:47 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 14:13:56 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 22:21:28 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char *ptr2;
-    unsigned char *ptr1;
-	size_t            i;
-    
-    if (src == NULL || dest == NULL)
-        return (NULL);
-    ptr1 = (unsigned char *)src;
-    ptr2 = (unsigned char *)dest;
-    if (ptr2 > ptr1)
-    {
-        while (len-- > 0)
-            ptr2[len] = ptr1[len];
-    }
-    else
-    {
-        i = 0;
-        while (i < len)
-        {
-            ptr2[i] = ptr1[i];
-            i++;
-        }
-    }
-    return (dest);
+	size_t	i;
+
+	if ((dest == NULL) && (src == NULL))
+		return (NULL);
+	if (dest > src)
+	{
+		i = n;
+		while (i > 0)
+		{
+			i--;
+			*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+			i++;
+		}
+	}
+	return (dest);
 }
 
 /*
@@ -99,3 +99,23 @@ lorem ipum dolor sit a
 rem ipssum dolor sit a
 orem ipsum dolor sit a
 */
+
+
+/* DESCRIPTION: memmove is identical to memcpy except that the copy is
+guaranteed to work correctly even if the to and from objects overlap. On
+completion of the call, the n bytes addressed by to are identical to the n bytes
+addressed by from before the call.
+
+RETURN VALUE: memmove returns a pointer to the to area. */
+
+/* SIMPLIER MAIN
+
+int	main(void)
+{
+	char dest[20] = "  42  Porto";
+	ft_memmove(dest, "Hello world!", 5);
+	printf("%s\n", dest);
+}*/
+
+/* The loop determines how the memory is copied: backwards of forwards,
+depending on the size of dest and src*/

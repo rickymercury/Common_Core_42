@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:35 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 16:13:09 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/08 21:22:01 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,11 @@ int	main()
 
 	return (0);
 }
+*/
+
+/* DESCRIPTION: isascii tests an integer value c to determine whether it is the
+EBCDIC equivalent of a character belonging to the ASCII character set.
+
+RETURN VALUE: isascii returns 0 if the character is not ASCII, or a nonzero
+value if it is ASCII. If the argument does not have a char value, 0 is returned.
 */
