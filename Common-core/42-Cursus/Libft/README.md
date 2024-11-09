@@ -1,110 +1,149 @@
 <h1 align="center">Libft</h1>
 <p align="center"> 
 
-<h3>
-  <p align="center"> 
-    <a href="#introduction">Introduction</a> • 
-    <a href="#structure">Structure</a> • 
-    <a href="#functions">Functions</a> • 
-    <a href="#Compilation">Compilation</a> • 
+<h3 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+  <p>
+    <a href="#introduction" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Introduction</a> • 
+    <a href="#structure" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Structure</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Functions</a> • 
+    <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
 </h3>
 
-## 🗣️ **Introduction** <a id="introduction"></a>
+
+## 🗣️ **Project Overview** <a id="introduction"></a>
+
+This repository hosts a custom C library known as **<span style="color:blue">Libft</span>**, which was implemented as part of a coding project. The primary objective of this project is to develop a **static library** (`.a` file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+
+> **What is a Static Library?**
+> 
+> A **static library** is essentially a collection of precompiled **object files** (`.o` files) bundled together. These object files are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with **dynamic libraries**, which are linked at runtime.
+
+## ✨ **Project Goals**
+
+The main goal of this project is:
+
+1. **Understanding Standard Library Functions**  
+   This project provides a deeper understanding of how commonly used standard library functions are implemented at a lower level. By manually implementing these functions, the programmer gains insight into how things like **memory management**, **string manipulation**, and other core operations work under the hood.
+   
+2. **Reusable Tool for C Projects**  
+   The library serves as a versatile tool that can be reused across various C projects, eliminating the need for relying on external dependencies or standard library functions in certain contexts.
+
+---
+
+### 🌟 **Why Libft?**
+
+Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
 
-This repository hosts a custom C library known as **Libft**, which was implemented as part of a coding project. The primary objective of this project is to develop a **static library** (.a file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+## 🧬 **Structure: Inside Libft** <a id="structure"></a>
 
-A **static library** is essentially a collection of precompiled **object files** (.o files) bundled together. These **object files** are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with dynamic libraries, which are linked at runtime.
+---
 
-The main goal of this project is twofold. First, it aims to provide a deeper understanding of how commonly used standard library functions are implemented at a lower level. By manually implementing these functions, the programmer gains insight into how things like memory management, string manipulation, and other core operations work under the hood. Second, the library serves as a versatile tool that can be reused across various C projects, eliminating the need for relying on external dependencies or standard library functions in certain contexts.
+The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library.
+Libft is organized into a series of essential **function categories**, each based on their specific purpose and functionality, that replicate or extend standard C library functionalities. 
+This structure ensures modularity, clarity, and efficiency, making it easier to implement and maintain in future projects.
+The primary categories include **Libc** functions and **Additional functions**.
+
+### 🔹 **Core Categories**
+
+1. **Libc Functions**  
+   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. The goal is to manually recreate these commonly used functions to gain a deeper understanding of their inner workings and behavior.
+   Therefore, by rebuilding these, developers gain insight into their low-level operations and behavior, from **memory management** to **string manipulation**.
+
+2. **Additional Functions**  
+   Complementing the standard library, these utility functions add extra capabilities to extend Libft’s functionality. 
+   While not part of the standard C library, they provide helpful features that enhance the library's versatility.
+
+---
+
+### 📂 **Function Groups**
+
+Within these two main categories, each function is organized into more specific group based on the **type of operation** they perform.
+These groups include:
+
+- **🧵 String Functions:** Handle various string operations like length calculation, copying, concatenation, and comparison.
+- **💾 Memory Functions:** Perform essential memory operations, including memory allocation, memory setting, copying, and freeing.
+- **🔧 Utility Functions:** Provide a range of practical useful operations, such as type conversions, mathematical computations and handling character-specific manipulations.
+- **🔗 Linked List Functions:** A suite of functions dedicated to linked list manipulation, including creating, traversing, and modifying list nodes, allowing for dynamic data structures within C.
+
+---
+
+> 💡 **Organizational Insight:**  
+> By categorizing the functions into these groups, Libft ensures that each function is reimplemented with a specific purpose, achieving a high level of **modularity**, **clarity** and easy to use in future projects, promoting reusability and efficiency.
+
+---
+
+The **Libft Structure** balances **functionality** with **elegance**, ensuring that every component is purposeful and easy to integrate across diverse C projects.
 
 
-## 🧬 **Libft Structure** <a id="structure"></a>
 
-The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library. These functions are organized into distinct **subcategories**, each based on their specific purpose and functionality. The primary categories include **Libc** functions and **Additional functions**.
-
-> **Libc functions:** These are the reimplementations of the standard C library functions, which are fundamental to many C programs. The goal is to manually recreate these commonly used functions to gain a deeper understanding of their inner workings and behavior.
-
-> **Additional functions:** These are utility functions that are not part of the standard C library but are added to complement the existing set of functions. These functions aim to provide helpful features that enhance the library's versatility.
-
-Within these two main categories, the functions are further organized into more specific **groups based on the type of operation they perform**. These groups include:
-
-> **String functions:** Functions that manipulate and handle strings, such as string length calculation, copying, concatenation, and comparison.
-    
-> **Memory functions:** Functions dedicated to memory allocation and manipulation, such as memory setting, copying, and freeing.
-
-> **Utility functions:** A collection of general-purpose functions that provide useful operations, such as type conversions, mathematical computations, and handling specific characters.
-    
-> **Linked list functions:** Functions that operate on linked lists, a common data structure in C, which include operations like creating, traversing, and manipulating linked list nodes.
-
-By categorizing the functions in this way, the project ensures that each function is reimplemented with a specific purpose and is organized logically, making the library more efficient, modular, and easy to use in future projects.
-
-
-## **Directory Tree** 
+## 🌳 **Directory Tree**
 
 <pre>
 Libft
 |
-├── list
+├── 📂 <span style="color:#6A5ACD">list</span>
 |   |
-│   ├── ft_lstadd_back
-│   ├── ft_lstadd_front
-│   ├── ft_lstclear
-│   ├── ft_lstdelone
-│   ├── ft_lstiter
-│   ├── ft_lstlast
-│   ├── ft_lstmap
-│   ├── ft_lstnew
-│   └── ft_lstsize
+│   ├── 📄 ft_lstadd_back
+│   ├── 📄 ft_lstadd_front
+│   ├── 📄 ft_lstclear
+│   ├── 📄 ft_lstdelone
+│   ├── 📄 ft_lstiter
+│   ├── 📄 ft_lstlast
+│   ├── 📄 ft_lstmap
+│   ├── 📄 ft_lstnew
+│   └── 📄 ft_lstsize
 |
-├── memory
+├── 📂 <span style="color:#6A5ACD">memory</span>
 |   |
-│   ├── ft_bzero
-│   ├── ft_calloc
-│   ├── ft_memchr
-│   ├── ft_memcmp
-│   ├── ft_memcpy
-│   ├── ft_memmove
-│   └── ft_memset
+│   ├── 📄 ft_bzero
+│   ├── 📄 ft_calloc
+│   ├── 📄 ft_memchr
+│   ├── 📄 ft_memcmp
+│   ├── 📄 ft_memcpy
+│   ├── 📄 ft_memmove
+│   └── 📄 ft_memset
 |
-├── strings
+├── 📂 <span style="color:#6A5ACD">strings</span>
 |   |
-│   ├── ft_split
-│   ├── ft_strchr
-│   ├── ft_strdup
-│   ├── ft_striteri
-│   ├── ft_strjoin
-│   ├── ft_strlcat
-│   ├── ft_strlcpy
-│   ├── ft_strlen
-│   ├── ft_strmapi
-│   ├── ft_strncmp
-│   ├── ft_strnstr
-│   ├── ft_strrchr
-│   ├── ft_strtrim
-│   └── ft_substr
+│   ├── 📄 ft_split
+│   ├── 📄 ft_strchr
+│   ├── 📄 ft_strdup
+│   ├── 📄 ft_striteri
+│   ├── 📄 ft_strjoin
+│   ├── 📄 ft_strlcat
+│   ├── 📄 ft_strlcpy
+│   ├── 📄 ft_strlen
+│   ├── 📄 ft_strmapi
+│   ├── 📄 ft_strncmp
+│   ├── 📄 ft_strnstr
+│   ├── 📄 ft_strrchr
+│   ├── 📄 ft_strtrim
+│   └── 📄 ft_substr
 |
-└── utils
+└── 📂 <span style="color:#6A5ACD">utils</span>
     |
-    ├── ft_atoi
-    ├── ft_isalnum
-    ├── ft_isalpha
-    ├── ft_isascii
-    ├── ft_isdigit
-    ├── ft_isprint
-    ├── ft_itoa
-    ├── ft_putchar_fd
-    ├── ft_putendl_fd
-    ├── ft_putnbr_fd
-    ├── ft_putstr_fd
-    ├── ft_tolower
-    └── ft_toupper
+    ├── 📄 ft_atoi
+    ├── 📄 ft_isalnum
+    ├── 📄 ft_isalpha
+    ├── 📄 ft_isascii
+    ├── 📄 ft_isdigit
+    ├── 📄 ft_isprint
+    ├── 📄 ft_itoa
+    ├── 📄 ft_putchar_fd
+    ├── 📄 ft_putendl_fd
+    ├── 📄 ft_putnbr_fd
+    ├── 📄 ft_putstr_fd
+    ├── 📄 ft_tolower
+    └── 📄 ft_toupper
 </pre>
-  
-> `/includes`: This directory contains the project header file.  
-> `/srcs`: This directory contains the project's source code files. 
-> `/bonus`: This directory contains the project's bonus code files. 
+
+> **Additional Directories**  
+> - **📁 `/includes`**: Contains the project header file.
+> - **📁 `/srcs`**: Holds the main source code files for the project.
+> - **📁 `/bonus`**: Contains any bonus features and extra functions for the project.
+
 
 
 ## Functions <a id="functions"></a>
