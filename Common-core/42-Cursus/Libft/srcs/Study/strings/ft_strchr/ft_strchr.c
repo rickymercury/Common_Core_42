@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:46:02 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 22:54:06 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/09 21:34:41 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char *ft_strchr(const char *s, int c)
 {
     int i;
-    char    *str;
+    char *str;
 
     i = 0;
     str = (char *)s;
@@ -25,7 +25,7 @@ char *ft_strchr(const char *s, int c)
             return (str + i);
         i++;
     }
-    if (s[i] != '\0' && (char)c == '\0')
+    if ((char)c == '\0')
         return (str + i);
     return (NULL);
 }
