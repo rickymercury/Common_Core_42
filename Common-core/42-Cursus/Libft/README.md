@@ -46,12 +46,10 @@ The main goal of this project is:
 Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
 
-<p align="center">
+## 🧬 **Structure: Inside Libft** <a id="structure"></a>  <p align="center">
   <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#structure">Structure ➡️</a>
 </p>
-
-## 🧬 **Structure: Inside Libft** <a id="structure"></a>
 
 The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library.
 Libft is organized into a series of essential **function categories**, each based on their specific purpose and functionality, that replicate or extend standard C library functionalities. 
