@@ -11,7 +11,7 @@
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#structure" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🧬 Structure</a> • 
     <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
-    <a href="https://github.com/rickymercury/Common_Core_42/blob/main/Common-core/42-Cursus/Libft/srcs/subjects/libft.en.subject.pdf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📌 Subject</a>
+    <a href="https://github.com/rickymercury/Common_Core_42/blob/main/Common-core/42-Cursus/Libft/srcs/subjects/libft.en.subject.pdf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📌 Subject</a> • 
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
 </h3>
@@ -32,29 +32,29 @@ The **libft** project at 42 is one of the first challenges students face, design
 
 ---
 
-## ✨ **Project Goals**
-
-The main goal of this project is:
-
-1. **Understanding Standard Library Functions**:  
+>## ✨ **Project Goals**
+>
+>The main goal of this project is:
+>
+>1. **Understanding Standard Library Functions**:  
    The project provides a deeper, hands-on understanding of how standard functions are implemented. Instead of using pre-built functions, students manually code them, which allows them to appreciate the complexities behind even simple operations like string comparison or memory copying. This helps to develop a stronger foundational knowledge of C, focusing on critical aspects like memory management, pointer arithmetic, and low-level operations.
-
-2. **Creating a Reusable Tool for C Projects**:  
+>
+>2. **Creating a Reusable Tool for C Projects**:  
    One of the key benefits of the **libft** project is that it enables students to build a reusable library of functions that can be used in all future C projects at 42. This custom library serves as a versatile tool, helping students avoid the need for external dependencies or reliance on the standard library in specific contexts. It equips them with a personalized set of building blocks for their C programming journey.
 
 ---
 
-### **Importance for Future Projects**
-
-The **libft** project serves as a foundational step that impacts many of the future projects that we'll encounter at 42. The functions coded in this library will be directly used and expanded upon in later assignments/subjects, making it essential for us to master the underlying concepts and ensure the library is both robust and efficient. 
-
-By the end of this project, we won´t only have a deeper understanding of how core C functions work but also possess a valuable tool that enhances their programming efficiency and autonomy in future assignments.
+>### **Importance for Future Projects**
+>
+>The **libft** project serves as a foundational step that impacts many of the future projects that we'll encounter at 42. The functions coded in this library will be directly used and expanded upon in later assignments/subjects, making it essential for us to master the underlying concepts and ensure the library is both robust and efficient. 
+>
+>By the end of this project, we won´t only have a deeper understanding of how core C functions work but also possess a valuable tool that enhances their programming efficiency and autonomy in future assignments.
 
 ---
 
-### 🌟 **Why Libft?**
-
-Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
+>### 🌟 **Why Libft?**
+>
+>Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
 ---
 
@@ -66,7 +66,7 @@ Libft is not just about creating a library; it’s about gaining confidence in *
   <p>
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">⬆️ ⬆️ Top</a> • 
-    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Functions</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
 </h3>
@@ -81,49 +81,37 @@ This structure ensures modularity, clarity, and efficiency, making it easier to 
 
 The primary categories include **Libc** functions and **Additional functions**.
 
-### 🔹 **Core Categories**
-
-1. **Libc Functions**
-
-   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. 
+>### 🔹 **Core Categories**
+>
+>1. **Libc Functions**
+>
+>   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. 
    The goal here is to manually rebuild essential commonly used functions to gain a deeper understanding of their inner workings and behavior.
-
-   By doing so, developers not only understand how these functions work but also develop essential skills in **memory management**, **string manipulation**, and core system operations.
+>
+>   By doing so, developers not only understand how these functions work but also develop essential skills in **memory management**, **string manipulation**, and core system operations.
    Reimplementing these functions reinforces the foundational knowledge of C programming.
-
-2. **Additional Functions**
-
-   Complementing the standard library, these utility functions **extend** the functionality of Libft beyond the standard C library.
+>
+>2. **Additional Functions**
+>
+>   Complementing the standard library, these utility functions **extend** the functionality of Libft beyond the standard C library.
    While not part of C's standard library, these functions provide useful tools and features that enhance the usabiity and versality of the library.
 
 ---
 
-### 📂 **Function Groups**
-
-Within these two main categories, each function is organized into specific group based on the **type of operation** they perform.
+>### 📂 **Function Groups**
+>
+>Within these two main categories, each function is organized into specific group based on the **type of operation** they perform.
 This ensures that each group serves a particular purpose, facilitating easy navigation and future expansion.
-
-These groups include:
-
-- **🧵 String Functions:**  
-  A collection of functions that handle various string operations, such as calculating string length, copying, concatenation, and comparison.
-
-  Examples: `ft_strlen()`, `ft_strcpy()`, `ft_strcat()`
-
-- **💾 Memory Functions:**  
-  Functions dedicated to performing essential memory operations, such as memory allocation, setting, copying, and freeing memory.  
-
-  Examples: `ft_memset()`, `ft_memcpy()`, `ft_calloc()`
-
-- **🔧 Utility Functions:**  
-  This group provides a wide range of practical operations, including type conversions, mathematical computations, and character-specific manipulations. These functions are often used across different parts of a program to improve performance or handle specific use cases.
-
-  Examples: `ft_atoi()`, `ft_itoa()`, `ft_putnbr_fd()`
-
-- **🔗 Linked List Functions:**  
-  A specialized suite of functions dedicated to handling dynamic data structures like linked lists. These functions include the ability to create, traverse, and manipulate linked list nodes, which are commonly used in complex C projects.  
-
-  Examples: `ft_lstnew()`, `ft_lstadd_front()`, `ft_lstsize()`
+>
+>These groups include:
+>
+>- **🧵 String Functions:** A collection of functions that handle various string operations, such as calculating string length, copying, concatenation, and comparison.
+>
+>- **💾 Memory Functions:** Functions dedicated to performing essential memory operations, such as memory allocation, setting, copying, and freeing memory.  
+>
+>- **🔧 Utility Functions:** This group provides a wide range of practical operations, including type conversions, mathematical computations, and character-specific manipulations. These functions are often used across different parts of a program to improve performance or handle specific use cases.
+>
+>- **🔗 Linked List Functions:** A specialized suite of functions dedicated to handling dynamic data structures like linked lists. These functions include the ability to create, traverse, and manipulate linked list nodes, which are commonly used in complex C projects.  
 
 ---
 
@@ -139,6 +127,7 @@ In conclusion, the **Libft Structure** elegantly balances **functionality** with
 
 This organization not only enhances the usability of the library but also makes it a robust tool for future C programming assignments, contributing to cleaner, more efficient, and modular code.
 
+---
 
 
 ## 🌳 **Directory Tree**
@@ -207,9 +196,11 @@ Libft
 > - **📁 `/srcs`**: Holds the main source code files for the project.
 > - **📁 `/bonus`**: Contains any bonus features and extra functions for the project.
 
+---
 
-
-## Functions <a id="functions"></a>
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ### 📂 **Functions** <a id="functions"></a>
+</h3>
 
 ---
 
@@ -218,7 +209,7 @@ Libft
     <a href="#string">🧵 String</a> • 
     <a href="#memory">💾 Memory</a> • 
     <a href="#utility">🔧 Utility</a> • 
-    <a href="#lists">🔗 Lists (Bonus)</a> • 
+    <a href="#lists">🔗 Lists (Bonus)</a> 
   </p>
 </h3>
 
