@@ -10,132 +10,95 @@
   </p>
 </h3>
 
-## 🗣️ <span style="color:blue">Introduction</span> <a id="introduction"></a>
+## 🗣️ **Introduction** <a id="introduction"></a>
 
-<span style="color:blue">Introduction</span>
 
-This repository hosts a custom C library known as <span style="color:blue">Libft</span>, which was implemented as part of a coding project. The primary objective of this project is to develop a <span style="color:blue">static library</span> (.a file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+This repository hosts a custom C library known as **Libft**, which was implemented as part of a coding project. The primary objective of this project is to develop a **static library** (.a file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
 
-A <span style="color:blue">static library</span> is essentially a collection of precompiled <span style="color:blue">object files</span> (.o files) bundled together. These <span style="color:blue">object files</span> are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with dynamic libraries, which are linked at runtime.
+A **static library** is essentially a collection of precompiled **object files** (.o files) bundled together. These **object files** are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with dynamic libraries, which are linked at runtime.
 
 The main goal of this project is twofold. First, it aims to provide a deeper understanding of how commonly used standard library functions are implemented at a lower level. By manually implementing these functions, the programmer gains insight into how things like memory management, string manipulation, and other core operations work under the hood. Second, the library serves as a versatile tool that can be reused across various C projects, eliminating the need for relying on external dependencies or standard library functions in certain contexts.
 
 
-## 🧬 <span style="color:blue">**Libft Structure**<\span> <a id="structure"></a>
+## 🧬 **Libft Structure** <a id="structure"></a>
 
-The <span style="color:blue">**mandatory part**<\span> of this project focuses on reimplementing several core functions from the standard C library. These functions are organized into distinct **subcategories**, each based on their specific purpose and functionality. The primary categories include <span style="color:blue">**Libc**<\span> functions and <span style="color:blue">**Additional functions**<\span>.
+The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library. These functions are organized into distinct **subcategories**, each based on their specific purpose and functionality. The primary categories include **Libc** functions and **Additional functions**.
 
-> <span style="color:blue">**Libc functions:**<\span> These are the reimplementations of the standard C library functions, which are fundamental to many C programs. The goal is to manually recreate these commonly used functions to gain a deeper understanding of their inner workings and behavior.
+> **Libc functions:** These are the reimplementations of the standard C library functions, which are fundamental to many C programs. The goal is to manually recreate these commonly used functions to gain a deeper understanding of their inner workings and behavior.
 
-> <span style="color:blue">**Additional functions:**<\span> These are utility functions that are not part of the standard C library but are added to complement the existing set of functions. These functions aim to provide helpful features that enhance the library's versatility.
+> **Additional functions:** These are utility functions that are not part of the standard C library but are added to complement the existing set of functions. These functions aim to provide helpful features that enhance the library's versatility.
 
 Within these two main categories, the functions are further organized into more specific **groups based on the type of operation they perform**. These groups include:
 
-> <span style="color:blue">**String functions:**<\span> Functions that manipulate and handle strings, such as string length calculation, copying, concatenation, and comparison.
+> **String functions:** Functions that manipulate and handle strings, such as string length calculation, copying, concatenation, and comparison.
     
-> <span style="color:blue">**Memory functions:**<\span> Functions dedicated to memory allocation and manipulation, such as memory setting, copying, and freeing.
+> **Memory functions:** Functions dedicated to memory allocation and manipulation, such as memory setting, copying, and freeing.
 
-> <span style="color:blue">**Utility functions:**<\span> A collection of general-purpose functions that provide useful operations, such as type conversions, mathematical computations, and handling specific characters.
+> **Utility functions:** A collection of general-purpose functions that provide useful operations, such as type conversions, mathematical computations, and handling specific characters.
     
-> <span style="color:blue">**Linked list functions:**<\span> Functions that operate on linked lists, a common data structure in C, which include operations like creating, traversing, and manipulating linked list nodes.
+> **Linked list functions:** Functions that operate on linked lists, a common data structure in C, which include operations like creating, traversing, and manipulating linked list nodes.
 
 By categorizing the functions in this way, the project ensures that each function is reimplemented with a specific purpose and is organized logically, making the library more efficient, modular, and easy to use in future projects.
 
 
-## <span style="color:red">Directory Tree<\span> 
+## **Directory Tree** 
 
-<pre>
-<span style="color:red">**Libft**<\span>
-├── <span style="color:blue">**list**<\span>
+**Libft**
+|
+├── **list**
+|   |
 │   ├── ft_lstadd_back
-│   │
 │   ├── ft_lstadd_front
-│   │
 │   ├── ft_lstclear
-│   │  
 │   ├── ft_lstdelone
-│   │ 
 │   ├── ft_lstiter
-│   │
 │   ├── ft_lstlast
-│   │ 
 │   ├── ft_lstmap
-│   │ 
 │   ├── ft_lstnew
-│   │ 
 │   └── ft_lstsize
 |
-├── <span style="color:blue">**memory**<\span>
+├── **memory**
+|   |
 │   ├── ft_bzero
-│   │   
 │   ├── ft_calloc
-│   │  
 │   ├── ft_memchr
-│   │ 
 │   ├── ft_memcmp
-│   │ 
 │   ├── ft_memcpy
-│   │ 
 │   ├── ft_memmove
-│   │ 
 │   └── ft_memset
 |
-├── <span style="color:blue">**strings**<\span>
+├── **strings**
+|   |
 │   ├── ft_split
-│   │  
 │   ├── ft_strchr
-│   │  
 │   ├── ft_strdup
-│   │ 
 │   ├── ft_striteri
-│   │ 
 │   ├── ft_strjoin
-│   │ 
 │   ├── ft_strlcat
-│   │  
 │   ├── ft_strlcpy
-│   │ 
 │   ├── ft_strlen
-│   │ 
 │   ├── ft_strmapi
-│   │  
 │   ├── ft_strncmp
-│   │  
 │   ├── ft_strnstr
-│   │  
 │   ├── ft_strrchr
-│   │  
 │   ├── ft_strtrim
-│   │  
 │   └── ft_substr
 |
-└── <span style="color:blue">**utils**<\span>
+└── **utils**
+    |
     ├── ft_atoi
-    │   
     ├── ft_isalnum
-    │  
     ├── ft_isalpha
-    │ 
     ├── ft_isascii
-    │  
     ├── ft_isdigit
-    │  
     ├── ft_isprint
-    │  
     ├── ft_itoa
-    │  
     ├── ft_putchar_fd
-    │  
     ├── ft_putendl_fd
-    │  
     ├── ft_putnbr_fd
-    │  
     ├── ft_putstr_fd
-    │  
     ├── ft_tolower
-    │  
     └── ft_toupper
-</pre>
   
 > `/includes`: This directory contains the project header file.  
 > `/srcs`: This directory contains the project's source code files. 
