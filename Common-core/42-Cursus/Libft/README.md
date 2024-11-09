@@ -1,6 +1,8 @@
-<h1 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
-    Libft  <a id="libft"></a>
-</h1>
+![](https://github.com/jotavare/jotavare/blob/main/42/banners/piscine_and_common_core/github_piscine_and_common_core_banner_libft.png)
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Topics  <a id="libft"></a>
+</h3>
 
 ---
 
@@ -9,6 +11,7 @@
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#structure" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🧬 Structure</a> • 
     <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Functions</a> • 
+    <a href="https://github.com/rickymercury/Common_Core_42/blob/main/Common-core/42-Cursus/Libft/srcs/subjects/libft.en.subject.pdf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📌 Subject</a>
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
 </h3>
@@ -204,7 +207,7 @@ The **String functions** category encompasses a variety of operations essential 
 
 | **Function** | **Description** |
 |--------------|-----------------|
-| [**ft_strlen**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlen) | Computes the length of a string, excluding the null-terminating character. |
+| [**ft_strlen**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlen) | Find the length of a string, excluding the null-terminating character. |
 | [**ft_strlcpy**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlcpy) | Copies a specified number of characters from one string to another, ensuring the destination string is null-terminated. |
 | [**ft_strlcat**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlcat) | Appends a specified number of characters from one string to another, ensuring null-termination. |
 | [**ft_strchr**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strchr) | Searches for the first occurrence of a given character in a string. |
