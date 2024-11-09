@@ -1,8 +1,6 @@
-<h1 align="center">
-<p>
-    <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Libft</a>
-<p align="center"> 
-</p>
+<h1 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Libft  <a id="libft"></a>
+</h1>
 
 ---
 
