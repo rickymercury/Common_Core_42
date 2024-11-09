@@ -62,14 +62,14 @@ The **libft** project at 42 is one of the first challenges students face, design
 
 ---
 
-<h3 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+<h2 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
   <p>
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">⬆️ ⬆️ Top</a> • 
     <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
-</h3>
+</h2>
 
 ---
 
@@ -199,7 +199,7 @@ Libft
 ---
 
 <h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
-    ### 📂 **Functions** <a id="functions"></a>
+    📂 Functions <a id="functions"></a>
 </h3>
 
 ---
@@ -215,18 +215,20 @@ Libft
 
 ---
 
-### 🧵 **String Functions** <a id="string"></a>
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🧵 String Functions <a id="string"></a>
+</h3>
 
 ---
 
-<h3>
+<h2>
 <p align="center">
   <a href="#structure">⬅️ Structure</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#memory">Memory ➡️</a>
 </p>
-</h3>
+</h2>
 
 ---
 
@@ -268,14 +270,14 @@ Whether it's for handling user input, processing data, or implementing complex a
 
 ---
 
-<h3>
+<h2>
 <p align="center">
   <a href="#string">⬅️ String</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#utility">Utility ➡️</a>
 </p>
-</h3>
+</h2>
 
 ---
 
@@ -304,14 +306,14 @@ These are foundational tools for managing memory safely and efficiently in C. By
 
 ---
 
-<h3>
+<h2>
 <p align="center">
   <a href="#memory">⬅️ Memory</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#functions">⬆️ ⬆️ Top</a> • 
   <a href="#lists">Lists ➡️</a>
 </p>
-</h3>
+</h2>
 
 ---
 
@@ -348,14 +350,14 @@ The **Utility functions** category in **Libft** includes versatile functions tha
 
 ---
 
-<h3>
+<h2>
 <p align="center">
   <a href="#utility">⬅️ Utility</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#Compilation">Compilation ➡️</a>
 </p>
-</h3>
+</h2>
 
 ---
 
