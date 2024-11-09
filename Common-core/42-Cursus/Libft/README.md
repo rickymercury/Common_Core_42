@@ -46,10 +46,20 @@ The main goal of this project is:
 Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
 
-## 🧬 **Structure: Inside Libft** <a id="structure"></a>  <p align="center">
-  <a href="#libft">Top ⬆️ ⬆️</a> • 
-  <a href="#structure">Structure ➡️</a>
-</p>
+## 🧬 **Structure: Inside Libft** <a id="structure"></a>  
+
+---
+
+<h3 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+  <p>
+    <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
+    <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">⬆️ ⬆️ Top</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Functions</a> • 
+    <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
+  </p>
+</h3>
+
+---
 
 The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library.
 Libft is organized into a series of essential **function categories**, each based on their specific purpose and functionality, that replicate or extend standard C library functionalities. 
@@ -157,14 +167,10 @@ Libft
 > - **📁 `/srcs`**: Holds the main source code files for the project.
 > - **📁 `/bonus`**: Contains any bonus features and extra functions for the project.
 
-<p align="center">
-  <a href="#intro">⬅️ Introduction</a> • 
-  <a href="#libft">Top ⬆️ ⬆️</a> • 
-  <a href="#functions">Functions ➡️</a>
-</p>
-
 
 ## Functions <a id="functions"></a>
+
+---
 
 <h3>
   <p align="center"> 
@@ -175,7 +181,22 @@ Libft
   </p>
 </h3>
 
+---
+
 ### 🧵 **String Functions** <a id="string"></a>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#structure">⬅️ Structure</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#libft">⬆️ ⬆️ Top</a> • 
+  <a href="#memory">Memory ➡️</a>
+</p>
+</h3>
+
+---
 
 The **String functions** category encompasses a variety of operations essential for handling and manipulating strings in C. These functions focus on tasks such as calculating string length, copying, concatenating, and searching for specific characters or substrings within a string.
 
@@ -205,15 +226,20 @@ The **String functions** category encompasses a variety of operations essential 
 
 These functions provide a comprehensive toolkit for string manipulation, ensuring tasks such as substring extraction, joining, trimming, and splitting can be performed with ease and flexibility.
 
-
-<p align="center">
-  <a href="#structure">⬅️ Structure</a> • 
-  <a href="#functions">Functions ⬆️</a> • 
-  <a href="#libft">Top ⬆️ ⬆️</a> • 
-  <a href="#memory">Memory ➡️</a>
-</p>
-
 ### 🧠 **Memory Functions** <a id="memory"></a>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#string">⬅️ String</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#libft">⬆️ ⬆️ Top</a> • 
+  <a href="#utility">Utility ➡️</a>
+</p>
+</h3>
+
+---
 
 The **Memory functions** category focuses on operations that manipulate raw memory blocks, performing tasks such as setting values, copying, comparing, and allocating memory. These functions are essential for low-level memory management, a crucial aspect of systems programming in C.
 
@@ -233,18 +259,24 @@ These functions are designed to operate on raw memory, performing tasks where th
 
 Together, these memory functions cover common memory manipulation tasks while ensuring safety and efficiency, particularly when dealing with raw memory operations, allocation, and initialization.
 
-<p align="center">
-  <a href="#string">⬅️ String</a> • 
-  <a href="#functions">Functions ⬆️</a> • 
-  <a href="#libft">Top ⬆️ ⬆️</a> • 
-  <a href="#utility">Utility ➡️</a>
-</p>
-
 ### 🔧 **Utility Functions** <a id="utility"></a>
 
 The **Utility functions** category encompasses a variety of functions that perform operations on characters, strings, and data conversions. These functions are essential for handling common tasks related to character classification, manipulation, and input/output operations.
 
 #### ✨ **Character Classification and Conversion**
+
+---
+
+<h3>
+<p align="center">
+  <a href="#memory">⬅️ Memory</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#functions">⬆️ ⬆️ Top</a> • 
+  <a href="#lists">Lists ➡️</a>
+</p>
+</h3>
+
+---
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -269,14 +301,20 @@ The **Utility functions** category encompasses a variety of functions that perfo
 
 These utility functions provide a comprehensive toolkit for handling characters and strings, offering crucial operations for parsing and manipulating textual input, as well as writing data to different output streams like standard output or files.
 
-<p align="center">
-  <a href="#memory">⬅️ Memory</a> • 
-  <a href="#functions">Functions ⬆️</a> • 
-  <a href="#functions">Top ⬆️ ⬆️</a> • 
-  <a href="#lists">Lists ➡️</a>
-</p>
-
 ### 📋 **List Functions (Bonus)** <a id="lists"></a>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#utility">⬅️ Utility</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#libft">⬆️ ⬆️ Top</a> • 
+  <a href="#Compilation">Compilation ➡️</a>
+</p>
+</h3>
+
+---
 
 The **List functions** are focused on operations involving linked lists, a fundamental and flexible data structure often used in C programming for dynamic memory management and efficient insertion/deletion of elements. These functions provide the necessary tools to create, manipulate, and traverse these structures.
 
@@ -295,13 +333,6 @@ The **List functions** are focused on operations involving linked lists, a funda
 | [**ft_lstmap**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/list/ft_lstmap) | Iterates through the list, applies a function to each element, and returns a new list with the modified values. |
 
 Linked lists are widely used in various data structures, algorithms, and system-level programming tasks due to their flexibility in terms of dynamic memory allocation and efficient insertion/removal operations. By using these functions, developers can easily work with lists to store and process data in a structured, efficient way.
-
-<p align="center">
-  <a href="#utility">⬅️ Utility</a> • 
-  <a href="#functions">Functions ⬆️</a> • 
-  <a href="#libft">Top ⬆️ ⬆️</a> • 
-  <a href="#Compilation">Compilation ➡️</a>
-</p>
 
 
 ## 🕹️ Compilation and Usage <a id="compilation"></a>
