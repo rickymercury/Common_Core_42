@@ -43,6 +43,7 @@ By categorizing the functions in this way, the project ensures that each functio
 
 ## **Directory Tree** 
 
+<pre>
 **Libft**
 |
 ├── **list**
@@ -99,6 +100,7 @@ By categorizing the functions in this way, the project ensures that each functio
     ├── ft_putstr_fd
     ├── ft_tolower
     └── ft_toupper
+</pre>
   
 > `/includes`: This directory contains the project header file.  
 > `/srcs`: This directory contains the project's source code files. 
