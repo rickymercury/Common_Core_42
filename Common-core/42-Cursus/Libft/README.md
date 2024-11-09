@@ -1,9 +1,8 @@
 <h1 align="center">
 <p>
-    <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Libft</a> • 
+    <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Libft</a>
 <p align="center"> 
 </p>
-</h1>
 
 ---
 
@@ -50,7 +49,7 @@ Libft is not just about creating a library; it’s about gaining confidence in *
 
 
 <p align="center">
-  <a href="#libft">Beginning ⬆️ ⬆️</a> • 
+  <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#structure">Structure ➡️</a>
 </p>
 
@@ -164,7 +163,7 @@ Libft
 
 <p align="center">
   <a href="#intro">⬅️ Introduction</a> • 
-  <a href="#libft">Beginning ⬆️ ⬆️</a> • 
+  <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#functions">Functions ➡️</a>
 </p>
 
@@ -214,7 +213,7 @@ These functions provide a comprehensive toolkit for string manipulation, ensurin
 <p align="center">
   <a href="#structure">⬅️ Structure</a> • 
   <a href="#functions">Functions ⬆️</a> • 
-  <a href="#libft">Beginning ⬆️ ⬆️</a> • 
+  <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#memory">Memory ➡️</a>
 </p>
 
@@ -241,7 +240,7 @@ Together, these memory functions cover common memory manipulation tasks while en
 <p align="center">
   <a href="#string">⬅️ String</a> • 
   <a href="#functions">Functions ⬆️</a> • 
-  <a href="#libft">Beginning ⬆️ ⬆️</a> • 
+  <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#utility">Utility ➡️</a>
 </p>
 
@@ -277,7 +276,7 @@ These utility functions provide a comprehensive toolkit for handling characters 
 <p align="center">
   <a href="#memory">⬅️ Memory</a> • 
   <a href="#functions">Functions ⬆️</a> • 
-  <a href="#functions">Beginning ⬆️ ⬆️</a> • 
+  <a href="#functions">Top ⬆️ ⬆️</a> • 
   <a href="#lists">Lists ➡️</a>
 </p>
 
@@ -304,12 +303,12 @@ Linked lists are widely used in various data structures, algorithms, and system-
 <p align="center">
   <a href="#utility">⬅️ Utility</a> • 
   <a href="#functions">Functions ⬆️</a> • 
-  <a href="#functions">Beginning ⬆️ ⬆️</a> • 
+  <a href="#libft">Top ⬆️ ⬆️</a> • 
   <a href="#Compilation">Compilation ➡️</a>
 </p>
 
 
-## 🕹️ Compilation and Usage <a id="usage"></a>
+## 🕹️ Compilation and Usage <a id="compilation"></a>
 
 ### Makefile
 
