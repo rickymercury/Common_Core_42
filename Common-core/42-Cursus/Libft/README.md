@@ -18,7 +18,9 @@
 
 ---
 
-## 🗣️ **Introduction: Project Overview** <a id="intro"></a>
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🗣️ **Introduction: Project Overview** <a id="intro"></a>
+</h3> 
 
 This repository hosts a custom C library known as **<span style="color:blue">Libft</span>**, which was implemented as part of a coding project. The primary objective of this project is to develop a **static library** (`.a` file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
 
@@ -26,25 +28,34 @@ The **libft** project at 42 is one of the first challenges students face, design
 
 ---
 
-> **What is a Static Library?**
-> 
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    What is a Static Library?
+</h3> 
+
+>
 > A **static library** is essentially a collection of precompiled **object files** (`.o` files) bundled together. These object files are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with **dynamic libraries**, which are linked at runtime.
 
 ---
 
->## ✨ **Project Goals**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ✨ **Project Goals
+</h3> 
+
 >
 >The main goal of this project is:
 >
->1. **Understanding Standard Library Functions**:  
+>1. **Understanding Standard Library Functions**: 
+
    The project provides a deeper, hands-on understanding of how standard functions are implemented. Instead of using pre-built functions, students manually code them, which allows them to appreciate the complexities behind even simple operations like string comparison or memory copying. This helps to develop a stronger foundational knowledge of C, focusing on critical aspects like memory management, pointer arithmetic, and low-level operations.
 >
 >2. **Creating a Reusable Tool for C Projects**:  
+   
    One of the key benefits of the **libft** project is that it enables students to build a reusable library of functions that can be used in all future C projects at 42. This custom library serves as a versatile tool, helping students avoid the need for external dependencies or reliance on the standard library in specific contexts. It equips them with a personalized set of building blocks for their C programming journey.
 
----
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Importance for Future Projects
+</h3> 
 
->### **Importance for Future Projects**
 >
 >The **libft** project serves as a foundational step that impacts many of the future projects that we'll encounter at 42. The functions coded in this library will be directly used and expanded upon in later assignments/subjects, making it essential for us to master the underlying concepts and ensure the library is both robust and efficient. 
 >
@@ -52,24 +63,29 @@ The **libft** project at 42 is one of the first challenges students face, design
 
 ---
 
->### 🌟 **Why Libft?**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🌟 Why Libft?
+</h3> 
+
 >
->Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
+>Libft is not just about creating a library; it’s about gaining knowledge in **low-level programming** and **memory management**. It’s a project that pushes us to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
 ---
 
-## 🧬 **Structure: Inside Libft** <a id="structure"></a>  
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🧬 **Structure: Inside Libft** <a id="structure"></a> 
+</h3>
 
 ---
 
-<h2 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+<h1 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
   <p>
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#libft" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">⬆️ ⬆️ Top</a> • 
     <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
-</h2>
+</h1>
 
 ---
 
@@ -81,24 +97,38 @@ This structure ensures modularity, clarity, and efficiency, making it easier to 
 
 The primary categories include **Libc** functions and **Additional functions**.
 
->### 🔹 **Core Categories**
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🔹 Core Categories
+</h3> 
+
 >
->1. **Libc Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Libc Functions
+</h3> 
+
 >
->   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. 
-   The goal here is to manually rebuild essential commonly used functions to gain a deeper understanding of their inner workings and behavior.
+> These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. 
+  The goal here is to manually rebuild essential commonly used functions to gain a deeper understanding of their inner workings and behavior.
 >
->   By doing so, developers not only understand how these functions work but also develop essential skills in **memory management**, **string manipulation**, and core system operations.
-   Reimplementing these functions reinforces the foundational knowledge of C programming.
+> By doing so, developers not only understand how these functions work but also develop essential skills in **memory management**, **string manipulation**, and core system operations.
+> Reimplementing these functions reinforces the foundational knowledge of C programming.
 >
->2. **Additional Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Additional Functions
+</h3> 
+
 >
->   Complementing the standard library, these utility functions **extend** the functionality of Libft beyond the standard C library.
+>  Complementing the standard library, these utility functions **extend** the functionality of Libft beyond the standard C library.
    While not part of C's standard library, these functions provide useful tools and features that enhance the usabiity and versality of the library.
 
 ---
 
->### 📂 **Function Groups**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    📂 Function Groups
+</h3> 
+
 >
 >Within these two main categories, each function is organized into specific group based on the **type of operation** they perform.
 This ensures that each group serves a particular purpose, facilitating easy navigation and future expansion.
@@ -115,7 +145,10 @@ This ensures that each group serves a particular purpose, facilitating easy navi
 
 ---
 
-> 💡 **Organizational Insight:**  
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    💡 Organizational Insight:
+</h3> 
+
 >
 > By categorizing the functions in **Libft** into these groups, the project ensures that each function serves a **specific purpose**. This structure promotes **modularity**, **clarity**, and **efficiency**, making the library easier to maintain and extend. 
 >
@@ -129,8 +162,9 @@ This organization not only enhances the usability of the library but also makes 
 
 ---
 
-
-## 🌳 **Directory Tree**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🌳 Directory Tree
+</h3>
 
 <pre>
 Libft
@@ -221,14 +255,14 @@ Libft
 
 ---
 
-<h2>
+<h1>
 <p align="center">
   <a href="#structure">⬅️ Structure</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#memory">Memory ➡️</a>
 </p>
-</h2>
+</h1>
 
 ---
 
@@ -240,7 +274,9 @@ Whether it's for handling user input, processing data, or implementing complex a
 
 ---
 
-#### ✨ **Reimplemented C Standard Library Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ✨ **Reimplemented C Standard Library Functions
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -253,7 +289,9 @@ Whether it's for handling user input, processing data, or implementing complex a
 | [**ft_strnstr**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strnstr) | Searches for the first occurrence of a substring within a string, up to a specified length. |
 | [**ft_strdup**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strdup) | Creates a new string that is a duplicate of an existing string. |
 
-#### 🔧 **Additional String Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🔧 Additional String Functions
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -266,18 +304,20 @@ Whether it's for handling user input, processing data, or implementing complex a
 
 ---
 
-### 💾 **Memory Functions** <a id="memory"></a>
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    💾 Memory Functions <a id="memory"></a>
+</h3>
 
 ---
 
-<h2>
+<h1>
 <p align="center">
   <a href="#string">⬅️ String</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#utility">Utility ➡️</a>
 </p>
-</h2>
+</h1>
 
 ---
 
@@ -288,8 +328,9 @@ Through these functions, we gain deeper insight int how memory is handled in C, 
 These are foundational tools for managing memory safely and efficiently in C. By implementing them from scratch, you gain a solid understanding of memory operations, allowing for more robust and optimized code when handling raw data.
 
 ---
-
-#### ✨ **Reimplemented C Standard Library Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ✨ **Reimplemented C Standard Library Functions
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -301,19 +342,23 @@ These are foundational tools for managing memory safely and efficiently in C. By
 | [**ft_memcmp**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memcmp) | Compares two memory blocks byte-by-byte, up to a specified number of bytes, to determine their equality. |
 | [**ft_calloc**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_calloc) | Allocates memory for an array of a specified number of elements, initializing the memory to zero for safer, pre-initialized use. |
 
+---
 
-### 🔧 **Utility Functions** <a id="utility"></a>
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🔧 Utility Functions <a id="utility"></a>
+</h3>
 
 ---
 
-<h2>
+<h1>
 <p align="center">
   <a href="#memory">⬅️ Memory</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#functions">⬆️ ⬆️ Top</a> • 
   <a href="#lists">Lists ➡️</a>
 </p>
-</h2>
+</h1>
 
 ---
 
@@ -321,7 +366,9 @@ The **Utility functions** category in **Libft** includes versatile functions tha
 
 ---
 
-#### ✨ **Character Classification and Conversion**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ✨ Character Classification and Conversion
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -335,7 +382,9 @@ The **Utility functions** category in **Libft** includes versatile functions tha
 | [**ft_isprint**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isprint) | Checks if a character is printable (i.e., not a control character). |
 | [**ft_itoa**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_itoa) | Converts an integer to its string representation, useful for converting numerical data to text format. |
 
-#### ✨ **File Descriptor Output Functions**
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    ✨ File Descriptor Output Functions
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -346,24 +395,30 @@ The **Utility functions** category in **Libft** includes versatile functions tha
 
 ---
 
-### 📋 **List Functions (Bonus)** <a id="lists"></a>
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    📋 List Functions (Bonus) <a id="lists"></a>
+</h3>
 
 ---
 
-<h2>
+<h1>
 <p align="center">
   <a href="#utility">⬅️ Utility</a> • 
   <a href="#functions">⬆️ Functions</a> • 
   <a href="#libft">⬆️ ⬆️ Top</a> • 
   <a href="#Compilation">Compilation ➡️</a>
 </p>
-</h2>
+</h1>
 
 ---
 
 The **List functions** are focused on operations involving linked lists, a fundamental and flexible data structure often used in C programming for dynamic memory management and efficient insertion/deletion of elements. These functions provide the necessary tools to create, manipulate, and traverse these structures.
 
-#### 🔗 **Linked List Operations**
+Linked lists are widely used in various data structures, algorithms, and system-level programming tasks due to their flexibility in terms of dynamic memory allocation and efficient insertion/removal operations. By using these functions, developers can easily work with lists to store and process data in a structured, efficient way.
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🔗 Linked List Operations
+</h3>
 
 | **Function** | **Description** |
 |--------------|-----------------|
@@ -377,10 +432,20 @@ The **List functions** are focused on operations involving linked lists, a funda
 | [**ft_lstiter**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/list/ft_lstiter) | Iterates through the list and applies a given function to each element. |
 | [**ft_lstmap**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/list/ft_lstmap) | Iterates through the list, applies a function to each element, and returns a new list with the modified values. |
 
-Linked lists are widely used in various data structures, algorithms, and system-level programming tasks due to their flexibility in terms of dynamic memory allocation and efficient insertion/removal operations. By using these functions, developers can easily work with lists to store and process data in a structured, efficient way.
-
 
 ## 🕹️ Compilation and Usage <a id="compilation"></a>
+
+---
+
+<h1>
+<p align="center">
+  <a href="#lists">⬅️ Lists</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#libft">⬆️ ⬆️ Top</a> • 
+</p>
+</h1>
+
+---
 
 ### Makefile
 
