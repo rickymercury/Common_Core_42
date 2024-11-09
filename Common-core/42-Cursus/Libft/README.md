@@ -10,13 +10,16 @@
   </p>
 </h3>
 
-## 🗣️ <span style="color:blue">**Introduction**<\span> <a id="introduction"></a>
+## 🗣️ <span style="color:blue">Introduction</span> <a id="introduction"></a>
 
-This repository hosts a custom C library known as <span style="color:blue">**Libft**<\span>, which was implemented as part of a coding project. The primary objective of this project is to develop a <span style="color:blue">**static library**<\span> (.a file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+<span style="color:blue">Introduction</span>
 
-A <span style="color:blue">**static library**<\span> is essentially a collection of precompiled <span style="color:blue">**object files**<\span> (.o files) bundled together. These <span style="color:blue">**object files**<\span> are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with dynamic libraries, which are linked at runtime.
+This repository hosts a custom C library known as <span style="color:blue">Libft</span>, which was implemented as part of a coding project. The primary objective of this project is to develop a <span style="color:blue">static library</span> (.a file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+
+A <span style="color:blue">static library</span> is essentially a collection of precompiled <span style="color:blue">object files</span> (.o files) bundled together. These <span style="color:blue">object files</span> are linked directly into the final executable during the compilation process, meaning the functions from the static library become part of the executable itself. This process contrasts with dynamic libraries, which are linked at runtime.
 
 The main goal of this project is twofold. First, it aims to provide a deeper understanding of how commonly used standard library functions are implemented at a lower level. By manually implementing these functions, the programmer gains insight into how things like memory management, string manipulation, and other core operations work under the hood. Second, the library serves as a versatile tool that can be reused across various C projects, eliminating the need for relying on external dependencies or standard library functions in certain contexts.
+
 
 ## 🧬 <span style="color:blue">**Libft Structure**<\span> <a id="structure"></a>
 
