@@ -10,7 +10,7 @@
   <p>
     <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
     <a href="#structure" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🧬 Structure</a> • 
-    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Functions</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
     <a href="https://github.com/rickymercury/Common_Core_42/blob/main/Common-core/42-Cursus/Libft/srcs/subjects/libft.en.subject.pdf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📌 Subject</a>
     <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
@@ -21,6 +21,8 @@
 ## 🗣️ **Introduction: Project Overview** <a id="intro"></a>
 
 This repository hosts a custom C library known as **<span style="color:blue">Libft</span>**, which was implemented as part of a coding project. The primary objective of this project is to develop a **static library** (`.a` file) by reimplementing a variety of standard C library functions, as well as adding a few additional, useful functions that enhance the functionality of the C programming language.
+
+The **libft** project at 42 is one of the first challenges students face, designed to deepen their understanding of the C programming language by implementing a variety of standard library functions from scratch. The project’s core goal is to help students gain insight into how essential functions like memory management, string manipulation, and other basic operations are actually implemented under the hood, beyond what’s provided by the built-in C standard library.
 
 ---
 
@@ -34,13 +36,19 @@ This repository hosts a custom C library known as **<span style="color:blue">Lib
 
 The main goal of this project is:
 
-1. **Understanding Standard Library Functions**
+1. **Understanding Standard Library Functions**:  
+   The project provides a deeper, hands-on understanding of how standard functions are implemented. Instead of using pre-built functions, students manually code them, which allows them to appreciate the complexities behind even simple operations like string comparison or memory copying. This helps to develop a stronger foundational knowledge of C, focusing on critical aspects like memory management, pointer arithmetic, and low-level operations.
 
-   This project provides a deeper understanding of how commonly used standard library functions are implemented at a lower level. By manually implementing these functions, the programmer gains insight into how things like **memory management**, **string manipulation**, and other core operations work under the hood.
-   
-2. **Reusable Tool for C Projects**  
+2. **Creating a Reusable Tool for C Projects**:  
+   One of the key benefits of the **libft** project is that it enables students to build a reusable library of functions that can be used in all future C projects at 42. This custom library serves as a versatile tool, helping students avoid the need for external dependencies or reliance on the standard library in specific contexts. It equips them with a personalized set of building blocks for their C programming journey.
 
-   The library serves as a versatile tool that can be reused across various C projects, eliminating the need for relying on external dependencies or standard library functions in certain contexts.
+---
+
+### **Importance for Future Projects**
+
+The **libft** project serves as a foundational step that impacts many of the future projects that we'll encounter at 42. The functions coded in this library will be directly used and expanded upon in later assignments/subjects, making it essential for us to master the underlying concepts and ensure the library is both robust and efficient. 
+
+By the end of this project, we won´t only have a deeper understanding of how core C functions work but also possess a valuable tool that enhances their programming efficiency and autonomy in future assignments.
 
 ---
 
@@ -48,6 +56,7 @@ The main goal of this project is:
 
 Libft is not just about creating a library; it’s about gaining confidence in **low-level programming** and **memory management**. It’s a project that pushes you to write cleaner, more efficient code that can be applied across a variety of **C programming** scenarios.
 
+---
 
 ## 🧬 **Structure: Inside Libft** <a id="structure"></a>  
 
@@ -65,43 +74,71 @@ Libft is not just about creating a library; it’s about gaining confidence in *
 ---
 
 The **mandatory part** of this project focuses on reimplementing several core functions from the standard C library.
-Libft is organized into a series of essential **function categories**, each based on their specific purpose and functionality, that replicate or extend standard C library functionalities. 
+
+**Libft** is structured into a series of essential **function categories**, each designed around on a specific purpose or functionality. 
+
 This structure ensures modularity, clarity, and efficiency, making it easier to implement and maintain in future projects.
+
 The primary categories include **Libc** functions and **Additional functions**.
 
 ### 🔹 **Core Categories**
 
 1. **Libc Functions**
 
-   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. The goal is to manually recreate these commonly used functions to gain a deeper understanding of their inner workings and behavior.
-   Therefore, by rebuilding these, developers gain insight into their low-level operations and behavior, from **memory management** to **string manipulation**.
+   These are the **reimplementations of the standard C library functions**, which are fundamental for many C programs. 
+   The goal here is to manually rebuild essential commonly used functions to gain a deeper understanding of their inner workings and behavior.
+
+   By doing so, developers not only understand how these functions work but also develop essential skills in **memory management**, **string manipulation**, and core system operations.
+   Reimplementing these functions reinforces the foundational knowledge of C programming.
 
 2. **Additional Functions**
 
-   Complementing the standard library, these utility functions add extra capabilities to extend Libft’s functionality. 
-   While not part of the standard C library, they provide helpful features that enhance the library's versatility.
+   Complementing the standard library, these utility functions **extend** the functionality of Libft beyond the standard C library.
+   While not part of C's standard library, these functions provide useful tools and features that enhance the usabiity and versality of the library.
 
 ---
 
 ### 📂 **Function Groups**
 
-Within these two main categories, each function is organized into more specific group based on the **type of operation** they perform.
+Within these two main categories, each function is organized into specific group based on the **type of operation** they perform.
+This ensures that each group serves a particular purpose, facilitating easy navigation and future expansion.
+
 These groups include:
 
-- **🧵 String Functions:** Handle various string operations like length calculation, copying, concatenation, and comparison.
-- **💾 Memory Functions:** Perform essential memory operations, including memory allocation, memory setting, copying, and freeing.
-- **🔧 Utility Functions:** Provide a range of practical useful operations, such as type conversions, mathematical computations and handling character-specific manipulations.
-- **🔗 Linked List Functions:** A suite of functions dedicated to linked list manipulation, including creating, traversing, and modifying list nodes, allowing for dynamic data structures within C.
+- **🧵 String Functions:**  
+  A collection of functions that handle various string operations, such as calculating string length, copying, concatenation, and comparison.
+
+  Examples: `ft_strlen()`, `ft_strcpy()`, `ft_strcat()`
+
+- **💾 Memory Functions:**  
+  Functions dedicated to performing essential memory operations, such as memory allocation, setting, copying, and freeing memory.  
+
+  Examples: `ft_memset()`, `ft_memcpy()`, `ft_calloc()`
+
+- **🔧 Utility Functions:**  
+  This group provides a wide range of practical operations, including type conversions, mathematical computations, and character-specific manipulations. These functions are often used across different parts of a program to improve performance or handle specific use cases.
+
+  Examples: `ft_atoi()`, `ft_itoa()`, `ft_putnbr_fd()`
+
+- **🔗 Linked List Functions:**  
+  A specialized suite of functions dedicated to handling dynamic data structures like linked lists. These functions include the ability to create, traverse, and manipulate linked list nodes, which are commonly used in complex C projects.  
+
+  Examples: `ft_lstnew()`, `ft_lstadd_front()`, `ft_lstsize()`
 
 ---
 
 > 💡 **Organizational Insight:**  
 >
-> By categorizing the functions into these groups, Libft ensures that each function is reimplemented with a specific purpose, achieving a high level of **modularity**, **clarity** and easy to use in future projects, promoting reusability and efficiency.
+> By categorizing the functions in **Libft** into these groups, the project ensures that each function serves a **specific purpose**. This structure promotes **modularity**, **clarity**, and **efficiency**, making the library easier to maintain and extend. 
+>
+>Moreover, this organizational approach supports **reusability** across multiple projects, fostering cleaner and more consistent code.
 
 ---
 
-The **Libft Structure** balances **functionality** with **elegance**, ensuring that every component is purposeful and easy to integrate across diverse C projects.
+In conclusion, the **Libft Structure** elegantly balances **functionality** with **organization**, ensuring that every function has a clear and purposeful role. 
+
+This organization not only enhances the usability of the library but also makes it a robust tool for future C programming assignments, contributing to cleaner, more efficient, and modular code.
+
 
 
 ## 🌳 **Directory Tree**
@@ -171,6 +208,7 @@ Libft
 > - **📁 `/bonus`**: Contains any bonus features and extra functions for the project.
 
 
+
 ## Functions <a id="functions"></a>
 
 ---
@@ -201,13 +239,19 @@ Libft
 
 ---
 
-The **String functions** category encompasses a variety of operations essential for handling and manipulating strings in C. These functions focus on tasks such as calculating string length, copying, concatenating, and searching for specific characters or substrings within a string.
+The **String functions** category in **Libft** provides a comprehensive set of operations essential for handling and manipulating strings in C.
+
+These functions provide a rich toolkit for string manipulation, enabling operations such as calculating string length, substring extraction, string concatenation, trimming, and splitting. 
+
+Whether it's for handling user input, processing data, or implementing complex algorithms, **Libft's String Functions** offer the flexibility and efficiency necessary to perform these tasks seamlessly.
+
+---
 
 #### ✨ **Reimplemented C Standard Library Functions**
 
 | **Function** | **Description** |
 |--------------|-----------------|
-| [**ft_strlen**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlen) | Find the length of a string, excluding the null-terminating character. |
+| [**ft_strlen**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlen) | Finds the length of a string, excluding the null-terminating character. |
 | [**ft_strlcpy**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlcpy) | Copies a specified number of characters from one string to another, ensuring the destination string is null-terminated. |
 | [**ft_strlcat**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strlcat) | Appends a specified number of characters from one string to another, ensuring null-termination. |
 | [**ft_strchr**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strchr) | Searches for the first occurrence of a given character in a string. |
@@ -227,9 +271,9 @@ The **String functions** category encompasses a variety of operations essential 
 | [**ft_strmapi**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_strmapi) | Applies a function to each character in a string, returning a new string with the results of the function applied. |
 | [**ft_striteri**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/strings/ft_striteri) | Similar to `ft_strmapi`, but the function receives both the index and the character, allowing for more complex operations. |
 
-These functions provide a comprehensive toolkit for string manipulation, ensuring tasks such as substring extraction, joining, trimming, and splitting can be performed with ease and flexibility.
+---
 
-### 🧠 **Memory Functions** <a id="memory"></a>
+### 💾 **Memory Functions** <a id="memory"></a>
 
 ---
 
@@ -244,29 +288,28 @@ These functions provide a comprehensive toolkit for string manipulation, ensurin
 
 ---
 
-The **Memory functions** category focuses on operations that manipulate raw memory blocks, performing tasks such as setting values, copying, comparing, and allocating memory. These functions are essential for low-level memory management, a crucial aspect of systems programming in C.
+The **Memory functions** section of **Libft** focuses on operations essential for low-level memory management, an integral part of systems programming in C.
+These functions enable manipulation of raw memory blocks, covering tasks such as setting values, copying, comparing, and allocating memory. 
+Through these functions, we gain deeper insight int how memory is handled in C, which is crucial for building efficient, error-free programs.
+
+These are foundational tools for managing memory safely and efficiently in C. By implementing them from scratch, you gain a solid understanding of memory operations, allowing for more robust and optimized code when handling raw data.
+
+---
 
 #### ✨ **Reimplemented C Standard Library Functions**
 
 | **Function** | **Description** |
 |--------------|-----------------|
-| [**ft_memset**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memset) | Fills a specified number of bytes in a memory block with a given value. |
+| [**ft_memset**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memset) | Fills a specified number of bytes in a memory block with a given value, often used to initialize or reset memory. |
 | [**ft_bzero**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_bzero) | Sets all bytes in a memory block to zero, effectively clearing the memory. |
 | [**ft_memcpy**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memcpy) | Copies a specified number of bytes from one memory block to another. |
-| [**ft_memmove**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memmove) | Similar to `ft_memcpy`, but handles overlapping memory areas by ensuring the source is safely moved to the destination. |
+| [**ft_memmove**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memmove) | Similar to `ft_memcpy`, but designed to safely handle overlapping memory areas by ensuring the source is safely moved to the destination. |
 | [**ft_memchr**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memchr) | Searches for the first occurrence of a specified byte in a memory block. |
 | [**ft_memcmp**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_memcmp) | Compares two memory blocks byte-by-byte, up to a specified number of bytes, to determine their equality. |
-| [**ft_calloc**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_calloc) | Allocates memory for an array of a specified number of elements, initializing the memory to zero. |
+| [**ft_calloc**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/memory/ft_calloc) | Allocates memory for an array of a specified number of elements, initializing the memory to zero for safer, pre-initialized use. |
 
-These functions are designed to operate on raw memory, performing tasks where the content or structure of the memory is not as important as the manipulation of the underlying bytes. They enable efficient memory management, which is vital for tasks like buffer handling and memory clearing.
-
-Together, these memory functions cover common memory manipulation tasks while ensuring safety and efficiency, particularly when dealing with raw memory operations, allocation, and initialization.
 
 ### 🔧 **Utility Functions** <a id="utility"></a>
-
-The **Utility functions** category encompasses a variety of functions that perform operations on characters, strings, and data conversions. These functions are essential for handling common tasks related to character classification, manipulation, and input/output operations.
-
-#### ✨ **Character Classification and Conversion**
 
 ---
 
@@ -281,28 +324,34 @@ The **Utility functions** category encompasses a variety of functions that perfo
 
 ---
 
+The **Utility functions** category in **Libft** includes versatile functions that are essential for handling common tasks related to text processing, I/O handling, and data handling, covering essential tasks like text case conversion, character checking, and formatted output, enhancing efficiency in programming tasks.
+
+---
+
+#### ✨ **Character Classification and Conversion**
+
 | **Function** | **Description** |
 |--------------|-----------------|
-| [**ft_toupper**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_toupper) | Converts a character to uppercase based on its ASCII value. |
+| [**ft_toupper**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_toupper) | Converts a character to uppercase based on its ASCII value, useful for case manipulation in string handling. |
 | [**ft_tolower**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_tolower) | Converts a character to lowercase based on its ASCII value. |
-| [**ft_atoi**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_atoi) | Converts a string representation of an integer to an actual integer. |
-| [**ft_isalpha**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isalpha) | Checks if a character is alphabetic. |
-| [**ft_isdigit**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isdigit) | Checks if a character is a digit. |
+| [**ft_atoi**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_atoi) | Converts a string representing an integer to an actual integer value, aiding in data parsing. |
+| [**ft_isalpha**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isalpha) | Checks if a character is alphabetic (a-z, A-Z). |
+| [**ft_isdigit**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isdigit) | Checks if a character is a digit (0-9), essential for numerical validation. |
 | [**ft_isalnum**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isalnum) | Checks if a character is alphanumeric (either a letter or a digit). |
-| [**ft_isascii**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isascii) | Checks if a character is within the ASCII range. |
+| [**ft_isascii**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isascii) | Checks if a character falls within the ASCII range, useful for data validation. |
 | [**ft_isprint**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_isprint) | Checks if a character is printable (i.e., not a control character). |
-| [**ft_itoa**](URL_DA_FUNCAO) | Converts an integer to a string representation. |
+| [**ft_itoa**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_itoa) | Converts an integer to its string representation, useful for converting numerical data to text format. |
 
 #### ✨ **File Descriptor Output Functions**
 
 | **Function** | **Description** |
 |--------------|-----------------|
-| [**ft_putchar_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putchar_fd) | Writes a single character to the specified file descriptor. |
-| [**ft_putstr_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putstr_fd) | Writes a string to the specified file descriptor. |
-| [**ft_putendl_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putendl_fd) | Writes a string followed by a newline to the specified file descriptor. |
-| [**ft_putnbr_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putnbr_fd) | Writes an integer (converted to a string) to the specified file descriptor. |
+| [**ft_putchar_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putchar_fd) | Writes a single character to a specified file descriptor, facilitating low-level output control. |
+| [**ft_putstr_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putstr_fd) | Writes a string to a specified file descriptor, allowing for versatile string output handling. |
+| [**ft_putendl_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putendl_fd) | Writes a string followed by a newline to a specified file descriptor, useful for structured output with line breaks. |
+| [**ft_putnbr_fd**](https://github.com/rickymercury/Common_Core_42/tree/main/Common-core/42-Cursus/Libft/srcs/Study/utils/ft_putnbr_fd) | Writes an integer (converted to a string) to a specified file descriptor, enabling flexible numeric output. |
 
-These utility functions provide a comprehensive toolkit for handling characters and strings, offering crucial operations for parsing and manipulating textual input, as well as writing data to different output streams like standard output or files.
+---
 
 ### 📋 **List Functions (Bonus)** <a id="lists"></a>
 
