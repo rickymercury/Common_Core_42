@@ -42,7 +42,7 @@ This process contrasts with **dynamic libraries**, which are linked at runtime.
 ---
 
 <h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
-    ✨ Project Goals
+    🎯 Main Goals
 </h3> 
 
 >
@@ -180,63 +180,67 @@ This organization not only enhances the usability of the library but also makes 
 </h3>
 
 <pre>
+### 🗂️ Libft Structure
+
+<pre>
 Libft
 |
-├── 📂 <span style="color:#6A5ACD">list</span>
+├── 📂 <span style="color:#6A5ACD">list</span>         
 |   |
-│   ├── 📄 ft_lstadd_back
-│   ├── 📄 ft_lstadd_front
-│   ├── 📄 ft_lstclear
-│   ├── 📄 ft_lstdelone
-│   ├── 📄 ft_lstiter
-│   ├── 📄 ft_lstlast
-│   ├── 📄 ft_lstmap
-│   ├── 📄 ft_lstnew
-│   └── 📄 ft_lstsize
+│   ├── 📄 ft_lstadd_back    # Adds a new element at the end of the list.
+│   ├── 📄 ft_lstadd_front   # Adds a new element at the beginning of the list.
+│   ├── 📄 ft_lstclear       # Clears the entire list.
+│   ├── 📄 ft_lstdelone      # Deletes a single element of the list.
+│   ├── 📄 ft_lstiter        # Iterates through a list and applies a function to each element.
+│   ├── 📄 ft_lstlast        # Returns the last element of the list.
+│   ├── 📄 ft_lstmap         # Applies a function to each element and returns a new list.
+│   ├── 📄 ft_lstnew         # Creates a new list element.
+│   └── 📄 ft_lstsize        # Returns the size of the list.
 |
-├── 📂 <span style="color:#6A5ACD">memory</span>
+├── 📂 <span style="color:#6A5ACD">memory</span>     
 |   |
-│   ├── 📄 ft_bzero
-│   ├── 📄 ft_calloc
-│   ├── 📄 ft_memchr
-│   ├── 📄 ft_memcmp
-│   ├── 📄 ft_memcpy
-│   ├── 📄 ft_memmove
-│   └── 📄 ft_memset
+│   ├── 📄 ft_bzero          # Sets a block of memory to zero.
+│   ├── 📄 ft_calloc         # Allocates memory and sets it to zero.
+│   ├── 📄 ft_memchr         # Searches a block of memory for a specific character.
+│   ├── 📄 ft_memcmp         # Compares two blocks of memory.
+│   ├── 📄 ft_memcpy         # Copies a block of memory to another location.
+│   ├── 📄 ft_memmove        # Moves a block of memory to another location.
+│   └── 📄 ft_memset         # Sets a block of memory to a specified value.
 |
-├── 📂 <span style="color:#6A5ACD">strings</span>
+├── 📂 <span style="color:#6A5ACD">strings</span>     
 |   |
-│   ├── 📄 ft_split
-│   ├── 📄 ft_strchr
-│   ├── 📄 ft_strdup
-│   ├── 📄 ft_striteri
-│   ├── 📄 ft_strjoin
-│   ├── 📄 ft_strlcat
-│   ├── 📄 ft_strlcpy
-│   ├── 📄 ft_strlen
-│   ├── 📄 ft_strmapi
-│   ├── 📄 ft_strncmp
-│   ├── 📄 ft_strnstr
-│   ├── 📄 ft_strrchr
-│   ├── 📄 ft_strtrim
-│   └── 📄 ft_substr
+│   ├── 📄 ft_split          # Splits a string into an array of substrings.
+│   ├── 📄 ft_strchr         # Searches a string for a specific character.
+│   ├── 📄 ft_strdup         # Duplicates a string.
+│   ├── 📄 ft_striteri       # Applies a function to each character of a string.
+│   ├── 📄 ft_strjoin        # Joins two strings into one.
+│   ├── 📄 ft_strlcat        # Appends one string to another with a size limit.
+│   ├── 📄 ft_strlcpy        # Copies a string with a size limit.
+│   ├── 📄 ft_strlen         # Returns the length of a string.
+│   ├── 📄 ft_strmapi        # Applies a function to each character of a string and returns a new string.
+│   ├── 📄 ft_strncmp        # Compares the first n characters of two strings.
+│   ├── 📄 ft_strnstr        # Locates a substring within a string, with a size limit.
+│   ├── 📄 ft_strrchr        # Searches a string for the last occurrence of a character.
+│   ├── 📄 ft_strtrim        # Trims a string by removing specific characters from both ends.
+│   └── 📄 ft_substr         # Extracts a substring from a string.
 |
-└── 📂 <span style="color:#6A5ACD">utils</span>
+└── 📂 <span style="color:#6A5ACD">utils</span>    
     |
-    ├── 📄 ft_atoi
-    ├── 📄 ft_isalnum
-    ├── 📄 ft_isalpha
-    ├── 📄 ft_isascii
-    ├── 📄 ft_isdigit
-    ├── 📄 ft_isprint
-    ├── 📄 ft_itoa
-    ├── 📄 ft_putchar_fd
-    ├── 📄 ft_putendl_fd
-    ├── 📄 ft_putnbr_fd
-    ├── 📄 ft_putstr_fd
-    ├── 📄 ft_tolower
-    └── 📄 ft_toupper
+    ├── 📄 ft_atoi           # Converts a string to an integer.
+    ├── 📄 ft_isalnum        # Checks if a character is alphanumeric.
+    ├── 📄 ft_isalpha        # Checks if a character is alphabetic.
+    ├── 📄 ft_isascii        # Checks if a character is ASCII.
+    ├── 📄 ft_isdigit        # Checks if a character is a digit.
+    ├── 📄 ft_isprint        # Checks if a character is printable.
+    ├── 📄 ft_itoa           # Converts an integer to a string.
+    ├── 📄 ft_putchar_fd     # Writes a character to a file descriptor.
+    ├── 📄 ft_putendl_fd     # Writes a string followed by a newline to a file descriptor.
+    ├── 📄 ft_putnbr_fd      # Writes an integer to a file descriptor.
+    ├── 📄 ft_putstr_fd      # Writes a string to a file descriptor.
+    ├── 📄 ft_tolower        # Converts a character to lowercase.
+    └── 📄 ft_toupper        # Converts a character to uppercase.
 </pre>
+
 
 > **Additional Directories**  
 > - **📁 `/includes`**: Contains the project header file.

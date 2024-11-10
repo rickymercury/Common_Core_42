@@ -1,66 +1,229 @@
-h1 align="center">ft_Printf</h1>
-<p align="center"> 
- 
-<h3>
-  <p align="center"> 
-    <a href="#introduction">Introduction</a> • 
-    <a href="#structure">Structure</a> • 
-    <a href="#Docs">Docs</a> • 
-    <a href="#Compilation">Compilation</a> • 
+![](https://github.com/jotavare/jotavare/blob/main/42/banners/piscine_and_common_core/github_piscine_and_common_core_banner_ft_printf.png
+)
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Topics  <a id="ft_printf"></a>
+</h3>
 
+---
+
+<h3 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+  <p>
+    <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
+    <a href="#structure" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🧬 Structure</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
+    <a href="https://github.com/rickymercury/Common_Core_42/blob/main/Common-core/42-Cursus/ft_printf/srcs/Subjects/ft_printf.pdf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📌 Subject</a> • 
+    <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
   </p>
 </h3>
 
-## 🗣️ Introduction <a id="introduction"></a>
+---
 
-This repository contains a custom implementation of the printf function, developed as part of the 42 School coding curriculum. The project, called ft_printf, aims to mimic the functionality of the standard C library’s printf function, providing a versatile tool for formatted output. This exercise not only reinforces core C programming concepts but also builds foundational skills in low-level coding and memory management.
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🗣️ Introduction: Project Overview <a id="intro"></a>
+</h3> 
 
-The ft_printf project focuses on re-creating the behaviors of printf from scratch, requiring an in-depth understanding of several key concepts, including:
+This repository features a custom implementation of the **printf** function, crafted as part of the 42 shcool coding curriculum.
 
-    String Handling: The function must manage strings efficiently, interpreting format specifiers embedded within them, and generating formatted output.
-    Type Conversion and Output Formatting: The project involves handling multiple data types (like integers, characters, and strings) and applying various format specifiers (such as %d, %s, %x) to display values in specific formats, just as printf would.
-    Versatile Use in Projects without the Standard Library: Since some projects in the 42 School curriculum do not permit the use of the standard C library, this implementation provides a custom alternative for formatted output, which can be reused in those scenarios.
+This project serves as a stepping stone, offering deeper insights into how fundamental C library functions operate in its iternal workings.
 
-By tackling this project, students gain practical insight into how printf operates under the hood, preparing them to approach more complex low-level programming challenges. The resulting ft_printf implementation supports a variety of format specifiers and data types, enabling formatted output with control over how different types of data are displayed.
+The project replicates the functionality of the standard C library's **printf**, providing a versatile tool for formatted output in projects where library functions may not be available.
 
-## 🧬 Project Structure <a id="structure"></a>
+The ft_printf challenge reinforces essential C programming concepts and cultivates foundational skills in low-level coding and memory management.
 
-The ft_printf project is structured around a central function, ft_printf, which is designed to handle multiple data types and formatting options, such as strings, integers, characters, and hexadecimal values. The main function interacts with a series of supporting functions, each specialized for processing and formatting specific types of data according to the required output format.
+>The main goal of the `ft_printf` project is to implement a custom version of the standard `printf` function, offering essential functionality for formatted output while reinforcing foundational skills in C programming and low-level memory management.
 
-This modular approach allows ft_printf to interpret and format different types of input consistently, and each auxiliary function has a clear, focused role within the formatting pipeline. Together, these components provide a comprehensive custom implementation that mirrors much of the functionality of the standard printf function, making it versatile for use in projects that require formatted output without relying on external libraries.
+>The **ft_printf** focuses on re-creating core behaviors of **printf** from scratch, demanding an in-depth understanding of key programming concepts.
 
+---
 
-## Directory Tree 
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🔧 Create a Reusable Tool for Future Projects
+</h3> 
+
+>Since certain 42 School projects restrict the use of standard C library functions, making it necessary to create custom versions of commonly used functions, the`ft_printf` offers a custom alternative that can be adapted across various projects:
+>
+>  - **Eliminate Standard Library Dependencies**: Substitute functions like `malloc`, `write`, and `free` with custom, internally managed implementations if required by project guidelines.
+>  - **Optimized for Compatibility**: `ft_printf` is intended to be reusable, providing formatted output capabilities without relying on standard library functions such as `printf`, `itoa`, or `strlen`.
+>  - **Flexible Integration**: The custom `ft_printf` can be adapted to different 42 project requirements, enabling formatted output functionality in scenarios where only a subset of standard library functions is permitted.
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🚀 Why `ft_printf` Matters
+</h3> 
+
+The `ft_printf` project pushes us beyond basic library usage towards a more autonomous approach to programmig.
+
+By tackling this challenge we gain pratical insights into the internal workings of printf, addressing complex requirements with efficient memory handling and precision in code execution, all of which are essential for advancing in systems programming and software development.
+
+Completing `ft_printf` prepares us for increasingly complex projects, instilling confidence in their ability to write optimized, foundational code that mimics critical standard library functions. 
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🧬 Structure: Inside ft_printf <a id="structure"></a>
+</h3> 
+
+---
+
+<h2 align="center" style="font-weight: bold; font-size: 1.2em; line-height: 1.5em; color: #333;">
+  <p>
+    <a href="#intro" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">🗣️ Introduction</a> • 
+    <a href="#ft_printf" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">⬆️ ⬆️ Top</a> • 
+    <a href="#functions" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">📂 Functions</a> • 
+    <a href="#compilation" style="color: #2b7a78; text-decoration: none; margin: 0 10px;">Compilation</a>
+  </p>
+</h2>
+
+---
+
+The ft_printf project is structured around a central function, ft_printf, which processes various data types and applies formatting options for strings, intergers, characters, and hexadecimal values.
+
+This implementation closely mirrors the standard **printf** function making it versatile and adaptable for projects requiring formatted output without external libraries.
+
+The main function interacts with a suite of specialized helpter functions, each dedicated to processing and formatting a specific data type according to the given format specifiers.
+
+This modular approach allows ft_printf to interpret and format different types of input consistently, and each auxiliary function has a clear, focused role within the formatting pipeline. 
+
+Together, these components form a comprehensive and reusable implementation that offers essential functionality of the standard printf while maintaining independence from the standard library.
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Key Concepts
+</h3> 
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🧩 String Parsing and Handling
+</h3> 
+
+> A core responsability of `ft_printf` is the ability to scan through a string, interpret format specifiers, and process each component accordingly. 
+>
+> In other words, a core responsibility of `ft_printf` is to parse input strings for format specifiers, process them, and format output accordingly. This requires a approach to scanning, interpreting, and handling memory.
+>
+> This involves:
+>
+>  - **String Traversal**: ft_printf scans each character in the string to identify `%` symbols which indicate the start of a format specifier.
+>
+>  - **Specifier Parsing**: Recognizes and interpreting various format specifiers (such as `%d`, `%s`, `%x`), flags (e.g., `+`, `-`, `0`), width, precision, and length modifiers, applying each setting precisely to achieve the correct output format.
+>
+>  - **Efficient Memory Management**: Manages memory dynamically by allocating and deallocating temporary buffers, preventing leaks and avoiding overflows. This is crucial for processing large or complex strings without compromising system stability.
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🛠️ Type Conversion and Output Formatting
+</h3> 
+
+> Handling various data types (such as integers, characters, and strings) and formatting them accurately (e.g., `%d`, `%s`, `%x`) to display values in specific formats, as `printf`, does requires an extensive suite of conversion and formatting functions. 
+
+> Each data type has unique requirements that `ft_printf` accomodates through custom implementations. 
+>
+>  - **Data Type Handling**: Managing integers, characters, pointers, and strings, each with specialized formatting requirements and conversion rules. 
+>
+>  - **Format Specifiers**: Implements a range of format specifiers allowing `ft_printf` to format values as:
+>
+>    - `%d` and `%i` for signed integers
+>    - `%u` for unsigned integers
+>    - `%x` and `%X` for hexadecimal numbers
+>    - `%c` for characters
+>    - `%s` for strings
+>    - `%p` for pointers
+>
+>  - **Flags, Width, and Precision**: Handles additional flags (e.g., `-` for left-justification, `0` for zero-padding), controls minimum number of characters width settings, and applies precision settings for number of digits or characters displayed.
+>
+>  - **Custom Conversion Functions**: Creating helper functions to convert data types into strings, adds padding, and applies the specified flags to produce the correct output format.
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🧪 Error Handling and Edge Cases
+</h3> 
+
+> To ensure robust functionatily, `ft_printf` adresses common edge cases, making it resilient against invalid input and atypical usage scenarios.
+>
+>  - **Null Pointers**: Safely handles NULL pointers by displaying `(null)` for `NULL` strings and ensuring pointers do not cause segmentation faults.
+
+>  - **Precision and Width Edge Cases**: Manages minimum width and precision requirements, aligning output and handling zero-width or zero-precision cases.
+
+>  - **Specifier Validation**: Validates and skips unsupported format specifiers, avoiding undefined behavior and maintaing control over output.
+
+>  - **Recursive or Iterative Formatting**: Ensuring output for recursive format calls remains efficient and controlled to avoid buffer overflows or infinite loops.
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    🌳 Directory Tree 
+</h3> 
 
 <pre>
-ft_printf
-├── includes
-│   ├── ft_printf.h
-│   └── libft.h
-├── Libft
-│   
-├── Makefile
-|
-└── srcs
-    ├── ft_print_c.c
-    ├── ft_print_d.c
-    ├── ft_printf.c
-    ├── ft_print_p.c
-    ├── ft_print_s.c
-    ├── ft_print_u.c
-    ├── ft_print_x.c
-    └── ft_strlen.c
-
+📂 ft_printf
+├── 📂includes/           # Directory containing header files.
+│   ├── 📄 ft_printf.h    # Header file with function prototypes and type definitions.
+│   └── 📄 libft.h        # Additional header with common utility functions.
+├── 📂 Libft              # External library for basic functions (custom implementations).
+├── 📄 Makefile           # Build automation file for compiling the project.
+└── 📂 srcs/              # Directory containing the project's source code files.
+    ├── 📄 ft_print_c.c   # Processes and formats characters.
+    ├── 📄 ft_print_d.c   # Processes and formats signed integers.
+    ├── 📄 ft_printf.c    # Core function handling main format logic.
+    ├── 📄 ft_print_p.c   # Processes and formats pointer addresses.
+    ├── 📄 ft_print_s.c   # Processes and formats strings.
+    ├── 📄 ft_print_u.c   # Processes and formats unsigned integers.
+    └── 📄 ft_print_x.c   # Processes and formats hexadecimal values.
 </pre>
 
-> `/includes`: This directory contains the project header file.  
-> `/srcs`: This directory contains the project's source code files.  
+> - **`/includes`**: Contains header files, including `ft_printf.h`, which provides function prototypes and data structure definitions used throughout the project. 
+> - **`/srcs`**: Contains source code files, each focusing on specific functionalities, such as formatting different data types (`ft_print_d.c`, `ft_print_x.c`).
+
+---
 
 ## Groups
 
 |**General**|**Print**|
 |:---------:|:-------:|
 |`ft_printf`| `ft_print_c`, `ft_print_d`, `ft_print_u`, `ft_print_p`, `ft_print_x`, `ft_print_u`, `ft_printf`|
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    📂 Functions <a id="functions"></a>
+</h3>
+
+---
+
+<h3>
+  <p align="center"> 
+    <a href="#char">🧵 Character</a> • 
+    <a href="#hexa">🔗 Hexadecimal</a> • 
+    <a href="#pointer">🔧 Pointer</a> • 
+    <a href="#unsigned">🔗 Unsigned</a> • 
+    <a href="#string">🔗 String</a> • 
+    <a href="#number">🔗 Number</a> • 
+    <a href="#printf">🔗 Printf</a>
+  </p>
+</h3>
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print Character <a id="char"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#structure">⬅️ Structure</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#libft">⬆️ ⬆️ Top</a> • 
+  <a href="#memory">Memory ➡️</a>
+</p>
+</h3>
+
+---
+ 
+Operates similarly to the original libc function, writing the character c, but in addition it returns the number of characters written. Unlike `ft_putchar_fd`, which requires two parameters, `ft_putchar_v2` simplifies the process with just one, as it always directs output to `STDOUT` by default.   
+
+| Project   |                Signature                |
+|:----------|:----------------------------------------|
+| ft_Printf | `int	ft_putchar_v2(char c)`        |
 
 
 ### General Functions  
@@ -77,7 +240,7 @@ ft_printf
 
 
 <p align="center">
-<a href="https://github.com/pin3dev/42_ft_Printf/wiki/ft_Printf">Next ➡️</a>
+<a href="">Next ➡️</a>
 </p>
 
  
@@ -195,15 +358,7 @@ The **ft_printf** project supports the following format specifiers:
 
 **ft_printf** is a simplified implementation of the `printf` function in C, providing basic formatting for characters, strings, integers, unsigned integers, hexadecimal, and pointers.
 
-## Table of Contents
 
-- [Introduction](#introduction)
-- [Usage](#usage)
-- [Supported Format Specifiers](#supported-format-specifiers)
-- [How to Build](#how-to-build)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -235,171 +390,6 @@ To build the project, you can use a simple Makefile or compile the source files 
 ```bash
 gcc -Wall -Wextra -Werror -c ft_printf.c ft_print_char.c ft_print_str.c ... # Add all source files
 gcc -o your_program your_source_file.c ft_printf.o ft_print_char.o ft_print_str.o ... # Add all object files
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div align="center">
-  
-# <a href="#"><img width="500" align="center" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e"></a> Cursus Common Core
-
-The 42 Common Core is an intensive, self-taught, project-based curriculum focused on software development and problem-solving designed to build strong programming foundations. It emphasizes autonomy, collaboration, and adaptability.<br>
-
-</div>
-
-<div align="center">
-
-<table>
-  <tr>
-    <th align="center"><a href="#"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
-    <td align="center"> circle 0 </td>
-    <td align="center"> circle 1 </td>
-    <td align="center"> circle 2 </td>
-    <td align="center"> circle 3 </td>
-    <td align="center"> circle 4 </td>
-    <td align="center"> circle 5 </td>
-    <td align="center"> circle 6 </td>
-  </tr>
-  <tr>
-    <td>pjcts
-    </td>
-    <td>
-
-[**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
-    </td>
-    <td>
-
-  [**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)<br>
-  [**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)<br>
-  [**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
-    </td>
-    <td>
-
-[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)<br>
-[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)<br>
-[**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)
-    </td>
-    <td>
-
-[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)<br>
-[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
-    </td>
-    <td>
-
-[**`netpractice`**]()<br>
-[**`miniRT`**]()<br>
-[**`cpp`**]()
-    </td>
-    <td>
-
-[**`ft_irc`**]()<br>
-[**`inception`**]()<br>
-[**`cpp`**]()
-    </td>
-    <td>
-
-[**`trascendence`**]()<br>
-    </td>
-  </tr>
-  <tr>
-    <td>exam</td>
-    <td></td>
-    <td></td>
-    <td>
-      
-[**`rank02`**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)</td>
-<td>
-      
-[**`rank03`**](https://github.com/LLuisPP/42-Exams-rank03)</td>
-<td>
-      
-[**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
-<td>
-      
-[**`rank05`**]()</td>
-<td>
-  
-[**`rank06`**]()</td>
-  </tr>
-</table>
-
-</div>
-
-<h2>Project overview:</h2>
-<br>
-
-<div align="center">
-
-|<a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a>|Project|Lvl|Description|OS|100|125|Date|
-|---|---|---|:---|:---|:---|:---|---|
-|`📖`|[**libft**](https://github.com/LLuisPP/42Cursus/tree/main/libft)|:suspect:| Essential C functions library replication |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen">|<a href="#"><img src="https://img.shields.io/badge/125-darkgreen"></a>|`Sep'23`|
-||`milestone 0`|||||||
-|`🐧`|[**born2beRoot**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)|:hurtrealbad:| Configure a Linux virtual machine |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Oct'23`|
-|`🖨`|[**ft_printf**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)|:rage2:| Create a printf function from scratch in C |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Nov'23`|
-|`📝`|[**get_next_line**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)|:rage4:| Read file input line by line efficiently |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|<a href="#"><img src="https://img.shields.io/badge/125-darkgreen"></a>|`Dic'23`|
-||`milestone 1`|||||||
-|`🔢`|[**push_swap**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)|:feelsgood:| Sort stack numbers with limited actions |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/86-darkgreen"></a>|--|`Feb'24`|
-|`🌀`|[**fractol**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)|:goberserk:| Generate 2D fractals with graphical output |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|<a href="#"><img src="https://img.shields.io/badge/110-darkgreen"></a>|`Feb'24`|
-|`🧪`|[**pipex**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)|:finnadie:| Handle child process with forks and pipes |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/e728727c-b38b-48b8-92ad-b7006445f64d"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`May'24`|
-|`🔖`|[**rank 02 exam**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)|:goberserk:| Solve 4/57 exercises in 3 hours for 100 pts |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>||`Jul'24`|
-||`milestone 2`|||||||
-|`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| Rndm program: ft_printf or get_next_line |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>||`Aug'24`|
-|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:rage2:| Synchronize threads to solve philo problem |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Aug'24`|
-|`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|▶️|--|--|
-||`milestone 3`|||||||
-|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🌐`|[**netpractice**]()|:suspect:| Practice networks through hands-on tasks |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🌅`|[**miniRT**]()|:hurtrealbad:| Create a 3D scene renderer |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`📟`|[**cpp's 0-5**]()|:rage2:| Basics of C++ and its fundamental features |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-||`milestone 4`|||||||
-|`👥`|[**inception**]()|:rage3:| Contain multiple Docker containers |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`💬`|[**ft_irc**]()|:rage4:| Implement a functional IRC server |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`📟`|[**cpp's 6-9**]()|:finnadie:| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🔖`|[**rank 05 exam**]()|:godmode:| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-||`milestone 5`|||||||
-|`🕹️`|[**trascendence**]()|:finnadie:| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🔖`|[**rank 06 exam**]()|:godmode:| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-
-</div>
-<div align="left">
-When I finish everything, it will be:
-</div>
-<br>
-<div align="center">
-<a href="#"><img width="408" align="center" src="https://github.com/user-attachments/assets/bf7526e2-1027-42c9-9597-4f8b6d9527f9"></a>
-</div>
-
-<h2>Cursus holygraph</h2>
-
-<div align="left">
-The Holygraph is a visual tool used at 42 to track students' progress over time, showing their project completions and skill development.
-</div>
-<br>
-<div align="center">
-<a href="#"><img width="408" align="center" src="https://github.com/user-attachments/assets/b4e0e4f1-8eb9-4e21-9e1c-a7cc36ae18dc"></a> <a href="#"><img width="400" align="center" src="https://github.com/user-attachments/assets/34bf2383-b6b2-488d-b6b9-582c8c7c06ad"></a>
-</div>
 
 
 
