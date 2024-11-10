@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 14:36:47 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/07 14:37:22 by rickymercur      ###   ########.fr       */
+/*   Created: 2024/11/07 19:16:49 by rickymercur       #+#    #+#             */
+/*   Updated: 2024/11/07 19:18:43 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(char *str)
+int	ft_print_s(char *str)
 {
-	int		len;
+	int		i;
+	int		count;
+	int		write_result;
 
-	if (!str)
+	i = 0;
+	count = 0;
+	if (str == NULL)
+		str = "(null)";
+	while (str[i] != '\0')
 	{
-		write (1, "(null)", 6);
-		return (6);
+		write_result = write(1, &str[i], 1);
+		if (write_result == -1)
+			return (-1);
+		count++;
+		i++;
 	}
-	len = ft_strlen(str);
-	write (1, str, len);
-	return (len);
+	return (count);
 }
