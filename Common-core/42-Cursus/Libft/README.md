@@ -179,8 +179,6 @@ This organization not only enhances the usability of the library but also makes 
     🌳 Directory Tree
 </h3>
 
-<pre>
-### 🗂️ Libft Structure
 
 <pre>
 Libft
