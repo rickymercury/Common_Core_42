@@ -195,7 +195,7 @@ Together, these components form a comprehensive and reusable implementation that
     <a href="#pointer">🔧 Pointer</a> • 
     <a href="#unsigned">🔗 Unsigned</a> • 
     <a href="#string">🔗 String</a> • 
-    <a href="#number">🔗 Number</a> • 
+    <a href="#integer">🔗 Integer</a> • 
     <a href="#printf">🔗 Printf</a>
   </p>
 </h3>
@@ -212,8 +212,8 @@ Together, these components form a comprehensive and reusable implementation that
 <p align="center">
   <a href="#structure">⬅️ Structure</a> • 
   <a href="#functions">⬆️ Functions</a> • 
-  <a href="#libft">⬆️ ⬆️ Top</a> • 
-  <a href="#memory">Memory ➡️</a>
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#memory">Hexadecimal ➡️</a>
 </p>
 </h3>
 
@@ -224,6 +224,145 @@ Operates similarly to the original libc function, writing the character c, but i
 | Project   |                Signature                |
 |:----------|:----------------------------------------|
 | ft_Printf | `int	ft_putchar_v2(char c)`        |
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print Hexadecimal <a id="hexa"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#structure">⬅️ Character</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#pointer">Pointer ➡️</a>
+</p>
+</h3>
+
+---
+
+
+
+
+
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print Pointer <a id="pointer"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#hexa">⬅️ Hexadecimal</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#unsigned">Unsigned ➡️</a>
+</p>
+</h3>
+
+---
+
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print Unsigned <a id="unsigned"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#pointer">⬅️ Pointer</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#string">String ➡️</a>
+</p>
+</h3>
+
+---
+
+
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print String <a id="string"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#unsigned">⬅️ Unsigned</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#integer">Integer ➡️</a>
+</p>
+</h3>
+
+---
+
+
+
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Print Integer <a id="integer"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#string">⬅️ String</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#printf">Printf ➡️</a>
+</p>
+</h3>
+
+---
+
+
+
+
+
+---
+
+<h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
+    Printf <a id="printf"></a>
+</h3>
+
+---
+
+<h3>
+<p align="center">
+  <a href="#integer">⬅️ Integer</a> • 
+  <a href="#functions">⬆️ Functions</a> • 
+  <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
+  <a href="#printf">Printf ➡️</a>
+</p>
+</h3>
+
+---
 
 
 ### General Functions  
