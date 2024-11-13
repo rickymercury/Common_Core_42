@@ -6,11 +6,51 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:07:11 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 20:29:21 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/13 01:55:35 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int count_digits(long nbr)
+{
+    int count;
+
+    count = 0;
+    if (nbr == 0)
+        return (1);
+    while (nbr > 0)
+    {
+        nbr /= 10;
+		count++;
+    }
+    return (count);
+}
+
+int ft_print_u(unsigned int n)
+{
+    unsigned long nbr;
+    int digit_count;
+
+    nbr = n;
+    if (nbr == 0)
+    {
+        ft_print_c('0');
+        return (1);
+    }
+    digit_count = count_digits(nbr);
+    if (nbr >= 10)
+        ft_print_u(nbr / 10);
+    ft_print_c(nbr % 10 + '0');
+    return (digit_count);
+}
+
+
+
+
+
+
+/* NON-RECURSIVE
 
 static size_t u_digits(unsigned int n)
 {
@@ -27,39 +67,45 @@ static size_t u_digits(unsigned int n)
     return (digits);
 }
 
-char *ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
-    char *str;
-    int num_len;
+	char	*str;
+	int		size;
 
-    num_len = u_digits(n);
-    str = (char *)malloc((num_len + 1) * sizeof(char));
-    if (!str)
-        return (NULL);
-    str[num_len] = '\0';
-    while (num_len > 0)
-    {
-        str[num_len - 1] = (n % 10) + '0';
-        n = n / 10;
-        num_len--;
-    }
-    return (str);
+	size = u_digits(n);
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (str == NULL)
+		return (NULL);
+	str[size] = '\0';
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	while (size > 0)
+	{
+		str[size - 1] = (n % 10) + '0';
+		n /= 10;
+		size--;
+	}
+	return (str);
 }
 
 int ft_print_u(unsigned int n)
 {
-    int num_len;
+    int   len;
     char *str;
 
     if (n == 0)
-        return write(1, "0", 1);
+        return (write(1, "0", 1));
     str = ft_utoa(n);
     if (!str)
         return (-1);
-    num_len = 0;
-    while (str[num_len] != '\0')
-        num_len++;
-    write(1, str, num_len);
+    len = 0;
+    while (str[len] != '\0')
+        len++;
+    write(1, str, len);
     free(str);
-    return (num_len);
+    return (len);
 }
+*/

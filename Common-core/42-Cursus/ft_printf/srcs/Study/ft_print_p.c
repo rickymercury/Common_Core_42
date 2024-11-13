@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 22:50:30 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 20:26:23 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/13 09:27:26 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ int ft_print_p(unsigned long long ptr)
     len += p_digits(ptr);
     return (len);
 }
-

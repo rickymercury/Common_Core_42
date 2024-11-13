@@ -6,7 +6,7 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:51:38 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 20:27:00 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/13 13:08:31 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ int format_printf(va_list args, const char format)
     if (format == 'c')
         return (ft_print_c(va_arg(args, int)));
     else if (format == 's')
-        return (ft_print_s(va_arg(args, char *)));
+        return (ft_print_s(va_arg(args, const char *)));
     else if (format == 'p')
         return (ft_print_p(va_arg(args, unsigned long long)));
     else if (format == 'd' || format == 'i')
         return (ft_print_d(va_arg(args, int)));
     else if (format == 'u')
         return (ft_print_u(va_arg(args, unsigned int)));
-    else if (format == 'x' || format == 'X')
-        return (ft_print_x(va_arg(args, unsigned int), format));
+     else if (format == 'x')
+        return (ft_print_x(va_arg(args, unsigned int), 0));
+    else if (format == 'X')
+        return (ft_print_x(va_arg(args, unsigned int), 1));
     else if (format == '%')
         return (ft_print_c('%'));
     return (0);

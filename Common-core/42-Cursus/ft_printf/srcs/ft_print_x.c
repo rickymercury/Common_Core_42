@@ -6,39 +6,54 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 08:27:35 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 20:26:40 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/13 13:16:13 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void print_hex_rec(unsigned int n, char format)
+int	ft_isdigit(int c)
 {
-    char hex_digit;
-
-    if (n >= 16)
-        print_hex_rec(n / 16, format);
-    hex_digit = "0123456789abcdef"[n % 16];
-    if (format == 'X' && hex_digit >= 'a' && hex_digit <= 'f')
-        hex_digit -= 32;
-    ft_print_c(hex_digit);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
-int ft_print_x(unsigned int n, char format)
+static int	is_lowercase(char a)
 {
-    int count;
-
-    if (n == 0)
-        return ft_print_c('0');
-
-    count = 0;
-    print_hex_rec(n, format);
-    while (n > 0)
-    {
-        n /= 16;
-        count++;
-    }
-
-    return (count);
+	if (a >= 'a' && a <= 'f')
+		return (1);
+	return (0);
 }
 
+static void	add_hex(unsigned int x)
+{
+	char	*hex;
+	int		tmp;
+
+	hex = "0123456789abcdef";
+	if (!ft_isdigit(hex[x % 16]) && is_lowercase(hex[x % 16]))
+	{
+		tmp = hex[x % 16] - 32;
+		write(1, &tmp, 1);
+	}
+	else
+		write(1, &hex[x % 16], 1);
+}
+
+int	ft_print_x(unsigned int x, int upper)
+{
+	char	*hex;
+	int		count;
+
+	count = 0;
+	hex = "0123456789abcdef";
+	if (x >= 16)
+		count += ft_print_x(x / 16, upper);
+	if (upper)
+		add_hex(x);
+	else
+		write(1, &hex[x % 16], 1);
+	count++;
+	return (count);
+}
