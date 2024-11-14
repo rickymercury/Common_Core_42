@@ -230,21 +230,37 @@ The `ft_print_c` function itself is responsible for printing a single character 
 Within ft_printf, `ft_print_c` is called from the `format_printf` function when the format specifier is `%c`. 
 This flow is designed to handle various types of data seamlessly, and here is how it unfolds in detail:
 
+<<<<<<< HEAD
 >   ## **Format Parsing:** 
 >
 >    ft_printf processes the input string character by character. As it scans through the characters, it checks for occurrences of the % symbol, which indicates the beginning of a format specifier.
 >    
 >   ## **Delegation to handle_format:** 
+=======
+>    **Format Parsing:** 
+>
+>    ft_printf processes the input string character by character. As it scans through the characters, it checks for occurrences of the % symbol, which indicates the beginning of a format specifier.
+>    
+>    **Delegation to handle_format:** 
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >    
 >    When ft_printf detects a format specifier, it calls the handle_format function, passing along the argument list and the current format specifier (e.g., %c, %s, %d, etc.). 
 >    This function’s role is to determine which specific printing function to call based on the format character. 
 >    For instance, if the format character is 'c', it will direct the program to ft_print_c.
 >
+<<<<<<< HEAD
 >   ## **Calling ft_print_c:** 
 >
 >    Once handle_format has determined that the format is %c, format_printf invokes ft_print_c with the appropriate argument.
 >
 >   ## **Printing and Counting:** 
+=======
+>    **Calling ft_print_c:** 
+>
+>    Once handle_format has determined that the format is %c, format_printf invokes ft_print_c with the appropriate argument.
+>
+>    **Printing and Counting:** 
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >
 >    Within ft_print_c, the write function is used to print the character to the standard output. 
 >    For instance, write(1, &c, 1) writes a single character (stored in c) to the output. ft_print_c then returns 1, which represents the number of characters printed by this function. 
@@ -258,6 +274,7 @@ With ft_print_c, ft_printf can handle the `%c` format, enabling the printing of 
 >
 > Consider the following examples demonstrating how ft_printf interacts with ft_print_c:
 >
+<<<<<<< HEAD
 > Example 1:          ft_printf("Character: %c", 'X');
 >
 > - ft_printf detects %c and calls handle_format.
@@ -271,6 +288,21 @@ With ft_print_c, ft_printf can handle the `%c` format, enabling the printing of 
 > - Each %c calls handle_format, which routes to ft_print_c.
 > - ft_print_c first prints A and returns 1, then prints B and returns 1.
 > - The final output is "First: A, Second: B", and ft_printf returns 19 (total character count of the output string).
+=======
+>    Example 1:          ft_printf("Character: %c", 'X');
+>
+>    - ft_printf detects %c and calls handle_format.
+>    - handle_format identifies the %c format specifier and calls ft_print_c('X').
+>    - ft_print_c writes X to the output and returns 1.
+>    - The total output is "Character: X", and ft_printf returns 12 (11 characters for "Character: X" plus 1 for the newline).
+>
+>    Example 2:          ft_printf("First: %c, Second: %c", 'A', 'B');
+>
+>    - ft_printf processes %c twice: once for 'A' and once for 'B'.
+>    - Each %c calls handle_format, which routes to ft_print_c.
+>    - ft_print_c first prints A and returns 1, then prints B and returns 1.
+>    - The final output is "First: A, Second: B", and ft_printf returns 19 (total character count of the output string).
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
 
 ---
@@ -302,16 +334,28 @@ These specifiers allow ft_printf to format integers as hexadecimal values, a com
 
 Within `ft_printf`, the `%x` and `%X` specifiers are detected in a sequence of operations that follow a similar structure to other format specifiers:
 
+<<<<<<< HEAD
 >   ## **Format Parsing:** 
+=======
+>    **Format Parsing:** 
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
 >    As ft_printf reads through its input string, it searches for the % character, indicating that a format specifier is present. 
 >    For example, in ft_printf("Value: %x", 255);, the %x sequence signals that an integer argument should be printed in hexadecimal.
 >
+<<<<<<< HEAD
 >   ## **Delegation to format_printf:** 
 >
 >    Once a format specifier is identified, ft_printf calls format_printf, passing along the current format character (in this case, 'x' or 'X') and the list of arguments.
 >
 >   ## **Calling ft_print_x:** 
+=======
+>    **Delegation to format_printf:** 
+>
+>    Once a format specifier is identified, ft_printf calls format_printf, passing along the current format character (in this case, 'x' or 'X') and the list of arguments.
+>
+>    **Calling ft_print_x:** 
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
 >     If the format character is 'x', format_printf calls ft_print_x, passing the next argument as an unsigned integer along with 0 for the upper parameter, indicating that lowercase hexadecimal should be used.
 >     If the format character is 'X', format_printf again calls ft_print_x, but this time with upper set to 1, indicating uppercase format.
@@ -321,8 +365,15 @@ This function, along with its helper functions `ft_isdigit`, `is_lowercase`, and
 
 >    `is_lowercase`: 
 >
+<<<<<<< HEAD
 >     This helper function, checks if a character a is a lowercase letter between 'a' and 'f'. It returns 1 if a is lowercase, allowing for conditional handling of lowercase hexadecimal digits when uppercasing might be necessary.
 >
+=======
+>    `is_lowercase`: 
+>
+>     This helper function, checks if a character a is a lowercase letter between 'a' and 'f'. It returns 1 if a is lowercase, allowing for conditional handling of lowercase hexadecimal digits when uppercasing might be necessary.
+>
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >    `add_hex`: 
 >     
 >     This function is responsible for writing individual hexadecimal characters to the output, converting them to uppercase if required.
@@ -335,6 +386,7 @@ This function, along with its helper functions `ft_isdigit`, `is_lowercase`, and
 >
 >     The core function, ft_print_x, recursively prints an unsigned integer x in hexadecimal format. It includes an upper parameter that indicates whether the output should be uppercase. 
 >
+<<<<<<< HEAD
 >   ## **Recursive Division:** 
 >
 >     If x is greater than or equal to 16, ft_print_x recursively divides x by 16 to process higher-order digits first. This recursive call structure ensures the digits are printed in the correct order from most significant to least significant.
@@ -344,12 +396,24 @@ This function, along with its helper functions `ft_isdigit`, `is_lowercase`, and
 >     If the upper flag is set, add_hex is called to potentially convert lowercase letters (a to f) to uppercase as needed. If upper is not set, it writes the character directly from the hex array in lowercase.
 >
 >   ## **Character Count:**
+=======
+>    **Recursive Division:** 
+>
+>     If x is greater than or equal to 16, ft_print_x recursively divides x by 16 to process higher-order digits first. This recursive call structure ensures the digits are printed in the correct order from most significant to least significant.
+>
+>    **Calling add_hex or Writing Lowercase Directly:** 
+>
+>     If the upper flag is set, add_hex is called to potentially convert lowercase letters (a to f) to uppercase as needed. If upper is not set, it writes the character directly from the hex array in lowercase.
+>
+>    **Character Count:**
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >
 >     After each character is written, the function increments count, which keeps track of the total number of characters printed. This count is returned as the function's output, representing the total length of the hexadecimal representation printed.
 
 
 The ft_print_x function then prints the unsigned integer in hexadecimal format based on the upper flag
 
+<<<<<<< HEAD
 >   ## **Lowercase (%x):** 
 
       If upper is 0, ft_print_x uses lowercase hexadecimal digits (0-9, a-f) for conversion, suitable for the %x format.
@@ -357,10 +421,16 @@ The ft_print_x function then prints the unsigned integer in hexadecimal format b
 >   ## **Uppercase (%X):** 
 
       If upper is 1, ft_print_x calls add_hex to convert any lowercase letters in the range a-f to uppercase, ensuring correct output for %X.
+=======
+> **Lowercase (%x):** If upper is 0, ft_print_x uses lowercase hexadecimal digits (0-9, a-f) for conversion, suitable for the %x format.
+>
+> **Uppercase (%X):** If upper is 1, ft_print_x calls add_hex to convert any lowercase letters in the range a-f to uppercase, ensuring correct output for %X.
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
 
 > Examples of ft_print_x
 >
+<<<<<<< HEAD
 > Example 1:         ft_printf("Hexadecimal: %x", 255);
 >
 > - %x is detected, and ft_print_x is called with upper = 0.
@@ -372,6 +442,19 @@ The ft_print_x function then prints the unsigned integer in hexadecimal format b
 > - %X is detected, and ft_print_x is called with upper = 1.
 > - The output will be "Uppercase Hex: FF", as ft_print_x capitalizes f to F.
 > - The total character count returned by ft_printf is 15.
+=======
+>    Example 1:         ft_printf("Hexadecimal: %x", 255);
+>
+>    - %x is detected, and ft_print_x is called with upper = 0.
+>    - The output will be "Hexadecimal: ff", as ft_print_x prints 255 in lowercase hexadecimal.
+>    - The return value from ft_printf would be 15, counting all characters printed.
+>
+>   Example 2:          ft_printf("Uppercase Hex: %X", 255);
+>
+>   - %X is detected, and ft_print_x is called with upper = 1.
+>   - The output will be "Uppercase Hex: FF", as ft_print_x capitalizes f to F.
+>   - The total character count returned by ft_printf is 15.
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
     
 ---
@@ -403,12 +486,16 @@ The `ft_print_p` function is designed to handle the `%p` format specifier within
 
 Within ft_printf, the `%p` specifier is detected and processed similarly to other format specifiers, following a sequence of operations to correctly output the pointer address in hexadecimal format:
 
+<<<<<<< HEAD
 >   ## **Format Parsing:** 
 >   
 >     As ft_printf reads through its input string, it searches for the % character, signaling the presence of a format specifier. 
 >     For instance, in ft_printf("Pointer: %p", ptr), the %p indicates that a pointer argument should be printed in hexadecimal.
 >
 >   ## **Delegation to format_printf:** 
+=======
+> **Format Parsing:** As ft_printf reads through its input string, it searches for the % character, signaling the presence of a format specifier. For instance, in ft_printf("Pointer: %p", ptr), the %p indicates that a pointer argument should be printed in hexadecimal.
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >
 >     Once the %p specifier is identified, ft_printf calls format_printf, passing the format character 'p' and the argument list to handle the pointer format.
 >
@@ -421,8 +508,13 @@ This function, together with its helper functions `p_digits` and `print_ptr_rec`
 >    `p_digits`: 
 >
 >     This helper function calculates the number of hexadecimal digits required to represent the pointer address. It accepts n, the pointer address in unsigned long long format, and returns the number of digits necessary.
+<<<<<<< HEAD
 >     If n is 0, p_digits returns 1, as even a zero address requires a single character.
 >     If n is non-zero, it divides n by 16 in a loop, counting the number of divisions until n becomes 0, which corresponds to the number of hexadecimal digits.
+=======
+>        If n is 0, p_digits returns 1, as even a zero address requires a single character.
+>        If n is non-zero, it divides n by 16 in a loop, counting the number of divisions until n becomes 0, which corresponds to the number of hexadecimal digits.
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 >
 >    `print_ptr_rec`: 
 >
@@ -726,7 +818,7 @@ By printing each character of the string individually and returning the correct 
   <a href="#ft_printf">⬆️ ⬆️ Top</a> • 
   <a href="#printf">Printf ➡️</a>
 </p>
-</h3>
+</h3> 
 
 ---
 
@@ -905,6 +997,87 @@ make
 
 This will generate the `libftprintf.a` library, which can be linked in other projects to use the **ft_printf** function.
 
+<<<<<<< HEAD
+=======
+<pre>
+# **************************************************************************** #
+#                                 VARIÁVEIS                                    #
+# **************************************************************************** #
+
+# Nome da biblioteca
+NAME = libftprintf.a
+
+# Compilador e flags
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
+
+# Pastas
+SRC_DIR = srcs
+OBJ_DIR = obj
+INC_DIR = includes
+
+# Variáveis do Libft
+LIBFT_DIR = ../Libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+# Arquivos SRCS
+SRCS = $(SRC_DIR)/ft_printf.c \
+        $(SRC_DIR)/ft_print_x.c \
+        $(SRC_DIR)/ft_print_p.c \
+        $(SRC_DIR)/ft_print_u.c \
+        $(SRC_DIR)/ft_print_d.c \
+        $(SRC_DIR)/ft_print_s.c \
+        $(SRC_DIR)/ft_print_c.c
+
+# Cria os arquivos objetos principais
+OBJ = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+RM = rm -f
+COMPRESS = ar rcs
+
+# **************************************************************************** #
+#                                COMPILAÇÃO                                    #
+# **************************************************************************** #
+
+# Regra all: Compila os arquivos principais e cria a biblioteca
+all: $(NAME)
+
+# Regra para criar a biblioteca
+$(NAME): $(LIBFT) $(OBJ)
+	@$(COMPRESS) $(NAME) $(OBJ) $(LIBFT)
+	@echo "Library $(NAME) created successfully!"
+
+# Regra para compilar arquivos .o a partir dos arquivos .c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled: $<"
+
+# Regra para compilar a libft se necessário
+$(LIBFT): 
+	@$(MAKE) -C $(LIBFT_DIR)
+
+# Regra clean: Remove os arquivos objetos (.o)
+clean:
+	@$(RM) $(OBJ)
+	@if [ -d "$(OBJ_DIR)" ]; then rmdir $(OBJ_DIR); fi
+	@echo "Printf: Obj cleaned"
+
+# Regra fclean: Remove os arquivos objetos (.o) e a biblioteca
+fclean: clean
+	@$(RM) $(NAME)
+	@echo "Printf: Exec cleaned"
+
+# Regra re: Limpa tudo e recompila
+re: fclean all
+
+# Regra para a libft
+libft: $(LIBFT)
+
+.PHONY: all clean fclean re libft
+<pre>
+
+>>>>>>> e0cf1240a73d396f4f8f5f932f5862234998f54f
 
 
 
