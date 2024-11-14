@@ -6,34 +6,24 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:43:08 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/13 17:11:38 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/14 00:07:35 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t element_size)
 {
-	size_t			total_size;
-	unsigned char	*ptr;
+	void	*cal;
 
-	if (nmemb * size == 0)
-	{
-		ptr = malloc(0);
-		if (!ptr)
-			return (NULL);
-		return (ptr);
-	}
-	total_size = nmemb * size;
-	if ((nmemb * size) / size != nmemb)
+	if (nmemb != 0 && ((nmemb * element_size) / nmemb != element_size))
 		return (NULL);
-	ptr = malloc(total_size);
-	if (!ptr)
+	cal = malloc(nmemb * element_size);
+	if (!cal)
 		return (NULL);
-	ft_bzero(ptr, total_size);
-	return (ptr);
+	ft_memset(cal, 0, nmemb * element_size);
+	return (cal);
 }
-
 
 /* 
 Reserves storage space for an array of num elements, each of length size

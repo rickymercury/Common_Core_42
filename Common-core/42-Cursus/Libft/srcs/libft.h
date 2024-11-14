@@ -6,9 +6,10 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <string.h>
+#include <limits.h>
 
 void	ft_bzero(void *s, size_t n);
-void    *ft_calloc(size_t count, size_t size);
+void	*ft_calloc(size_t nmemb, size_t element_size);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *ptr, int value, size_t n);
