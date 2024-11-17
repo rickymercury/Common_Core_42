@@ -6,40 +6,38 @@
 /*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:46:31 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 23:18:47 by rickymercur      ###   ########.fr       */
+/*   Updated: 2024/11/17 18:49:52 by rickymercur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t			i;
-	size_t			j;
-	size_t			size;
-	char		*str;
 
-	if (s1 == NULL || s2 == NULL)
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*joined;
+	size_t	i;
+	size_t	j;
+
+	if (!s1 || !s2)
 		return (NULL);
-	size = (ft_strlen(s1) + ft_strlen(s2));
-	str = (char *)malloc((size + 1) * sizeof(char));
-	if (str == NULL)
+	if (!s1)
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
+	joined = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!joined)
 		return (NULL);
-	i = 0;
+	i = -1;
+	while (s1[++i] != '\0')
+		joined[i] = s1[i];
 	j = 0;
-	while (s1[i] != '\0' && s1)
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0' && s2)
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	return (str);
+	while (s2[j] != '\0')
+		joined[i++] = s2[j++];
+	joined[i] = '\0';
+	free(s1);
+	return (joined);
 }
 
 /*
