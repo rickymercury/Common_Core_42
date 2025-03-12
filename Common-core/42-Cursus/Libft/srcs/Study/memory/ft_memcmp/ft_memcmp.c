@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:44:32 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 22:12:31 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/01 23:14:53 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 18:47:41 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,125 +14,133 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t	i;
+	size_t  			    i;
+	unsigned char		*ptr1;
+	unsigned char	    *ptr2;
 
 	i = 0;
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
-    if (n == 0)
-		return (0);
-	while ((ptr1[i] == ptr2[i]) && (i < n - 1))
+	while (i < n)
+	{
+		if (ptr1[i] != ptr2[i])
+		{
+			return (ptr1[i] - ptr2[i]);
+		}
 		i++;
-	return (ptr1[i] - ptr2[i]);
+	}
+	return (0);
 }
 
-/*
-void ft_print_result(int n)
+/* 
+int main()
 {
-    if (n > 0)
-        printf("1\n"); 
-    else if (n < 0)
-        printf("-1\n");
-    else
-        printf("0\n");  
-}
+	char str_memcmp1[] = "Hello World";
+	char str_memcmp2[] = "HelloWorld";
 
-int main(int argc, const char *argv[])
-{
-    int arg;
+	int res_mine = ft_memcmp(str_memcmp1, str_memcmp2, 10);
+	int res_orig = memcmp(str_memcmp1, str_memcmp2, 10);
 
-    if (argc == 1)
-        return (0);
-    
-    arg = atoi(argv[1]);
-    
-    if (arg == 1)
-    {
-        printf("Comparação entre \"salut\" com \"salut\": ");
-        ft_print_result(ft_memcmp("salut", "salut", 5));
-    }
-    else if (arg == 2)
-    {
-        printf("Comparação entre\"t\\200\" com \"t\\0\": ");
-        ft_print_result(ft_memcmp("t\200", "t\0", 2));
-    }
-    else if (arg == 3)
-    {
-        printf("Comparação entre \"testss\" com \"test\": ");
-        ft_print_result(ft_memcmp("testss", "test", 5));
-    }
-    else if (arg == 4)
-    {
-        printf("Comparação entre \"test\" com \"tEst\": ");
-        ft_print_result(ft_memcmp("test", "tEst", 4));
-    }
-    else if (arg == 5)
-    {
-        printf("Comparação entre \"\" com \"test\": ");
-        ft_print_result(ft_memcmp("", "test", 4));
-    }
-    else if (arg == 6)
-    {
-        printf("Comparação entre \"test\" com \"\": ");
-        ft_print_result(ft_memcmp("test", "", 4));
-    }
-    else if (arg == 7)
-    {
-        printf("Comparação entre \"abcdefghij\" com \"abcdefgxyz\": ");
-        ft_print_result(ft_memcmp("abcdefghij", "abcdefgxyz", 7));
-    }
-    else if (arg == 8)
-    {
-        printf("Comparação entre \"abcdefgh\" com \"abcdwxyz\": ");
-        ft_print_result(ft_memcmp("abcdefgh", "abcdwxyz", 6));
-    }
-    else if (arg == 9)
-    {
-        printf("Comparação entre \"zyxbcdefgh\" com \"abcdefgxyz\": ");
-        ft_print_result(ft_memcmp("zyxbcdefgh", "abcdefgxyz", 0));
-    }
+	printf("ft_memcmp: %d\n", res_mine);
+	printf("memcmp: %d\n", res_orig);
 
-    return (0);
-}
-*/
-
-/*
-OUTPUT:
-
-sh-5.2$ cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_memcmp.c -o ft_memcmp && for i in {1..9}; do ./ft_memcmp $i; done
-Comparação entre "salut" com "salut": 0
-Comparação entre"t\200" com "t\0": 1
-Comparação entre "testss" com "test": 1
-Comparação entre "test" com "tEst": 1
-Comparação entre "" com "test": -1
-Comparação entre "test" com "": 1
-Comparação entre "abcdefghij" com "abcdefgxyz": 0
-Comparação entre "abcdefgh" com "abcdwxyz": -1
-Comparação entre "zyxbcdefgh" com "abcdefgxyz": 0
+	return 0;
+} 
 */
 
 
-/* DESCRIPTION: memcmp compares two blocks of memory specified by ptr1 and ptr2.
-The number of bytes to be compared is n . The null character is treated like any
-other character and participates in the comparison, which is performed using the
-standard EBCDIC collating sequence.
+/*
+    This is a recreation of the `memcmp` function in C. The purpose of `memcmp` is to compare two memory blocks 
+    (`s1` and `s2`) byte by byte for the first `n` bytes and determine if they are identical or different.
 
-RETURN VALUE: memcmp returns 0 if the two blocks are equal, an integer less
-than 0 if the first block is less than the second, or an integer greater than 0
-if the first block is greater than the second.  */
+    According to the manual: "The `memcmp` function compares the first `n` bytes (each interpreted as unsigned char) of the memory
+    areas `s1` and `s2`. It returns an integer less than, equal to, or greater than zero if the first `n` bytes of `s1` are found, 
+    respectively, to be less than, to match, or to be greater than the first `n` bytes of `s2`."
+    For a nonzero return value, the sign is determined by the sign of the difference between the first pair of bytes that differ in
+    s1 and s2.
+    If n is zero, the return value is zero.
 
+    In simpler terms, this function:
+    
+    - Compares two memory regions byte by byte.
+    - Stops at the first differing byte or after checking `n` bytes.
+    - Returns:
+    
+        - `0` if both memory areas are identical.
+        - A POSITIVE VALUE if `s1` is greater than `s2`.
+        - A NEGATIVE VALUE if `s1` is less than `s2`.
 
-/* SIMPLIER MAIN
+    Function Parameters:
 
-int	main(void)
-{
-	char	s1[] = "Hello World";
-	char	s2[] = "Hello Warld";
-	int		n;
+    - `const void *s1` → A pointer to the first memory block to compare.
+    - `const void *s2` → A pointer to the second memory block to compare.
+    - `size_t n`       → The number of bytes to compare.
 
-	n = 42;
-	printf("%s vs %s = %d\n", s1, s2, ft_memcmp(s1, s2, n));
-}
+    Understanding the Implementation:
+
+    - The function first declares:
+    
+        - `unsigned char *ptr1` → A pointer to `s1`, cast to `unsigned char *` for accessing individual bytes safely.
+        - `unsigned char *ptr2` → A pointer to `s2`, cast to `unsigned char *` for acessing individual bytes safely.
+        - `size_t i = 0;` → A counter to iterate through `n` bytes.
+
+    - It then enters a loop that iterates `n` times:
+
+        - If `ptr1[i]` is different from `ptr2[i]`, the function returns `ptr1[i] - ptr2[i]`, which gives:
+        
+            - A NEGATIVE value if `ptr1[i]` is smaller than `ptr2[i]`.
+            - ZERO if both bytes are equal.
+            - A POSITIVE value if `ptr1[i]` is greater than `ptr2[i]`.
+            
+        - If all `n` bytes are equal, the function returns `0`.
+
+    Handling Edge Cases:
+
+    - If `n == 0`, the function returns `0` immediately, since there is nothing to compare.
+    - If `s1` or `s2` is `NULL`, behavior is undefined (standard implementations do not check for `NULL`).
+    - The function does NOT stop at the first null byte (`\0`), as it treats memory as a raw block, not a string.
+
+    Example Usage:
+
+    1 - Suppose we have the following code:
+
+        char str1[] = "Hello, World!";
+        char str2[] = "Hello, world!";
+
+        int result = ft_memcmp(str1, str2, 13);
+
+        if (result < 0)
+            printf("str1 is less than str2\n");
+        else if (result > 0)
+            printf("str1 is greater than str2\n");
+        else
+            printf("str1 and str2 are equal\n");
+
+    **Memory representation of `str1` and `str2`:**
+
+        str1: [H] [e] [l] [l] [o] [,] [ ] [W] [o] [r] [l] [d] [!]
+        str2: [H] [e] [l] [l] [o] [,] [ ] [w] [o] [r] [l] [d] [!]
+
+    - The function compares each byte until it finds `'W'` (ASCII `87`) in `str1` and `'w'` (ASCII `119`) in `str2`.
+    - Since `87 - 119 = -32`, `ft_memcmp` returns a negative value, meaning `str1` is "less than" `str2`.
+
+    2 - Suppose we have the following code:
+
+        char str1[] = "hello";
+        char str2[] = "hellz";
+
+        int result = ft_memcmp(str1, str2, 5);
+
+    **Memory comparison:**
+    
+    str1:  h  e  l  l  o  
+            │  │  │  │  └── 'o' (111)  
+            │  │  │  │      ≠  
+            │  │  │  │      'z' (122)  
+    str2:  h  e  l  l  z  
+
+    Since `'o'` (111 in ASCII) is less than `'z'` (122),  
+    `ft_memcmp` returns a negative value.
+
+    The function efficiently determines whether two memory blocks are identical or which one is greater if they differ.
 */

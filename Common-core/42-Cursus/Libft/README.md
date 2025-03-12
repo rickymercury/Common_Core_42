@@ -1,4 +1,4 @@
-![](https://github.com/jotavare/jotavare/blob/main/42/banners/piscine_and_common_core/github_piscine_and_common_core_banner_libft.png)
+![](https://github.com/rickymercury/banners/blob/main/github_piscine_and_common_core_banner_libft.png)
 
 <h3 align="center" style="font-size: 2.5em; font-weight: bold; color: #2C3E50;">
     Topics  <a id="libft"></a>

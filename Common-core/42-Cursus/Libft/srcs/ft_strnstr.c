@@ -3,182 +3,207 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:48:22 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 17:40:16 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/04 20:30:35 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/04 21:20:58 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	if (*to_find == '\0')
-		return ((char *)str);
 	i = 0;
-	while (str[i] != '\0' && i < len)
+	if (!*little)
+		return ((char *)big);
+	while (big[i] != '\0' && i < len)
 	{
-		if (str[i] == to_find[0])
+		j = 0;
+		while (little[j] != '\0' && big[i + j] == little[j] && (i + j) < len)
 		{
-			j = 0;
-			while (to_find[j] != '\0' && (i + j) < len && str[i + j] == to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return ((char *)(str + i));
+			j++;
+		}
+		if (little[j] == '\0')
+		{
+			return ((char *)(big + i));
 		}
 		i++;
 	}
 	return (NULL);
 }
 
-/*
-void ft_print_result(const char *s)
+/* int main(int argc, char **argv)
 {
-    int len = 0;
-    
-    while (s[len])
-        len++;
-    write(1, s, len);
-}
+    if (argc == 4)
+    {
+        char *result_ft = ft_strnstr(argv[1], argv[2], atoi(argv[3]));
 
-int main(int argc, const char *argv[])
-{
-    const char *str;
-    int arg;
-
-    if (argc == 1)
-        return 0;
-
-    if ((arg = atoi(argv[1])) == 1) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15);
-        write(1, "Searching for \"lorem\": ", 24);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
+        if (result_ft != NULL)
+            printf("ft_strnstr: %s\n", result_ft);
     }
-    else if (arg == 2) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15);
-        write(1, "Searching for \"ipsum\": ", 24);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 3) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35);
-        write(1, "Searching for \"ipsum\" in a longer string: ", 43);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 4) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "", 10);
-        write(1, "Searching for empty string: ", 29);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 5) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "ipsumm", 30);
-        write(1, "Searching for \"ipsumm\": ", 25);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 6) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "dol", 30);
-        write(1, "Searching for \"dol\": ", 22);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 7) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "consectetur", 30);
-        write(1, "Searching for \"consectetur\": ", 30);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 8) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "sit", 10);
-        write(1, "Searching for \"sit\": ", 22);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 9) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15);
-        write(1, "Searching for \"dolor\": ", 24);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-    else if (arg == 10) 
-    {
-        str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 0);
-        write(1, "Searching for \"dolor\" with size 0: ", 36);
-        if (!str)
-            ft_print_result("NULL\n");
-        else {
-            ft_print_result(str);
-            write(1, "\n", 1);
-        }
-    }
-
     return (0);
-}
+} */
+
+/* 
+$ cc -Wall -Werror -Wextra ft_strnstr.c
+$ ./a.out "Hello, World of 42" "World" 15
+ft_strnstr: World of 42 
 */
 
-/*
-OUTPUT: 
+/*  
+    This is a recreation of the strnstr function in C. The purpose of strnstr is to find the first occurrence 
+    of a substring (little) in a given string (big), but only up to a specified length (len).
 
-cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_strnstr.c -o ft_strnstr && for i in {1..9}; do ./ft_strnstr $i; done
-Searching for "lorem": lorem ipsum dolor sit amet
-Searching for "ipsum": ipsum dolor sit amet
-Searching for "ipsum" in a longer string: ipsum dolor sit lorem ipsum dolor
-Searching for empty string: lorem ipsum dolor sit amet
-Searching for "ipsumm": NULL
-Searching for "dol": dolor sit amet
-Searching for "consectetur": NULL
-Searching for "sit": NULL
-Searching for "dolor": NULL
+    According to the manual: "The `ft_strnstr()` function locates the first occurrence of the string `little` 
+    in the string `big`, not exceeding `len` characters. If `little` is found, the function returns a pointer 
+    to the first character of the found substring in `big`. If `little` is not found, the function returns `NULL`."
+
+    The `ft_strnstr` function is useful when you need to limit the search to a specific length and avoid unnecessary
+    comparisons beyond that length.
+
+    Function Parameters:
+    
+    - `const char *big` → A pointer to the main string in which to search.
+    - `const char *little` → A pointer to the substring to find.
+    - `size_t len` → The maximum number of characters to search in `big`.
+
+    Understanding the Implementation:
+    
+    The function declares the following variables:
+    
+    - `size_t i` → A counter for iterating through `big`.
+    - `size_t j` → A counter for iterating through `little`.
+
+    How the function works:
+    
+    1. Check for an Empty Substring (`little`):
+    
+    - If `little` is an empty string (`""`), the function immediately returns a pointer to `big`, as an empty string is
+      always considered to be found at the beginning of any string.
+    
+        if (!*little)
+            return ((char *)big);
+
+    2. Iterate Through the Main String (`big`):
+    
+    - The outer `while` loop starts at the beginning of `big` and runs while `i < len` and `big[i]` is not the null
+      terminator (`\0`).
+    
+        while (big[i] != '\0' && i < len)
+
+    3. Compare Substring with Part of `big`:
+    
+    - Inside the loop, another `while` loop compares each character of `little` with the corresponding characters in
+      `big` starting from index `i`.
+    - If a mismatch occurs or the entire `little` string is found, the loop stops.
+    - The comparison stops if `i + j` exceeds `len` to ensure that the search is within the specified length.
+    
+        while (little[j] != '\0' && big[i + j] == little[j] && (i + j) < len)
+
+    4. Check for a Match:
+    
+    - If the inner loop completes and all characters of `little` match the corresponding characters in `big`, the
+      function returns a pointer to the first character of the matching substring in `big`.
+    
+        if (little[j] == '\0')
+            return ((char *)(big + i));
+
+    5. Move to the Next Character:
+    
+    - If no match is found at position `i`, the outer loop increments `i` and continues searching.
+    
+        i++;
+
+    6. Return `NULL` If No Match:
+    
+    - If the function does not find any match by the time it has checked all possible substrings within `len`, it returns `NULL`.
+    
+        return (NULL);
+
+    Special Cases:
+
+    - If `little` is an empty string, the function returns a pointer to `big`.
+    - If `big` does not contain `little` within the first `len` characters, the function returns `NULL`.
+    - If `len` is smaller than the length of `little`, the function does not find any match and returns `NULL`.
+
+    Example Usage:
+    
+    #include <stdio.h>
+    #include <stdlib.h>
+    
+    int main(int argc, char **argv)
+    {
+        if (argc == 4)
+        {
+            // Use atoi to convert string to integer
+            size_t len = atoi(argv[3]);
+    
+            // Get result from ft_strnstr
+            char *result = ft_strnstr(argv[1], argv[2], len);
+    
+            // Print the result
+            if (result != NULL)
+                printf("ft_strnstr: %s\n", result);
+        }
+        return 0;
+    }
+
+    Step-by-Step Execution of the Example:
+
+    - Input:
+
+        s1 = "Hello, World of 42"  
+        s2 = "World"  
+        len = 15  
+    
+    Step 2: Compare `s2` with substrings of `s1` (up to length 15)
+
+        The function compares the first few characters of `s1` with `s2`:
+
+        - First comparison: `"Hello, "` → Does not match `"World"`.
+        - Second comparison: `" World"` → Matches the substring `"World"`.
+
+    Step 3: Return the Pointer to the Match
+
+        Once the match is found, the function returns the pointer to `"World"` in `s1`.
+
+        Output:
+
+        ft_strnstr: World of 42
+
+    Special Cases:
+
+    1. Empty `little`: If `little` is an empty string, the function returns the entire `big` string:
+        
+        ./program "Hello, World" "" 10
+
+        Output:
+        
+        ft_strnstr: Hello, World
+
+    2. No Match Found: If `little` is not found in `big`, the function returns `NULL`:
+
+        ./your_program "Hello, World" "42" 10
+
+        Output:
+
+    3. Length Exceeded:
+      
+        If `len` is smaller than the length of `little`, no match will be found, and the function will return `NULL`:
+
+        ./your_program "Hello, World" "World" 5
+
+        Output:
+
+    Key Takeaways:
+
+    - `ft_strnstr` allows you to search for a substring within a string, with an optional length constraint to limit the search.
+    - It returns a pointer to the first occurrence of the substring if found, or `NULL` if not.
+    - The function handles edge cases, such as empty substrings and no matches, effectively.
+    - It is memory-efficient, as it does not require dynamic memory allocation and only works with pointers and comparisons.
+
 */

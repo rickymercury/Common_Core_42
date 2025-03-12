@@ -3,86 +3,124 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:46:57 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 17:32:38 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/03 20:58:13 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/03 21:11:02 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i])
 		i++;
 	return (i);
 }
 
-/*
-void ft_print_result(int n)
+/* int main()
 {
-    char c;
+	char *str;
+	str = "Hello";
+	printf("ft_strlen: %lu\n", ft_strlen(str));
+	printf("strlen: %lu\n", strlen(str));
+} */
 
-    if (n >= 10)
-        ft_print_result(n / 10);
-    c = n % 10 + '0';
-    write(1, &c, 1);
-}
-
-int main(int argc, const char *argv[])
-{
-    int arg;
-
-    if (argc == 1)
-        return 0;
-
-    if ((arg = atoi(argv[1])) == 1) {
-        write(1, "String: \"Hello !\", Length: ", 27);
-        ft_print_result(ft_strlen("Hello !"));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-    else if (arg == 2) {
-        write(1, "String: \"1\", Length: ", 22);
-        ft_print_result(ft_strlen("1"));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-    else if (arg == 3) {
-        write(1, "String: \"loremipsumdolorsitamet\", Length: ", 43);
-        ft_print_result(ft_strlen("lorem\tipsum\tdolor\nsit\namet\n"));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-    else if (arg == 4) {
-        write(1, "String: \"\", Length: ", 21);
-        ft_print_result(ft_strlen(""));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-    else if (arg == 5) {
-        write(1, "String: \"\\n\\n\\f\\r\\t\", Length: ", 31);
-        ft_print_result(ft_strlen("\n\n\f\r\t"));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-    else if (arg == 6) {
-        write(1, "String: \"   \", Length: ", 24);
-        ft_print_result(ft_strlen("   "));
-        write(1, "\n", 1); // Nova linha após o resultado
-    }
-
-    return 0;
-}
-*/
 
 /*
-OUTPUT: 
+    This is a recreation of the `strlen` function in C. The purpose of `strlen` is to determine the 
+    length of a given string by counting the number of characters before the null terminator (`\0`).
 
-cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_strlen.c -o ft_strlen && for i in {1..9}; do ./ft_strlen $i; done
-String: "Hello !", Length: 7
-String: "1", Length: 1
-String: "loremipsumdolorsitamet", Length: 27
-String: "", Length: 0
-String: "\n\n\f\r\t", Length: 5
-String: "   ", Length: 3
+    According to the manual:  
+    "The strlen() function calculates the length of the string pointed to by `s`, excluding the 
+    terminating null byte ('\0')."
+
+    Function Parameters:
+
+    - `const char *s` → A pointer to the string whose length will be measured.
+
+    Understanding the Implementation:
+
+    The function declares the following variables:
+
+    - `size_t i` → A counter used to traverse the string and count its characters.
+
+    How the function works:
+
+    1. Initialize the Counter
+      
+       - The function starts by initializing `i` to 0.
+
+        size_t i = 0;
+
+    2. Traverse the String
+    
+       - The function enters a `while` loop that iterates over the string until it encounters the null terminator (`\0`).
+
+        while (s[i])
+            i++;
+
+       - Each time the loop runs, `i` is incremented by 1, effectively counting the number of characters in `s`.
+
+    3. Return the Length
+     
+       - When the loop exits, `i` contains the number of characters in `s`, so it is returned.
+
+        return (i);
+
+    Handling Edge Cases:
+
+    - If `s == NULL`, the function **does not** check for it. Calling `ft_strlen(NULL)` results in **undefined behavior** 
+      (it will attempt to access `s[0]`, causing a segmentation fault).
+    - If `s` is an empty string (`""`), the function correctly returns `0`, since there are no characters before `\0`.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        #include <stdio.h>
+
+        int main(void)
+        {
+            char *str1 = "Hello, world!";
+            char *str2 = "";
+
+            printf("Length of '%s': %lu\n", str1, ft_strlen(str1));
+            printf("Length of an empty string: %lu\n", ft_strlen(str2));
+
+            return 0;
+        }
+
+    Step 1: Understanding the Arguments
+
+    - `str1 = "Hello, world!"` (a string of 13 characters + `\0`).
+    - `str2 = ""` (an empty string that only contains `\0`).
+
+    Step 2: Loop Execution
+
+    - For `"Hello, world!"`:
+
+      H  e  l  l  o  ,     w  o  r  l  d  !  \0
+      1  2  3  4  5  6  7  8  9 10 11 12 13  (14º byte is \0)
+
+      - The loop runs 13 times before stopping at `\0`, so the function returns `13`.
+
+    - For `""` (empty string):
+    
+      - The first character is `\0`, so the loop never runs, and the function returns `0`.
+
+    Step 3: Output
+
+        Length of 'Hello, world!': 13
+        Length of an empty string: 0
+
+    Key Takeaway:  
+
+    - `ft_strlen` is a simple and efficient way to determine the length of a string.
+    - It **does not** check for `NULL`, so passing a `NULL` pointer will cause a segmentation fault.
+
 */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:43:56 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/04 16:16:05 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/02 19:40:20 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 19:44:57 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,56 +19,75 @@ int	ft_isprint(int c)
 	return (0);
 }
 
-/*
-#include <stdio.h>
-
-void	ft_print_result(int c, int result) 
+/* int	main(int argc, char **argv)
 {
-	if (result)
-		printf("'%c': 1\n", c);
-	else
-		printf("'%c': 0\n", c);
-}
-
-int	main() 
-{
-	int	i;
-
-	printf("Teste 1: Caracteres não alfabéticos antes de '0'\n");
-	for (i = 0; i <= 47; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 2: Dígitos de '0' a '9'\n");
-	for (i = '0'; i <= '9'; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 3: Caracteres não alfabéticos entre '9' e 'A'\n");
-	for (i = 58; i <= 64; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 4: Letras maiúsculas de 'A' a 'Z'\n");
-	for (i = 'A'; i <= 'Z'; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 5: Caracteres não alfabéticos entre 'Z' e 'a'\n");
-	for (i = 91; i <= 96; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 6: Letras minúsculas de 'a' a 'z'\n");
-	for (i = 'a'; i <= 'z'; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
-	printf("Teste 7: Caracteres não alfabéticos após 'z'\n");
-	for (i = 123; i <= 127; i++)
-		ft_print_result(i, ft_isprint(i));
-	printf("\n");
-
+	if (argc < 2)
+	{
+		return (1);
+	}
+	for (int i = 1; i < argc; i++)
+	{
+		printf("ft_isprint('%c'): %i\n", argv[i][0], ft_isprint(argv[i][0]));
+	}
 	return (0);
-}
+} */
+
+
+/*
+    This function, `ft_isprint`, is a C implementation designed to check if a given character `c`
+    is a printable character according to the ASCII standard. It returns `1` if the character is
+    printable, and `0` if it is not.
+
+    The ASCII printable characters range from the value 32 (space) to 126 (tilde `~`), inclusive.
+    Any character outside this range, including control characters such as newline (`\n`), tab (`\t`),
+    and other non-printable characters, will result in a return value of `0`.
+
+    According to the ASCII standard:
+    
+    - Printable characters include all visible characters, such as letters (uppercase and lowercase),
+      digits, punctuation marks, and symbols.
+    - Non-printable characters include control characters such as carriage return, newline, and tab.
+
+    Function Parameters:
+
+    - `int c`   → The character to be checked. Although it is passed as an `int`, it is typically
+                  represented as a `char` when working with single characters. This function checks if
+                  the value of `c` is within the range of printable characters (32 to 126).
+
+    The function uses the following logic:
+
+    - If `c` is between 32 and 126 (inclusive), it is considered a printable character, and the function
+      returns `1`.
+    - If `c` is outside this range, it is not printable, and the function returns `0`.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        int result = ft_isprint('A');
+        printf("%d\n", result); // Output: 1
+
+    The function returns `1` because `'A'` (ASCII value 65) is within the range of printable characters.
+
+    Another example:
+
+        int result = ft_isprint('\n');
+        printf("%d\n", result); // Output: 0
+
+    The function returns `0` because the newline character (`\n`, ASCII value 10) is a non-printable character.
+
+    Example Output:
+
+    For the following code:
+
+        printf("%d\n", ft_isprint('b')); // Output: 1
+        printf("%d\n", ft_isprint(' ')); // Output: 1
+        printf("%d\n", ft_isprint('\n')); // Output: 0
+        printf("%d\n", ft_isprint('\t')); // Output: 0
+
+    - The first two `printf` statements will print `1` because both `'b'` and the space character `' '` are printable.
+    - The last two `printf` statements will print `0` because `\n` (newline) and `\t` (tab) are non-printable control characters.
+
+    This function is commonly used for validating whether a character can be displayed on the screen, ensuring
+    that only printable characters are processed or displayed in the context of strings and outputs.
 */

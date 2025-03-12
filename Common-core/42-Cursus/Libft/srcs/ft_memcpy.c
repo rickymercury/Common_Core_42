@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:44:39 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 22:15:27 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/01 23:59:11 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 18:40:20 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,104 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-
+	size_t			i;
+	unsigned char	*dest_ptr;
+	unsigned char	*src_ptr;
+    
 	i = 0;
-	if ((dest == NULL) && (src == NULL))
-		return (NULL);
+	dest_ptr = (unsigned char *)dest;
+	src_ptr = (unsigned char *)src;
 	while (i < n)
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		dest_ptr[i] = src_ptr[i];
 		i++;
 	}
 	return (dest);
 }
 
-/*
-int main(int argc, const char *argv[])
+/* int main()
 {
-    void *mem;
-    int arg;
+    char str1[] = "Hello";         
+    char str2[] = "World";         
+    char str3[] = "Hello";         
+    char str4[] = "World";         
 
-    if (!(mem = malloc(sizeof(*mem) * 30)) || argc == 1)
-        return (0);
+    size_t len = 5;
 
-    memset(mem, 'j', 30);
+    printf("Antes da cópia:\n");
+    printf("str1 (original): %s\n", str1);
+    printf("str3 (original): %s\n", str3);
 
-    if ((arg = atoi(argv[1])) == 1)
-    {
-        if (mem != ft_memcpy(mem, "zyxwvutsrqponmlkjihgfedcba", 14))
-            write(1, "dest's address was not returned\n", 31);
-        write(1, mem, 30);
-        write(1, "\n", 1);
-    }
-    else if (arg == 2)
-    {
-        if (mem != ft_memcpy(mem, "zyxwvutst", 0))
-            write(1, "dest's address was not returned\n", 31);
-        write(1, mem, 30);
-        write(1, "\n", 1);
-    }
-    else if (arg == 3)
-    {
-        if (mem != ft_memcpy(mem, "zy\0xw\0vu\0\0tsr", 11))
-            write(1, "dest's address was not returned\n", 31);
-        write(1, mem, 30);
-        write(1, "\n", 1);
-    }
+    ft_memcpy(str1, str2, len);
+    printf("\nApós ft_memcpy:\n");
+    printf("str1 (modificada): %s\n", str1);
 
-    free(mem);
-    
+    memcpy(str3, str4, len);
+    printf("\nApós memcpy:\n");
+    printf("str3 (modificada): %s\n", str3);
+
     return (0);
-}
+} */
+
+
+ /*
+    This is a recreation of the `memcpy` function in C. The purpose of `memcpy` is to copy a block of memory from 
+    a source (`src`) to a destination (`dest`) for a specified number of bytes (`n`).
+
+    According to the manual: "The `memcpy` function copies `n` bytes from memory area `src` to memory area `dest`. 
+    The memory areas must not overlap. Use `memmove` if overlapping is possible."
+    This means that it takes `n` bytes from the source memory (`src`) and places them in the destination memory (`dest`),
+    byte by byte.
+
+    Function Parameters:
+
+    - `void *dest`  → A pointer to the memory area (destination memory block) where the data (content) will be copied to.
+    - `const void *src` → A pointer to the memory area (source memory block) from which data (content) will be copied.
+    - `size_t n`    → The number of bytes to copy from `src` to `dest`. `size_t` ensures that the function can safely handle large sizes of memory.
+
+    Understanding the Implementation:
+
+    - The function first declares:
+    
+        - `unsigned char *dest_ptr` → A pointer to `dest`, cast to `unsigned char *` so that we can access each byte individually.
+        - `unsigned char *src_ptr`  → A pointer to `src`, cast to `unsigned char *` so that we can access each byte individually.
+        - `size_t i = 0;` → A counter to iterate through `n` bytes.
+
+    - It then enters a loop that iterates `n` times:
+
+        - Each byte from `src_ptr` is copied into `dest_ptr` at the corresponding position.
+        - The loop continues until all `n` bytes have been copied.
+
+    Handling Edge Cases:
+
+    - If `n == 0`, the function does nothing and simply returns `dest`.
+    - If `dest` and `src` overlap, behavior is **undefined**. The function does not account for this scenario.
+    - If `src` or `dest` is `NULL`, behavior is also undefined unless `n == 0` (since no memory access occurs).
+
+    **Important:** If `src` and `dest` may overlap, `memmove` should be used instead, as it safely handles memory overlaps.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        char src[] = "Hello, World!";
+        char dest[20];
+
+        ft_memcpy(dest, src, 6);
+        dest[6] = '\0';  // Manually null-terminating the string
+
+        printf("%s\n", dest); // Output: "Hello,"
+
+    **Memory representation before and after `ft_memcpy`:**
+
+    Before copying:
+
+        src:  [H] [e] [l] [l] [o] [,] [ ] [W] [o] [r] [l] [d] [!]
+        dest: [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] [?]
+
+    After copying:
+
+        dest: [H] [e] [l] [l] [o] [,] [?] [?] [?] [?] [?] [?] [?]
+
+    The function efficiently copies `n` bytes from `src` to `dest`, assuming no memory overlap occurs.
 */
-
-/*
-OUTPUT:
-
-sh-5.2$ cc -Wall -Werror -Wextra -g3 -fsanitize=address ft_memcpy.c -o ft_memcpy && for i in {1..3}; do ./ft_memcpy $i; done
-
-zyxwvutsrqponmjjjjjjjjjjjjjjjj
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-zyxwvutjjjjjjjjjjjjjjjjjjj
-*/
-
-/* DESCRIPTION: memcpy copies the number of bytes specified by n from one area
-of memory ( from ) to another ( to ). All bytes, including any null characters,
-are copied.
-
-RETURN VALUE: memcpy returns a pointer to the to area. */
-
-/* SIMPLIER MAIN
-
-int	main(void)
-{
-	char dest[20];
-	ft_memcpy(dest, "Hello world!", 12);
-	dest[12] = '\0';
-	printf("%s\n", dest);
-}*/

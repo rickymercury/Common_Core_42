@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:49:03 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/05 18:08:43 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/05 16:17:39 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/05 16:27:05 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,50 +15,107 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+		c -= 32;
+	return (c);
 }
 
-/*
-int main(int argc, const char *argv[])
+/* int main(int argc, char **argv)
 {
-    int i;
-    int c;
-    int arg;
+	if (argc < 2)
+		return (0);
+	printf("ft_toupper(%c): %c\n", argv[1][0], ft_toupper(argv[1][0]));
+	return (0);
+} */
 
-    if (argc < 2)
-        return 0;
+/* 
+    This is a recreation of the ft_toupper function in C. The purpose of ft_toupper is to convert a lowercase letter to its corresponding
+    uppercase letter. If the input character is not a lowercase letter, the function returns it unchanged.
 
-    if ((arg = atoi(argv[1])) == 1)
+    According to the manual: "ft_toupper() converts a given character c to its uppercase equivalent if it is a lowercase letter. If c is
+    already in uppercase or is not an alphabetic character, it returns c unchanged."
+
+    The ft_toupper function processes the input character and, if it is a lowercase letter, subtracts 32 from its ASCII value to convert it
+    to uppercase. The function then returns the converted character.
+
+    Function Parameters
+
+    int c  // The character to be converted.
+
+    Implementation Breakdown:
+
+    The function follows these steps:
+
+        Check if the Character is Lowercase:
+        
+            The function checks if the input character c is between 'a' and 'z' (inclusive). These are the ASCII values for lowercase English letters.
+
+            if (c >= 'a' && c <= 'z')
+
+        Convert to Uppercase:
+
+            If the character c is a lowercase letter, the function subtracts 32 from its ASCII value to convert it to the corresponding uppercase letter.
+        In the ASCII table, the difference between lowercase and uppercase letters is 32.
+
+            c -= 32;
+
+        Return the Character:
+
+        The function returns the character, either converted to uppercase or unchanged if it was not a lowercase letter.
+
+            return (c);
+
+    Example Usage:
+
+    #include <stdio.h>
+
+    int main(int argc, char **argv)
     {
-        write(1, "Testing ft_toupper from 'A' to 'Z':\n", 37);
-        i = 'A';
-        while (i <= 'Z')
+        if (argc == 2)
         {
-            c = ft_toupper(i);
-            write(1, &i, 1);
-            write(1, " -> ", 4);
-            write(1, &c, 1);
-            write(1, "\n", 1);
-            i++;
+            printf("Converted Character: %c\n", ft_toupper(argv[1][0]));
         }
+        return (0);
     }
-    else if ((arg = atoi(argv[1])) == 2)
-    {
-        write(1, "Testing ft_toupper from 'a' to 'z':\n", 37);
-        i = 'a';
-        while (i <= 'z')
-        {
-            c = ft_toupper(i);
-            write(1, &i, 1);
-            write(1, " -> ", 4);
-            write(1, &c, 1);
-            write(1, "\n", 1);
-            i++;
-        }
-    }
-  
-    return 0;
-}
+
+    Step-by-Step Execution
+
+        Receiving Input:
+    
+        The program starts by checking if the number of command-line arguments is 2 (the program name and a single character).
+            
+            Input: ./program a
+    
+        Calling the ft_toupper Function:
+    
+        The function ft_toupper is called with the input character a:
+
+            result = ft_toupper(argv[1][0]);
+
+        Checking if the Character is Lowercase:
+
+        Inside the ft_toupper function, the first check verifies whether c is a lowercase letter:
+
+            if (c >= 'a' && c <= 'z')
+
+        Since 'a' is a lowercase letter, the function proceeds to the next step.
+
+        Converting to Uppercase:
+
+        The function subtracts 32 from the ASCII value of 'a' to convert it to 'A':
+
+            c -= 32;
+
+        Returning the Character:
+    
+        The function returns 'A'.
+
+        
+    Key Takeaways:
+
+    ft_toupper converts a lowercase letter to its uppercase equivalent.
+    If the character is already uppercase or not a letter, it remains unchanged.
+    The function uses the ASCII value difference between lowercase and uppercase letters to perform the conversion.
+    This function is useful when processing text data that needs to be normalized to uppercase.
+
+
 */

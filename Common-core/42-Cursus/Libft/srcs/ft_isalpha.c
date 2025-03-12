@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:43:27 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 21:21:36 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/02 18:23:34 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 18:26:28 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,63 +19,63 @@ int	ft_isalpha(int c)
 	return (0);
 }
 
-/*
-#include <stdio.h>
-
-void	ft_print_result(int c, int result) 
+/* int	main(int argc, char **argv)
 {
-	if (result)
-		printf("'%c': 1\n", c);
-	else
-		printf("'%c': 0\n", c);
-}
-
-int	main() 
-{
-	int	i;
-
-	printf("Teste 1: Caracteres não alfabéticos antes de '0'\n");
-	for (i = 0; i <= 47; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 2: Dígitos de '0' a '9'\n");
-	for (i = '0'; i <= '9'; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 3: Caracteres não alfabéticos entre '9' e 'A'\n");
-	for (i = 58; i <= 64; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 4: Letras maiúsculas de 'A' a 'Z'\n");
-	for (i = 'A'; i <= 'Z'; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 5: Caracteres não alfabéticos entre 'Z' e 'a'\n");
-	for (i = 91; i <= 96; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 6: Letras minúsculas de 'a' a 'z'\n");
-	for (i = 'a'; i <= 'z'; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
-	printf("Teste 7: Caracteres não alfabéticos após 'z'\n");
-	for (i = 123; i <= 127; i++)
-		ft_print_result(i, ft_isalpha(i));
-	printf("\n");
-
+	if (argc < 2)
+		return (1);
+	printf("ft_isalpha(%c): %i\n", argv[1][0], ft_isalpha(argv[1][0]));
 	return (0);
-}
+} */
+
+/*
+    This is a recreation of the `isalpha` function in C. The purpose of `isalpha` is to check whether a given character 
+    is an alphabetic letter, meaning it is either an uppercase (A-Z) or a lowercase (a-z) letter.
+
+    According to the manual: "The `isalpha` function checks whether the given character is an alphabetic letter. 
+    It returns a nonzero value if `c` is a letter, and `0` otherwise."
+
+    Function Parameters:
+
+    - `int c` → The character to be checked, passed as an `int`. Although it is an `int`, it is typically a `char` 
+                that has been promoted to `int` when passed as an argument.
+
+    Understanding the Implementation:
+
+    The function checks whether `c` falls within one of the following ASCII ranges:
+
+    - `'a'` to `'z'` (ASCII values 97 to 122) → Ensures `c` is a lowercase letter.
+    - `'A'` to `'Z'` (ASCII values 65 to 90)  → Ensures `c` is an uppercase letter.
+
+    If `c` belongs to either of these ranges, the function returns `1`, indicating that `c` is an alphabetic character.
+    Otherwise, it returns `0`.
+
+    Handling Edge Cases:
+
+    - If `c` is a digit (`0-9`), the function returns `0`.
+    - If `c` is a special character (e.g., `@`, `#`, `!`), the function returns `0`.
+    - If `c` is a whitespace character (e.g., space, tab, newline), the function returns `0`.
+    - If `c` is a non-ASCII value (e.g., extended character set or Unicode characters), the function does not account for it.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        char ch1 = 'B';
+        char ch2 = 'g';
+        char ch3 = '7';
+        char ch4 = '$';
+
+        printf("%d\n", ft_isalpha(ch1)); // Output: 1 (because 'B' is a letter)
+        printf("%d\n", ft_isalpha(ch2)); // Output: 1 (because 'g' is a letter)
+        printf("%d\n", ft_isalpha(ch3)); // Output: 0 (because '7' is not a letter)
+        printf("%d\n", ft_isalpha(ch4)); // Output: 0 (because '$' is not a letter)
+
+    **Memory representation (ASCII values of input characters):**
+
+    - `'B'` → ASCII `66` (inside the uppercase letter range)
+    - `'g'` → ASCII `103` (inside the lowercase letter range)
+    - `'7'` → ASCII `55` (outside the letter range)
+    - `'$'` → ASCII `36` (outside the letter range)
+
+    The function efficiently determines if a character is a letter and returns the appropriate result.
 */
-
-/* DESCRIPTION: isalpha tests an integer value c to determine whether it is an
-alphabetic (uppercase or lowercase) character. In the C locale, isalpha returns
-true only for the characters for which isupper or islower is true.
-
-RETURN VALUE: isalpha returns 0 if the character is not alphabetic, or a
-nonzero value if it is alphabetic. If the argument is EOF , 0 is returned. */

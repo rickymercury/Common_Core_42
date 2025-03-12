@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:43:18 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 21:21:16 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/02 15:38:34 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 18:21:59 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,66 +14,67 @@
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') 
 		|| (c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
 
-/*
-void	ft_print_result(int c, int result) 
+/* int main(int argc, char **argv)
 {
-	if (result)
-		printf("'%c': 1\n", c);
-	else
-		printf("'%c': 0\n", c);
-}
-
-int	main() 
-{
-	int	i;
-
-	printf("Teste 1: Caracteres não alfanuméricos antes de '0'\n");
-	for (i = 0; i <= 47; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 2: Dígitos de '0' a '9'\n");
-	for (i = '0'; i <= '9'; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 3: Caracteres não alfanuméricos entre '9' e 'A'\n");
-	for (i = 58; i <= 64; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 4: Letras maiúsculas de 'A' a 'Z'\n");
-	for (i = 'A'; i <= 'Z'; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 5: Caracteres não alfanuméricos entre 'Z' e 'a'\n");
-	for (i = 91; i <= 96; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 6: Letras minúsculas de 'a' a 'z'\n");
-	for (i = 'a'; i <= 'z'; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
-	printf("Teste 7: Caracteres não alfanuméricos após 'z'\n");
-	for (i = 123; i <= 127; i++)
-		ft_print_result(i, ft_isalnum(i));
-	printf("\n");
-
+	if (argc < 2)
+		return (1);
+	printf("ft_isalnum(%c): %i\n", argv[1][0], ft_isalnum(argv[1][0]));
 	return (0);
-}
+} */
+
+/*
+    This is a recreation of the `isalnum` function in C. The purpose of `isalnum` is to check whether a given character 
+    is an alphanumeric character, meaning it is either a letter (A-Z, a-z) or a digit (0-9). 
+
+    According to the manual: "The `isalnum` function tests for any character for which `isalpha` or `isdigit` is true. 
+    In the standard ASCII character set, this includes uppercase and lowercase letters, as well as digits."
+
+    Function Parameters:
+
+    - `int c` → The character to be checked, passed as an `int`. Even though it's an `int`, it is usually a `char` 
+                that has been promoted to `int` when passed as a function argument.
+
+    Understanding the Implementation:
+
+    The function checks whether `c` falls within any of the following ASCII ranges:
+
+    - `'a'` to `'z'` (ASCII values 97 to 122) → This ensures that `c` is a lowercase letter.
+    - `'A'` to `'Z'` (ASCII values 65 to 90)  → This ensures that `c` is an uppercase letter.
+    - `'0'` to `'9'` (ASCII values 48 to 57)  → This ensures that `c` is a numeric digit.
+
+    If `c` falls into any of these three categories, the function returns `1`, indicating that `c` is alphanumeric.
+    Otherwise, it returns `0`.
+
+    Handling Edge Cases:
+
+    - If `c` is a special character (e.g., `@`, `#`, `!`), the function returns `0`.
+    - If `c` is a whitespace character (e.g., space, tab, newline), the function returns `0`.
+    - If `c` is a non-ASCII value (e.g., characters from extended character sets), the behavior depends on how the function is used.
+    - The function does NOT check for accented letters or Unicode characters.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        char ch1 = 'A';
+        char ch2 = '5';
+        char ch3 = '%';
+
+        printf("%d\n", ft_isalnum(ch1)); // Output: 1 (because 'A' is a letter)
+        printf("%d\n", ft_isalnum(ch2)); // Output: 1 (because '5' is a digit)
+        printf("%d\n", ft_isalnum(ch3)); // Output: 0 (because '%' is not alphanumeric)
+
+    **Memory representation (ASCII values of input characters):**
+
+    - `'A'` → ASCII `65` (inside the range of letters)
+    - `'5'` → ASCII `53` (inside the range of digits)
+    - `'%'` → ASCII `37` (outside the range of letters and digits)
+
+    The function efficiently determines if a character belongs to the alphanumeric set and returns the appropriate result.
 */
-
-/* DESCRIPTION: isalnum tests an integer value to determine whether it is an
-alphabetic (uppercase or lowercase) or numeric character.
-
-RETURN VALUE: isalnum returns 0 if the character is not alphanumeric, or a
-nonzero value if it is alphanumeric. If the argument is EOF , 0 is returned. */

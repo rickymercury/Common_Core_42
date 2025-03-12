@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rickymercury <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 21:43:42 by rickymercur       #+#    #+#             */
-/*   Updated: 2024/11/08 21:22:21 by rickymercur      ###   ########.fr       */
+/*   Created: 2025/03/02 18:30:49 by rmedeiro          #+#    #+#             */
+/*   Updated: 2025/03/02 18:32:03 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,62 +19,62 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-/*
-#include <stdio.h>
-
-void	ft_print_result(int c, int result) 
+/* int	main(int argc, char **argv)
 {
-	if (result)
-		printf("'%c': 1\n", c);
-	else
-		printf("'%c': 0\n", c);
-}
-
-int	main() 
-{
-	int	i;
-
-	printf("Teste 1: Caracteres não alfabéticos antes de '0'\n");
-	for (i = 0; i <= 47; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 2: Dígitos de '0' a '9'\n");
-	for (i = '0'; i <= '9'; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 3: Caracteres não alfabéticos entre '9' e 'A'\n");
-	for (i = 58; i <= 64; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 4: Letras maiúsculas de 'A' a 'Z'\n");
-	for (i = 'A'; i <= 'Z'; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 5: Caracteres não alfabéticos entre 'Z' e 'a'\n");
-	for (i = 91; i <= 96; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 6: Letras minúsculas de 'a' a 'z'\n");
-	for (i = 'a'; i <= 'z'; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
-	printf("Teste 7: Caracteres não alfabéticos após 'z'\n");
-	for (i = 123; i <= 127; i++)
-		ft_print_result(i, ft_isdigit(i));
-	printf("\n");
-
+	if (argc < 2)
+		return (1);
+	printf("ft_isdigit(%c): %i\n", argv[1][0], ft_isdigit(argv[1][0]));
 	return (0);
-}
+} */
+
+/*
+    This is a recreation of the `isdigit` function in C. The purpose of `isdigit` is to check whether a given character 
+    is a numeric digit (0-9).
+
+    According to the manual: "The `isdigit` function tests for a decimal digit character. In the standard ASCII character set, 
+    this includes the digits '0' to '9'."
+
+    Function Parameters:
+
+    - `int c` → The character to be checked, passed as an `int`. Although it's an `int`, it is typically a `char` 
+                that has been promoted to `int` when passed as an argument.
+
+    Understanding the Implementation:
+
+    The function checks whether `c` falls within the ASCII range:
+
+    - `'0'` to `'9'` (ASCII values 48 to 57) → Ensures `c` is a numeric digit.
+
+    If `c` belongs to this range, the function returns `1`, indicating that `c` is a digit.
+    Otherwise, it returns `0`.
+
+    Handling Edge Cases:
+
+    - If `c` is a letter (e.g., `'A'`, `'z'`), the function returns `0`.
+    - If `c` is a special character (e.g., `@`, `#`, `!`), the function returns `0`.
+    - If `c` is a whitespace character (e.g., space, tab, newline), the function returns `0`.
+    - If `c` is a non-ASCII value (e.g., extended character set or Unicode characters), the function does not account for it.
+
+    Example Usage:
+
+    Suppose we have the following code:
+
+        char ch1 = '5';
+        char ch2 = 'A';
+        char ch3 = ' ';
+        char ch4 = '9';
+
+        printf("%d\n", ft_isdigit(ch1)); // Output: 1 (because '5' is a digit)
+        printf("%d\n", ft_isdigit(ch2)); // Output: 0 (because 'A' is not a digit)
+        printf("%d\n", ft_isdigit(ch3)); // Output: 0 (because space is not a digit)
+        printf("%d\n", ft_isdigit(ch4)); // Output: 1 (because '9' is a digit)
+
+    **Memory representation (ASCII values of input characters):**
+
+    - `'5'` → ASCII `53` (inside the digit range)
+    - `'A'` → ASCII `65` (outside the digit range)
+    - `' '` → ASCII `32` (outside the digit range)
+    - `'9'` → ASCII `57` (inside the digit range)
+
+    The function efficiently determines whether a given character is a digit and returns the appropriate result.
 */
-
-/* DESCRIPTION: isdigit tests an integer value to determine whether it is a
-numeric character (digit).
-
-RETURN VALUE: isdigit returns 0 if the character is not a digit, or a nonzero
-value if it is. If the argument is EOF , 0 is returned. */
