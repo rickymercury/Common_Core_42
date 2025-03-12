@@ -6,7 +6,7 @@
 /*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 19:16:09 by rmedeiro          #+#    #+#             */
-/*   Updated: 2025/03/12 12:45:58 by rmedeiro         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:27:39 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*buffer;
 
-    if (nmemb == 0 || size == 0)
-    {
-        return (malloc(0));
-    }
-	if (nmemb != 0 && size > (size_t)(-1) / nmemb)
-    {
-		return (NULL);
-    }
-	buffer = malloc(nmemb * size);
-	if (!buffer)
-		return (NULL);
-	ft_bzero(buffer, nmemb * size);
+	if (nmemb == 0 || size == 0)
+	{
+		buffer = malloc(1);
+		if (buffer != NULL)
+			*(char *)buffer = '\0';
+		return (buffer);
+	}
+	buffer = malloc (nmemb * size);
+	ft_memset(buffer, 0, nmemb * size);
 	return (buffer);
 }
 
