@@ -6,7 +6,7 @@
 /*   By: rmedeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:26:56 by rmedeiro          #+#    #+#             */
-/*   Updated: 2025/03/12 19:03:57 by rmedeiro         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:31:10 by rmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
     return (buffer);
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     // ft_substr: extracts a substring from a given string, starting at the index "start" with length "len"
     if (argc == 4)
@@ -54,4 +54,4 @@ int main(int argc, char **argv)
         }
     }
     return (0);
-}
+} */
