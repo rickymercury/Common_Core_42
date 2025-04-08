@@ -6,7 +6,7 @@
 #    By: rmedeiro <rmedeiro@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 00:23:24 by rmedeiro          #+#    #+#              #
-#    Updated: 2025/04/09 00:42:15 by rmedeiro         ###   ########.fr        #
+#    Updated: 2025/04/09 00:46:26 by rmedeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,20 +33,18 @@ STRINGS_DIR = strings
 UTILS_DIR = utils
 
 SRCS = $(addprefix $(SRC_DIR)/$(FD_DIR)/, ft_putchar_fd.c ft_putendl_fd.c \
-        ft_putnbr_fd.c ft_putstr_fd.c) \
-       $(addprefix $(SRC_DIR)/$(MEMORY_DIR)/, ft_bzero.c ft_calloc.c \
-	    ft_memchr.c \ ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c) \
-       $(addprefix $(SRC_DIR)/$(STRINGS_DIR)/, ft_split.c ft_strchr.c ft_strdup.c \
-	    ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
-		ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
-		ft_substr.c) \
-       $(addprefix $(SRC_DIR)/$(UTILS_DIR)/, ft_atoi.c ft_isalnum.c ft_isalpha.c \
-	   ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_tolower.c ft_toupper.c)
+                                          ft_putnbr_fd.c ft_putstr_fd.c) \
+       $(addprefix $(SRC_DIR)/$(MEMORY_DIR)/, ft_bzero.c ft_calloc.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c) \
+       $(addprefix $(SRC_DIR)/$(STRINGS_DIR)/, ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
+                                            ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+                                            ft_strtrim.c ft_substr.c) \
+       $(addprefix $(SRC_DIR)/$(UTILS_DIR)/, ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+                                           ft_itoa.c ft_tolower.c ft_toupper.c)
 
-BONUS_SRCS = $(addprefix $(BONUS_DIR)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c)
+BONUS_SRCS = $(addprefix $(BONUS_DIR)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+                                   ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c)
 
-# Cria os arquivos objetos principais e os de bónus
+# Cria os arquivos objetos principais e os bónus
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJS_BONUS = $(addprefix $(OBJ_DIR)/, $(BONUS_SRCS:.c=.o))
 
@@ -103,3 +101,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
+
