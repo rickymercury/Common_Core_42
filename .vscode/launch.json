@@ -1,0 +1,28 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		
+	  {
+		"name": "Debug C",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/meu_programa",
+		"args": [],
+		"stopAtEntry": false,
+		"cwd": "${workspaceFolder}",
+		"environment": [],
+		"externalConsole": true,
+		"MIMode": "gdb",
+		"miDebuggerPath": "/usr/bin/gdb", // ou o caminho do gdb no teu sistema
+		"setupCommands": [
+		  {
+			"description": "Ativa a impressão de dados estruturados",
+			"text": "-enable-pretty-printing",
+			"ignoreFailures": true
+		  }
+		],
+		"preLaunchTask": "build"
+	  }
+	]
+  }
+  
